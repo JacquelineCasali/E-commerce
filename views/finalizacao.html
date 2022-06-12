@@ -41,9 +41,10 @@
     CEP: xxxxx-xxx
     <br>
     <br>
-      <button>SELECIONAR OUTRO ENDEREÇO</button>
+      <div class="buttonendereco">SELECIONAR OUTRO ENDEREÇO</div>
       <br>
-       <button>ADICIONAR OUTRO ENDEREÇO</button>
+      <br>
+      <div class="buttonendereco">ADICIONAR OUTRO ENDEREÇO</div>
     </div>
     <br>
     <div class="formasenvio"><img src="../images/entrega.png" class="envio">  FORMAS DE ENVIO
@@ -57,37 +58,47 @@
     <br>
     </div>
     <div class="cupom"><img src="../images/entrega.png" class="envio">  CUPOM DE DESCONTO
-        <br>
-      Inserir cupom de desconto
-      <br>
-    <button>Aplicar Cupom</button>
+        <form>
+            <label for="inserircupom">Inserir cupom de desconto</label>
+            <input type="text" id="inserircupom" name="inserircupom">
+            <br>
+            <button type="submit">Aplicar cupom</button>
+                       
+        </form>
+       
     <br>
     </div>
     <div class="pagamento"><img src="../images/pagamento.png" class="envio">  FORMA DE PAGAMENTO
         <br>
      Selecione uma forma de pagamento 
     <br>
-    <input type="radio" id="credito" name="formas-pagamento" value="credito"><label for="credito"><img src="../images/credito.png" class="pagamento"></label>
+        <input type="radio" id="credito" name="formas-pagamento" value="credito" /><label for="credito"><img src="../images/credito.png" ></label>
+        <input type="radio" id="pix" name="formas-pagamento" value="pix" /><label for="pix"><img src="../images/pix.png" ></label>
+        <input type="radio" id="boleto" name="formas-pagamento" value="boleto" /><label for="boleto"><img src="../images/boleto.png" ></label>
     <br>
-    <input type="radio" id="pix" name="formas-pagamento" value="pix"><label for="pix"><img src="../images/pix.png" class="pagamento"></label>
-    <br>
-    <input type="radio" id="boleto" name="formas-pagamento" value="boleto"><label for="boleto"><img src="../images/boleto.png" class="pagamento"></label>
-    <br>
+    </div>
+       
 
     <div class="pedido"><img src="../images/pagamento.png" class="envio">  RESUMO DO PEDIDO
     
-    <img src="../images/Moleton.png" class="img-products">
-    <div>Moleton</div><div>Valor Unitário:</div>
-    <div>Tamanho: G</div><div>R$ 299,00</div>
-    <div>Quantidade: 2</div>
-    <div>SUBTOTAL: R$ 299,00</div>
+        <img src="../images/Moleton.png" class="img-products">
+        <div class="item">Moleton</div>
+        <div class="tamanho">Tamanho: G</div> 
+        <div class="quantidade">Quantidade: 2</div>
+        <div class="textovalorunitario">Valor Unitário: </div>
+        <div class="valorunitario">R$ 299,00</div>
+        
+        <br>
+        <div class="subtotal">SUBTOTAL: R$ 299,00</div>
+        <br>
+        
+    <div class="desconto">Valor Desconto: R$ 0,00</div>
+    <div class="frete">Valor do Frete: Frete Grátis</div>
     <br>
-    <div>Valor Desconto: R$ 0,00</div>
-    <div>Valor do Frete: Frete Grátis</div>
+    <div class="total">Total: R$ 299,00</div>
+    <br>
 
-    <div>Total: R# 299,00</div>
-
-    <button>FINALIZAR COMPRA</button>
+    <div class="buttonfinal">Finalizar Compra</div>
     </div>
     
     <footerfinalizacao>
@@ -103,9 +114,8 @@
         </ul>
 
         <ul class="seguro" TYPE="none">
-            <li><a href="../images/lock.svg">
-            </a>AMBIENTE 100% SEGURO</li>
-        </div>
+            <li><a href="../images/lock.png"><img src="../images/lock.png"></a></li><li>AMBIENTE 100% SEGURO</li>
+        </ul>
     </footerfinalizacao>
 </body>
 </html>
