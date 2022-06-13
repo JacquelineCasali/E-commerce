@@ -1,12 +1,222 @@
 <!DOCTYPE html>
-<html lang="Pt-br">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>painel-usuario</title>
-</head>
-<body>
+<html lang="pt-BR">
+     <!-- head configura o site -->
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Projeto PI Painel do Usuário</title>
+        <!-- <link rel="stylesheet" href="./css/reset.css" /> -->
+        <link rel="stylesheet" href="../css/usuariopi.css">
+        
+        
+    </head>
+    <!-- body escreve o conteudo que usuario vai ver -->
+      <body>
+<!-- align = center centraliza o texto -->
+<!-- header define o cabeçalho -->
+<!-- linkar com a pagina html -->
+<header>
+    <!-- a href linkar  -->
+    <a  href="./home.html" >
+        <!-- img importa imagem alt escreve mensagem quando a imagem nao aparece  --> 
+         <!-- width=largura height=altura -->
+ <img  src="../imagens/icones/cabeçalho usuario.png" width="100%" height="100%" alt="Imagen não encontrada" id=cabeçalho></a>
+     
+</header>
+
+
+
+<!-- section define uma seção -->
+<section>
+ <!-- aside dividir a tela em duas -->
+<aside class="menu">
+    <!-- <section class="user_profile">
+        Nome
+      </section> -->
+    <!-- class para linkar com o arquivo css -->
+<section class="user_profile">
+  
+   <!-- h1 titulo principal  -->
+  MINHA CONTA
+  
+
+</section>
+<!-- nav navegar -->
+<nav>
+      <!-- ul lista desordenada -->
+    <ul>
+         
+<!-- imagens -->
+ <!-- width =largura heigh= altura da imagem é opicional-->
+     
+    <div id="perfil1"><img src="../imagens/icones/imagemperfil.webp" width="70%" height="30%"  object-fit="contain"; alt="Imagem de perfil">
+        <a href="./home.html"></a></div>
+
+
+    <!-- h3 subtitulo -->
+    <h3>MINHAS COMPRAS</h3> 
+   
     
-</body>
-</html>
+    <!--li  item da lista  -->
+    <!-- <a href= ></a> linkar  -->
+    <!-- links # com ancoras volta onde quer -->
+    
+<!-- <section class="Painel do Usuário"> -->
+    
+    
+    <div id="teste">
+      
+    
+        <li><img id="incones" src= "../imagens/icones/carinho.png"   alt="Imagen não encontrada">
+            <a href="painel-usuario.html#titulo-MeusPedidos">
+          
+                <p> Meus Pedidos</p></a> </li>
+    
+    </div> 
+
+    <div id="teste">
+
+        
+        <li> <img  id="incones"src= "../imagens/icones/meuscreditos.png" alt="Imagen não encontrada">
+            <a href="painel-usuario.html#titulo-Meus Créditos" >
+                     
+           <p>Meus Créditos  </p></a> </li>
+    </div>
+  
+
+<!-- </section> -->
+    
+      
+
+    <h3>CADASTRO</h3>
+    
+    
+        <div id="teste">
+            <li><img  id="incones"src= "../imagens/icones/email.png"  alt="Imagen não encontrada">
+           <a padding-bottom=" 10px"  padding-top=" 10px" href="painel-usuario.html#titulo-Alterar E-mail" >
+                 <p>Alterar E-mail
+
+                </p>
+                </a></li>
+        </div>
+            
+        
+
+        
+          <div id="teste"><li>
+            
+            <img id="incones" src= "../imagens/icones/senha.png"  alt="Imagen não encontrada">
+            <a  href="painel-usuario.html#titulo-Alterar Senha"> <p>  Alterar Senha
+                </p>   </a></li>
+                    </div>
+       
+                    <div id="teste">
+
+                   
+
+            <li><img id="incones" src= "../imagens/icones/dados.png"  alt="Imagen não encontrada">
+                <a  href="painel-usuario.html#titulo-Meus Dados"> <p> Meus Dados </p>
+               </a></li> </div>
+          
+
+
+      <div id="teste">
+        <li><img id="incones" src= "../imagens/icones/endereço.png"  alt="Imagen não encontrada">
+            
+            <a  href="painel-usuario.html#titulo-Meus Endereços"><p> Meus Endereços
+           </p> 
+           </a></li>
+      </div>
+        
+       <div id="teste">
+        <li><img  id="incones"src= "../imagens/icones/cartão.png"  alt="Imagen não encontrada">
+            <a  href="painel-usuario.html#titulo-Meus Cartões"> <p> Meus Cartões
+            </p></a></li>
+       </div>
+        
+      <div id="teste">
+        <li><img  id="incones"src= "../imagens/icones/sair.png"  alt="Imagen não encontrada">
+            <a href="./home.html"> <p> Sair</p>
+            
+           </a></li>
+      </div>
+         
+</ul>
+</nav>
+</aside>
+<!-- main conteundo principal da pagina -->
+<main class="main_content">
+
+    
+
+<div class="codigo">
+    <!-- Tela lateral -->
+    <!-- link com angora volta onde quer id -->
+    
+    <h3 id="titulo-MeusPedidos">Meus Pedidos</h3>
+    <!-- <h3 id="titulo-Meus Créditos">Meus Créditos</h3> -->
+<!-- <h3 id="titulo-Alterar E-mail">Alterar E-mail</h3>
+    <h3 id="titulo-Alterar Senha">Alterar Senha</h3>
+    <h3 id="titulo-Meus Dados">Meus Dados</h3>
+    <h3 id="titulo-Meus Endereços">Meus Endereços</h3>-->
+    <!-- <h3 id="titulo-Meus Cartões">Meus Cartões</h3>  -->
+
+</div>
+<div class="conteudodomenu">   
+<!-- <h3 id="titulo-Meus Créditos">Meus Créditos</h3> -->
+      <!-- table tabela -->
+      <!-- <table>
+        <!-- tr-linha da tabela -->
+        <!-- <tr> -->
+        <!-- th-cabeçalho da tabela -->
+    <!-- <th>DATA</th>
+    <th>HISTÓRICO</th>
+    <th>TIPO DE LANÇAMENTO</th> 
+    <th>VALOR</th>     
+</tr> 
+    <tr> -->
+        <!-- td - dados da tabela-->
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+         
+    </tr>
+    <tr>
+        <!-- td - dados da tabela-->
+        <!-- <td>SALDO</td>
+        <td></td> -->
+    </tr>
+     </table>
+    <!-- <h3 id="titulo-Alterar E-mail">Alterar E-mail</h3>
+    <h3 id="titulo-Alterar Senha">Alterar Senha</h3>
+    <h3 id="titulo-Meus Dados">Meus Dados</h3>
+    <h3 id="titulo-Meus Endereços">Meus Endereços</h3>-->
+    <!-- <h3 id="titulo-Meus Cartões">Meus Cartões</h3>  -->
+</div>
+</main> 
+</section>
+
+
+
+
+            <!-- footer define o rodapé -->
+            <footer>
+               <div class="textorodapé">
+             
+                
+                <p class="rodapé">
+                    © 2021 Approve Street Wear Comercial LTDA / CNPJ: 18.391.981/0001-00 - Todos os direitos reservados.
+                                  
+                </p>      
+               
+               AMBIENTE 100% SEGURO
+
+               </div>
+                 
+              </footer>
+            
+        </body>
+    </html>
+ 
