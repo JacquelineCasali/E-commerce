@@ -93,6 +93,27 @@ button{
      
 }
 
+.menu-credito{
+    font-weight: bold;
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: left;
+
+}
+.nav-bar-credito{
+    width: 80vw;
+    height: 100vw;
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    left: -300px;
+    transition: all 0.5s linear;
+    background-color: rgb(250, 253, 255);
+
+
+    font-size:12px;
+
+}
 
 .pedido{
     background-color: white;
@@ -137,20 +158,20 @@ button{
     font-family: 'Raleway';
     font-size: large;
     font-weight: bold;
-    text-align: center;
+    text-align: right;
 
 }
 
 .desconto{
     font-family: 'Raleway';
     font-size: large;
-    text-align: justify;
+    text-align: right;
 }
 
 .frete{
     font-family: 'Raleway';
     font-size: large;
-    text-align: justify;
+    text-align: right;
 }
 .total{
     font-family: 'Raleway';

@@ -18,7 +18,8 @@
     <br>
     <div class="Informacoespessoais"><img src="../images/profile.png" class="profile">  INFORMAÇÕES PESSOAIS
         <br>
-        <br>
+        <hr size="5" width="20%" align="left" noshade color="black">
+        
      Olá Usuário! 
      <br>
     <img src="../images/email.png" class="profile">  usuario@email.com
@@ -33,6 +34,7 @@
     <br>
     <div class="enderecoentrega"><img src="../images/endereco.png" class="endereco">  ENDEREÇO DE ENTREGA    
     <br>
+    <hr size="5" width="20%" align="left" noshade color="black">
     <br>
     <img src="../images/send.png" class="endereco">  Rua xxxxx   <img src="../images/edit.png" class="endereco">
     <br>
@@ -49,18 +51,26 @@
     <br>
     <div class="formasenvio"><img src="../images/entrega.png" class="envio">  FORMAS DE ENVIO
     <br>
+    <hr size="5" width="20%" align="left" noshade color="black">
         Selecione uma forma de envio  
         <br>
+        <br>
     <input type="radio" id="Sedex" name="formas-envio" value="Sedex"><label for="Sedex">Sedex - Grátis - em até 4 dias úteis</label>
+    <br>
     <br>
     <input type="radio" id="PAC" name="formas-envio" value="PAC"><label for="PAC">PAC - R$ 19,94 - em até 8 dias úteis</label>
     <br>
     <br>
     </div>
     <div class="cupom"><img src="../images/entrega.png" class="envio">  CUPOM DE DESCONTO
+        <hr size="5" width="20%" align="left" noshade color="black">
+        
         <form>
             <label for="inserircupom">Inserir cupom de desconto</label>
+            <br>
             <input type="text" id="inserircupom" name="inserircupom">
+            <br>
+            
             <br>
             <button type="submit">Aplicar cupom</button>
                        
@@ -70,30 +80,105 @@
     </div>
     <div class="pagamento"><img src="../images/pagamento.png" class="envio">  FORMA DE PAGAMENTO
         <br>
+        <hr size="5" width="20%" align="left" noshade color="black">
      Selecione uma forma de pagamento 
+    <br>
     <br>
         <input type="radio" id="credito" name="formas-pagamento" value="credito" /><label for="credito"><img src="../images/credito.png" ></label>
         <input type="radio" id="pix" name="formas-pagamento" value="pix" /><label for="pix"><img src="../images/pix.png" ></label>
         <input type="radio" id="boleto" name="formas-pagamento" value="boleto" /><label for="boleto"><img src="../images/boleto.png" ></label>
     <br>
+    <br>
     </div>
+
+    <div class="menu-credito">
+        <div class="nav-bar-credito">
+            <form>
+                <label for="numerocartao">Número do Cartão</label>
+                <br>
+                <input type="text" id="numerocartao" name="numerocartao">
+                <br>
+                <label for="nometitular">Nome do Titular(Como escrito no cartão)</label>
+                <br>
+                <input type="text" id="nometitular" name="nometitular">
+                <br>
+                <div>Validade</div>
+                <label for="mes">Mês</label> 
+                <select name="mes" id="mes">
+                    <option value="1">01</option>
+                    <option value="2">02</option>
+                    <option value="3">03</option>
+                    <option value="4">04</option>
+                    <option value="5">05</option>
+                    <option value="6">06</option>
+                    <option value="7">07</option>
+                    <option value="8">08</option>
+                    <option value="9">09</option>
+                    <option value="10">10</option>
+                    <option value="11">11</option>
+                    <option value="12">12</option>
+                </select>
+                <label for="ano">Ano</label> 
+                <select name="ano" id="ano">
+                    <option value="22">2022</option>
+                    <option value="23">2023</option>
+                    <option value="24">2024</option>
+                    <option value="25">2025</option>
+                    <option value="26">2026</option>
+                    <option value="27">2027</option>
+                    <option value="28">2028</option>
+                    <option value="29">2029</option>
+                    <option value="30">2030</option>
+                    <option value="31">2031</option>
+                    <option value="32">2032</option>
+                </select>
+                <label for="codigoseguranca">Código de Segurança</label>
+                <br>
+                <input type="text" id="codigoseguranca" name="codigoseguranca">
+                <br>
+                <div>Parcelamento</div>
+                <select name="parcelamento" id="parcelamento">
+                    <option value="avista">à vista sem juros</option>
+                    <option value="2vezes">2 vezes sem juros</option>
+                    <option value="3vezes">3 vezes sem juros</option>
+                    <option value="4vezes">4 vezes sem juros</option>
+                    <option value="5vezes">5 vezes sem juros</option>
+                    <option value="6vezes">6 vezes sem juros</option>
+                    <option value="7vezes">7 vezes sem juros</option>
+                    <option value="8vezes">8 vezes sem juros</option>
+                    <option value="9vezes">9 vezes sem juros</option>
+                    <option value="10vezes">10 vezes sem juros</option>
+                </select>
+            
+                
+            
+        </div>
+    </div>
+
+
        
 
     <div class="pedido"><img src="../images/pagamento.png" class="envio">  RESUMO DO PEDIDO
-    
+        <hr size="5" width="20%" align="left" noshade color="black">
+        <br>
         <img src="../images/Moleton.png" class="img-products">
         <div class="item">Moleton</div>
         <div class="tamanho">Tamanho: G</div> 
         <div class="quantidade">Quantidade: 2</div>
         <div class="textovalorunitario">Valor Unitário: </div>
         <div class="valorunitario">R$ 299,00</div>
-        
+        <br>
+        <br>
         <br>
         <div class="subtotal">SUBTOTAL: R$ 299,00</div>
         <br>
+        <br>
+        <br>
         
     <div class="desconto">Valor Desconto: R$ 0,00</div>
+    <br>
     <div class="frete">Valor do Frete: Frete Grátis</div>
+    <br>
     <br>
     <div class="total">Total: R$ 299,00</div>
     <br>
