@@ -1,0 +1,60 @@
+/* {
+    box-sizing: border-box;
+    text-decoration: none;
+    list-style: none;
+    } */
+  
+  
+  header{
+    padding-right: 15px;
+    display: flex;
+    justify-content:space-between;
+    align-items: center;
+    width:100%;
+    height: 50px;
+       }
+  
+  header.imagemcabeçalho{
+    width:100%;
+    height: 50px;
+    justify-content:space-between;
+    padding: 0;
+    align-items: center;
+    }
+  
+    section{
+      display: flex;
+    }
+  
+
+
+
+
+
+
+
+/* body section {
+    width: 100%;
+    height: 100vh;
+    background: rosybrown;
+  }
+  
+  section {
+    display: flex;
+  } */
+  
+  section aside.menu {
+    width: 25%;
+    background: aliceblue;
+    display: flex;
+    flex-direction: column;
+  }
+  section aside.menu .user_profile {
+    height: 15%;
+    text-align: center;
+  }
+  section main.main_content {
+    width: 70%;
+    background: beige;
+  }
+  
