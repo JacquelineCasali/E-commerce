@@ -297,7 +297,7 @@ border: 2px solid blue;
   
   /* tablet */
   
-  @media (min-width: 321px){
+  /* @media (min-width: 321px){ */
     
 /* formatação padrao  */
 *{
@@ -584,6 +584,6 @@ border: 2px solid blue;
     margin-right: 50px;
     padding-bottom: 20px;
     }
-  }
+  /* } */
  
    /*  ------------------------------------ */
