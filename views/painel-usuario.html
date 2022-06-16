@@ -33,7 +33,7 @@
                 MINHA CONTA
             </section>
             <a class="fotoperfil" href="../views/home.html">
-                <img src="../imagens/icones/imagemperfil.webp" width="100%" object-fit="contain" ;
+                <img src="../imagens/icones/imagemperfil.webp" width="50%" object-fit="contain" ;
                     alt="Imagem de perfil">
             </a>
             <input type="file" name="arquivos" class="btn btn-success" accept="image/png, image/jpeg" multiple />
@@ -156,74 +156,96 @@
                 <!-- <h3 id="titulo-Meus Cartões">Meus Cartões</h3>  -->
             </div>
            
+            <!-- <a class="fotoperfil" href="../views/home.html">
+                <img src="../imagens/icones/imagemperfil.webp" width="50%" object-fit="contain" ;
+                    alt="Imagem de perfil">
+            </a>
+            <input type="file" name="arquivos" class="btn btn-success" accept="image/png, image/jpeg" multiple /> -->
+
+
             <!--meus dados  -->
+
+
+
             <div class="row">
 
                 <div class="coluna2">
                     <form action="/registro" method="get">
 
                         <label for="nome">Nome</label>
-                       
-                        <input type="text" id="nome" name="nome" placeholder="Digite seu nome">
+                       <br>
+                        <input type="text" class="coluna22" id="nome" name="nome" placeholder="Digite seu nome">
                         <br>
+                        <br>
+
                         <label for="cpf">CPF</label>
-                       
-                        <input type="text" id="cpf" name="cpf" placeholder="Digite seu cpf">
-                
+                        <br>
+                        <input type="text" class="coluna22"  id="cpf" name="cpf" placeholder="Digite seu cpf">
+                        <br>
+                        <br>
                         
                         <label for="telefone">Telefone Principal</label>
-                       
-                        <input type="tel" id="telefone" name="telefone" >
-
+                        <br>
+                        <input type="tel"  class="coluna22" id="telefone" name="telefone" >
+                        <br>
+                        <br>
                         
                         <label for="Data">Data de nascimento</label>
-                        
-                        <input type="date" id="Data" name="Data" >
-                                              
+                        <br>
+                        <input type="date" class="coluna22" id="Data" name="Data" >
+                        <br>
+                        <br>                    
                     </div>
 
                 <div class="coluna3">
                     
                     <label for="sexo" >Sexo</label>
-                   <!-- <div class="sexo"> -->
-                    <input   type="radio"  name="sexo">
-                    <label class="sexo" for="sexo" class="te">FEMININO</label>
+                    <br>
+                  <div class="textociruclo">
+                    <input type="radio"  name="sexo" value="Feminino">
+                    <label  for="sexo">Feminino</label>
                     
-                    <input type="radio" name="sexo">
-                    <label for="sexo">MASCOLINO</label>
-                   <!-- </div> -->
-                   
-                   
-                   
+                    <input type="radio"   name="sexo" value="Masculino">
+                    <label for="sexo"  >Masculino</label>
+                </div>
+                   <br>
+                          
                      <label for="rg">RG</label>
-                    
-                    <input type="text" id="RG" name="RG" placeholder="Digite seu RG">  
-
+                     <br>
+                    <input type="text" class="coluna22" id="RG" name="RG" placeholder="Digite seu RG">  
+                    <br>
+                    <br>
                     
                     <label for="telefone">Telefone Secundário</label>
-                    
-                    <input type="tel" id="telefone" name="telefone">
-     
-                    
+                    <br>
+                    <input type="tel"  class="coluna22" id="telefone" name="telefone">
+                    <br>
+                    <br>
                     <label for="Receber">Receber Newsletter</label>
+                    <br>
+
+                  <div class="textociruclo">
+                    <input type="radio"  name="Receber">
+                    <label class="Receber" for="sexo">S</label>
                     
-                    <input type="radio" name="Receber">
-                    <label for="Receber">S</label>
-                    
-                    <input type="radio" name="Receber">
+                    <input type="radio"   name="Receber">
                     <label for="Receber">N</label>
-                  
+                </div>
                 </div>
             
                 </div>
+                <!-- <div class="insta"> -->
 
-                <h3>Instagram</h3>
-                <label for="Instagram">Instagram </label>
-               
-               <input type="Instagram" class="insta" id="Instagram" name="Instagram">
-               
+                    <h3>Instagram</h3>
+
+                    <label for="Instagram">Instagram </label>
+                   
+                   <input type="Instagram" class="instabarra" id="Instagram" name="Instagram">
+                   
+                </div>
+              
                <BR></BR>
-               <button>SALVAR DADOS</button>
+               <button >SALVAR DADOS</button>
                   
 
 
