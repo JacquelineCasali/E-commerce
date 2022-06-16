@@ -147,7 +147,8 @@
         width:70%;
         max-width: 100%;
         /* float:right; posição do elemento na tela */
-        float:right;
+        /* float:right; */
+        box-sizing: border-box;
                  }
   
      /* barra do menu */
@@ -170,14 +171,29 @@
    font-size:22px ;
    font-weight: 700;
   }
-   
-  .areadedados{
-    display: block;  
+   /* dividir tela a direita em dois  */
+  .row{
+width: 100%;
+border: 2px solid blue;
+display: flex;
   }
-      
-      section div.conteudodomenu{
-      margin-top: 30px;
+ 
+  .coluna2{
+    width: 50%;
+    border: 2px solid red;
+    box-sizing: border-box;
       }
+      .coluna3{
+        width: 50%;
+        border: 2px solid red;
+        box-sizing: border-box;
+          } 
+      
+  
+  /* .bloco{
+    width: 50%;
+border: 2px solid blue;
+  } */
       
       /* table tabela */
       table{
