@@ -1,0 +1,85 @@
+body{
+  font-family: "Raleway", sans-serif;
+  background-image: linear-gradient(45deg,  rgb(243, 243, 243), rgb(240, 240, 240));
+}
+
+.corpo {
+  background-color: white;
+  text-align: center;
+  font-family: "Raleway", sans-serif;
+  font-size: 12px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 50px;
+  color: black;
+}
+.conta {
+  font-size: 16px;
+}
+.textos {
+  font-family: "Raleway", sans-serif;
+    text-transform: uppercase;
+    font-size: 15px;
+    font-weight: 400;
+    color: #303030;
+    height: 34px;
+    margin-top: 4px;
+    margin-right: 0px;
+    margin-bottom: 2px;
+    margin-left: 0px;
+    border: {border-style: groove};
+}
+.entrar {
+  background-color: black;
+  border: none;
+  padding: 15px;
+  width: 100%;
+  color: white;
+}
+b {
+  font-size: 15px;
+}
+.social{
+	height: 60px;
+	width: 100%;
+	margin-top: 50px;
+	display: flex;
+	align-items: center;
+	justify-content: space-around;
+}
+.facebook {
+  margin-right: 6px;
+  border: 1px solid #416bb7;
+  color: #416bb7;
+  font-size: 15px;
+  width: 25%;
+}
+.google {
+  margin-left: 6px;
+  color: #dc453a;
+  border: 1px solid #dc453a;
+  font-size: 15px;
+  width: 25%;
+}
+.rodapePI {
+  font-size: 14px;
+  color: #8c8c8c;
+  text-align: center;
+}
+.made-by {
+  font-size: 14px;
+  color: #8c8c8c;
+  text-align: center;
+}
+.safeSecurity {
+  font-size: 14px;
+  color: #8c8c8c;
+  text-align: center;
+}
+
+
+
+  
+
