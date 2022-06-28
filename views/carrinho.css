@@ -53,6 +53,7 @@ main{
 .select{
     display: flex;
     flex-direction: column;
+    font-size: 10px;
   
 }
 
@@ -126,7 +127,6 @@ main{
 }
 
 footer{
-    position: absolute;
     width: 100vw;
     bottom: 0px;
     font-family: 'Raleway';
