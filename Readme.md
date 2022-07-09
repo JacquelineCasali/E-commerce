@@ -12,4 +12,11 @@ Integrantes:
 - Ana
 - Raquel
 
+<!-- Para criar o express generator -->
+$ npm install express-generator -g
+$ express myApp --ejs
+<!-- Instalar todas as dependencias que vem do express generator -->
+$ npm install  
+
+
 Link do diretório remoto  https://github.com/JacquelineCasali/Grupo-7
