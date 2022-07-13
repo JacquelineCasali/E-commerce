@@ -22,7 +22,7 @@
         <a href="./home.html">
             <!-- img importa imagem alt escreve mensagem quando a imagem nao aparece  -->
             <!-- width=largura height=altura -->
-            <img src="../imagens/icones/cabeçalho usuario.png" width="100%" alt="Imagen não encontrada">
+            <img src="../imagens/icones/cabeçalho usuario.png" width="100%" max-width="100%" alt="Imagen não encontrada">
         </a>
 
     </header>
@@ -44,7 +44,7 @@
                     <div id="teste">
 
                         <li class="lista2">
-                            <img class="incones" src="../imagens/icones/carinho.png" alt="Imagen não encontrada">
+                            <img class="incones" src="../imagens/icones/carinho.png"   alt="Imagen não encontrada">
                             <a href="painel-usuario.html#titulo-MeusPedidos">
                                 <p> Meus Pedidos</p>
                             </a>
@@ -54,7 +54,7 @@
 
                     <div id="teste">
                         <li class="lista2">
-                            <img class="incones" src="../imagens/icones/meuscreditos.png" width=auto hitdh=auto
+                            <img class="incones" src="../imagens/icones/meuscreditos.png" 
                                 alt="Imagen não encontrada">
                             <a href="painel-usuario.html#titulo-Meus Créditos">
 
@@ -76,9 +76,6 @@
                             </a>
                         </li>
                     </div>
-
-
-
 
                     <div id="teste">
                         <li class="lista2">
@@ -103,8 +100,6 @@
                             </a>
                         </li>
                     </div>
-
-
 
                     <div id="teste">
                         <li class="lista2">
@@ -140,33 +135,52 @@
                 </ul>
             </nav>
         </aside>
-
         <!-- tela lado direito -->
         <main class="main_content">
 
             <div class="codigo">
                 <!-- Tela lateral -->
                 <!-- link com angora volta onde quer id -->
-                <!-- <h3 class="fontebarra" id="titulo-MeusPedidos">Meus Pedidos</h3> 
-           <h3 class="fontebarra" id="titulo-Meus Créditos">Meus Créditos</h3> 
-            <h3 class="fontebarra" id="titulo-Alterar E-mail">Alterar E-mail</h3>
+             <!-- <h3 class="fontebarra" id="titulo-MeusPedidos">Meus Pedidos</h3>  -->
+           <!-- <h3 class="fontebarra" id="titulo-Meus Créditos">Meus Créditos</h3>  -->
+            <!-- <h3 class="fontebarra" id="titulo-Alterar E-mail">Alterar E-mail</h3>
             <h3 class="fontebarra" id="titulo-Alterar Senha">Alterar Senha</h3>  -->
-                <h3 class="fontebarra" id="titulo-Meus Dados">Meus Dados</h3>
+                <h3 class="fontebarra" id="titulo-Meus Dados">Meus Dados</h3> 
                 <!-- <h3 id="titulo-Meus Endereços">Meus Endereços</h3> -->
                 <!-- <h3 id="titulo-Meus Cartões">Meus Cartões</h3>  -->
             </div>
-           
-            <!-- <a class="fotoperfil" href="../views/home.html">
-                <img src="../imagens/icones/imagemperfil.webp" width="50%" object-fit="contain" ;
-                    alt="Imagem de perfil">
-            </a>
-            <input type="file" name="arquivos" class="btn btn-success" accept="image/png, image/jpeg" multiple /> -->
+          <!-- MEUS CREDITOS -->
+            <!-- <div class="conteudodomenu">
+                <h3 id="titulo-Meus Créditos">Meus Créditos</h3>  -->
+                <!-- table tabela -->
+                 <!-- <table>  -->
+             <!-- tr-linha da tabela --> 
+                <!-- <tr> -->
+                <!-- th-cabeçalho da tabela -->
+                 <!-- <th>DATA</th>
+        <th>HISTÓRICO</th>
+        <th>TIPO DE LANÇAMENTO</th> 
+        <th>VALOR</th>     
+    </tr> 
+        <tr>  -->
+                <!-- td - dados da tabela -->
+                 <!-- <td>ted</td>
+                <td>22</td>
+                <td>estudante</td>
+                <td></td>
 
-
+                </tr>
+                <tr> 
+                     td - dados da tabela
+                      <td>SALDO</td>
+            <td></td> 
+                </tr>
+                </table> -->
+            
             <!--meus dados  -->
             <div class="row">
 
-                <div class="coluna2">
+           <div class="coluna2">
                     <form action="/registro" method="get">
 
                         <label for="nome">Nome</label>
@@ -193,7 +207,6 @@
                         <br>
                         <br>                    
                     </div>
-
                 <div class="coluna3">
                     
                     <label for="sexo" >Sexo</label>
@@ -229,53 +242,21 @@
                     <label for="Receber">N</label>
                 </div>
                 </div>
-            
                 </div>
-                <!-- <div class="insta"> -->
+                    <h3 class="instatexto">Instagram</h3>
 
-                    <h3>Instagram</h3>
-
-                    <label for="Instagram">Instagram </label>
+                    <label class="insta" for="Instagram">Instagram </label>
                    
                    <input type="Instagram" class="instabarra" id="Instagram" name="Instagram">
-                   
-                </div>
-              
-               <BR></BR>
-               <button >SALVAR DADOS</button>
-                  
-
-
-                <!-- <h3 id="titulo-Meus Endereços">Meus Endereços</h3> -->
+                    <div class="vazio">
+                </div>         
+                           
+                <button > <a href="./home.html">
+                SALVAR DADOS</button>
+            </a>
+                            <!-- <h3 id="titulo-Meus Endereços">Meus Endereços</h3> -->
                 <!-- <h3 id="titulo-Meus Cartões">Meus Cartões</h3>  -->
 
-
-                <div class="conteudodomenu">
-                    <!-- <h3 id="titulo-Meus Créditos">Meus Créditos</h3> -->
-                    <!-- table tabela -->
-                    <!-- <table>
-                <!-- tr-linha da tabela -->
-                    <!-- <tr> -->
-                    <!-- th-cabeçalho da tabela -->
-                    <!-- <th>DATA</th>
-            <th>HISTÓRICO</th>
-            <th>TIPO DE LANÇAMENTO</th> 
-            <th>VALOR</th>     
-        </tr> 
-            <tr> -->
-                    <!-- td - dados da tabela-->
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-
-                    </tr>
-                    <tr>
-                        <!-- td - dados da tabela-->
-                        <!-- <td>SALDO</td>
-                <td></td> -->
-                    </tr>
-                    </table>
                     <!-- <h3 id="titulo-Alterar E-mail">Alterar E-mail</h3>
             <h3 id="titulo-Alterar Senha">Alterar Senha</h3>
             <h3 id="titulo-Meus Dados">Meus Dados</h3>
@@ -285,29 +266,17 @@
         </main>
     </section>
     </section>
-
-
+    <img src="../imagens/icones/icone chat.png" alt="" class="chat">
 
     <!-- footer define o rodapé -->
     <footer>
         <div class="textorodapé">
-
-
             <p class="rodapé">
                 © 2021 Approve Street Wear Comercial LTDA / CNPJ: 18.391.981/0001-00 - Todos os direitos reservados.
-
             </p>
-
             AMBIENTE 100% SEGURO
-
         </div>
-
     </footer>
-
 </body>
-
 </html>
-
-
-
 </body>
