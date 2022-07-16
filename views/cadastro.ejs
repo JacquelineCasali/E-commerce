@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Cadastro</title>
-    <link rel="stylesheet" href="../css/cadastro.css">
+    <link rel="stylesheet" href="./cadastro.css">
   </head>
   <body>
     <main>
@@ -36,8 +36,8 @@
               type="date"
               name="birthdate"
               id="birthdate-id"
-              min="2022-02-01"
-              max="2022-04-05"/></div>
+              min="1900-01-01"
+              max="2022-07-07"/></div>
           <br>
           <div class="grupoDeDados">
           <label for="interest">Gênero<span> *</span></label>
@@ -73,8 +73,10 @@
             <input type="socialMedia" name="instagram" id="socialMedia-id" />
           </div>
           <br>
-          <input type="checkbox" name="agree" id="agree-id" required />
-            <label for="agree-id">Recebimento de Newsletter</label>
+          <div class="form-check cadnewsletter">
+            <input class="form-check-input" data-val="true" data-val-required="The Recebimento de Newsletter field is required." id="Newsletter" name="Newsletter" type="checkbox" value="true">
+            <label class="form-check-label" for="Newsletter">Recebimento de Newsletter</label>
+         </div>
           </div>
           <br><br>
           <h3 class="end-cadastro-title">Endereço de Cadastro</h3>
@@ -91,7 +93,7 @@
           </div>
           <div><a class="helpCep" id="naoSeiCep" href="https://buscacepinter.correios.com.br/app/endereco/index.php" target="_blank">NÃO SABE O CEP?</a></div>
           <br><br>
-          <button type="submit" class="btn btn-primary" disabled="disabled">Cadastrar</button>
+          <button type="submit" class="btn-primary" disabled="disabled">Cadastrar</button>
           <br>
           <div>
           <input type="checkbox" name="agree" id="agree-id" required />

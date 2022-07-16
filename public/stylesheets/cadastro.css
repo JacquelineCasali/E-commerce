@@ -1,15 +1,15 @@
 * {
-    background-color: #f2f2f2;
-    color: #6D6D5F;
-    font-family: montserrat, sans-serif;
-    box-sizing: border-box;
-    position: relative;
-    font-weight: 700;
-    padding: 4px;
-    width: 98%;
+  background-color: #f2f2f2;
+  color: #6D6D5F;
+  font-family: montserrat, sans-serif;
+  box-sizing: border-box;
+  position: relative;
+  font-weight: 700;
+  padding: 8px;
+  width: 98%;
 }
   .tituloPrincipal {
-      transform: translate(25%,50%);
+     text-align: center;
       color:#6D6D5F;
       font-size: 36px;
       font-weight: normal;
@@ -55,6 +55,7 @@
     font-size: 14px;
     margin-top: 0px;
     margin-bottom: 10px;
+    padding: 4px;
   }
   .helpCep {
     font-size: 12.8px;
@@ -62,20 +63,26 @@
     text-align: center;
   }
   .btn-primary {
-    padding: 10px;
+    padding: 8px;
+    width: 96%;
     border: none;
     font-size: 20.8px;
     color: #ffffff;
     background-color: #86e06f;
-    border-radius: 10px;
+    border-radius: 8px;
     }
     .btn-primary:hover{
-      background-color: #43942f;
+    background-color: #43942f;
     }
+    .form-check.cadnewsletter {
+      padding-top: 2em;
+      display: flex;
+  }
   .termoseCondicoes {
     font-size: 14px;
     color: #000000;
     font-weight: 700;
+    
   }
   .rodapePI {
     font-size: 14px;
@@ -92,6 +99,3 @@
     color: #8c8c8c;
     text-align: center;
   }
-  
-
-
