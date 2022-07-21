@@ -8,8 +8,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title> PI </title>
     <!-- <link rel="stylesheet" href="./css/reset.css" /> -->
-    <link rel="stylesheet" href="../css/usuario.css">
-
+    <!-- <link rel="stylesheet" href="../css/usuario.css"> -->
+    <link rel="stylesheet" href="../public/stylesheets/usuario.css">
 
 </head>
 <!-- body escreve o conteudo que usuario vai ver -->
@@ -21,121 +21,65 @@
         <!-- a href linkar  -->
         <a href="./home.html">
             <!-- img importa imagem alt escreve mensagem quando a imagem nao aparece  -->
-            <!-- width=largura height=altura -->
-            <img src="../imagens/icones/cabeçalho usuario.png" width="100%" max-width="100%" alt="Imagen não encontrada">
+        <img src="../public/images/icones/cabeçalho usuario.png" width="100%"  max-width="100%" alt="Imagen não encontrada">
         </a>
 
     </header>
-    <!-- section define uma seção -->
+    <!-- section toda a tela entre o cabeçalho e o rodpé -->
     <section>
-        <aside class="menu">
-            <section class="perfil">
-                MINHA CONTA
-            </section>
-            <a class="fotoperfil" href="../views/home.html">
-                <img src="../imagens/icones/imagemperfil.webp" width="50%" object-fit="contain" ;
-                    alt="Imagem de perfil">
-            </a>
-            <input type="file" name="arquivos" class="btn btn-success" accept="image/png, image/jpeg" multiple />
-            <nav>
-                <ul>
-                    <h3>MINHAS COMPRAS</h3>
+        <!-- aside parte do menu - minha conta até sair -->
+    <aside class="menu">
+        <!-- para formatar minha conta -->
+    <section class="perfil">
+       
+<a href="#" class="mobile-menu1"> MINHA CONTA</a>
+   
+         <div class="mobile-menu">
+            <div class="line 1"></div>
+            <div class="line 2"></div>
+            <div class="line 3"></div>
+        </div>  
+    </section>
+<!-- <div class="foto-usuario"> -->
+<img class="foto-perfil"src="../public/images/icones/imagemperfil.webp" alt="Imagem de perfil">
 
-                    <div id="teste">
+     <input type="file" name="arquivos" class="btn btn-success" accept="image/png, image/jpeg" multiple />
+  <!-- </div> -->
 
-                        <li class="lista2">
-                            <img class="incones" src="../imagens/icones/carinho.png"   alt="Imagen não encontrada">
-                            <a href="painel-usuario.html#titulo-MeusPedidos">
-                                <p> Meus Pedidos</p>
-                            </a>
-                        </li>
+        <nav>
+           
+<ul>
+      <h3>MINHAS COMPRAS</h3>
+  
+    <li>
+        <img class="incones" src="../public/images/icones/carinho.png" alt="Imagen não encontrada">
+        <a href="painel-usuario.html#titulo-MeusPedidos" class="sel">Meus Pedidos </a></li>
 
-                    </div>
+    <li><img class="incones" src="../public/images/icones/meuscreditos.png" alt="Imagen não encontrada">
+    <a href="painel-usuario.html#titulo-Meus Créditos" class="sel">Meus Créditos</a></li>
 
-                    <div id="teste">
-                        <li class="lista2">
-                            <img class="incones" src="../imagens/icones/meuscreditos.png" 
-                                alt="Imagen não encontrada">
-                            <a href="painel-usuario.html#titulo-Meus Créditos">
+    <h3>CADASTRO</h3> 
 
-                                <p>Meus Créditos </p>
-                            </a>
-                        </li>
-                    </div>
-
-                    </div>
-
-
-                    <h3>CADASTRO</h3>
-
-                    <div id="teste">
-                        <li class="lista2">
-                            <img class="incones" src="../imagens/icones/email.png" alt="Imagen não encontrada">
-                            <a href="painel-usuario.html#titulo-Alterar E-mail">
-                                <p>Alterar E-mail </p>
-                            </a>
-                        </li>
-                    </div>
-
-                    <div id="teste">
-                        <li class="lista2">
-
-
-                            <img class="incones" src="../imagens/icones/senha.png" alt="Imagen não encontrada">
-                            <a href="painel-usuario.html#titulo-Alterar Senha">
-                                <p> Alterar Senha
-                                </p>
-                            </a>
-                        </li>
-                    </div>
-
-                    <div id="teste">
-
-
-
-                        <li class="lista2">
-                            <img class="incones" src="../imagens/icones/dados.png" alt="Imagen não encontrada">
-                            <a href="painel-usuario.html#titulo-Meus Dados">
-                                <p> Meus Dados </p>
-                            </a>
-                        </li>
-                    </div>
-
-                    <div id="teste">
-                        <li class="lista2">
-                            <img class="incones" src="../imagens/icones/endereço.png" alt="Imagen não encontrada">
-
-                            <a href="painel-usuario.html#titulo-Meus Endereços">
-                                <p> Meus Endereços
-                                </p>
-                            </a>
-                        </li>
-                    </div>
-
-                    <div id="teste">
-                        <li class="lista2">
-                            <img class="incones" src="../imagens/icones/cartão.png" alt="Imagen não encontrada">
-                            <a href="painel-usuario.html#titulo-Meus Cartões">
-                                <p> Meus Cartões
-                                </p>
-                            </a>
-                        </li>
-                    </div>
-
-                    <div id="teste">
-                        <li class="lista2">
-                            <img class="incones" src="../imagens/icones/sair.png" alt="Imagen não encontrada">
-                            <a href="./home.html">
-                                <p> Sair</p>
-
-                            </a>
-                        </li>
-                    </div>
-
-                </ul>
+    <li><img class="incones" src="../public/images/icones/senha.png" alt="Imagen não encontrada">
+        <a href="painel-usuario.html#titulo-Alterar Senha" class="sel">Alterar Senha</a></li>
+    
+    <li><img class="incones" src="../public/images/icones/dados.png" alt="Imagen não encontrada">
+        <a href="painel-usuario.html#titulo-Meus Dados"class="sel">Meus Dados</a></li>
+    
+    <li><img class="incones" src="../public/images/icones/endereço.png" alt="Imagen não encontrada">
+        <a href="painel-usuario.html#titulo-Meus Endereços"class="sel">Meus Endereços</a></li>
+    
+    <li><img class="incones" src="../public/images/icones/cartão.png" alt="Imagen não encontrada">
+        <a href="painel-usuario.html#titulo-Meus Cartões"class="sel">Meus Cartões</a></li>
+    
+    <li><img class="incones" src="../public/images/icones/sair.png" alt="Imagen não encontrada">
+        <a href="./home.html"class="sel">Sair</a></li>
+    
+</ul>
             </nav>
-        </aside>
-        <!-- tela lado direito -->
+          </aside>
+   
+    <!-- tela lado direito -->
         <main class="main_content">
 
             <div class="codigo">
@@ -177,86 +121,88 @@
                 </tr>
                 </table> -->
             
+
+
+
+            
+           
             <!--meus dados  -->
             <div class="row">
-
+       
            <div class="coluna2">
-                    <form action="/registro" method="get">
-
-                        <label for="nome">Nome</label>
-                       <br>
-                        <input type="text" class="coluna22" id="nome" name="nome" placeholder="Digite seu nome">
-                        <br>
-                        <br>
-
-                        <label for="cpf">CPF</label>
-                        <br>
-                        <input type="text" class="coluna22"  id="cpf" name="cpf" placeholder="Digite seu cpf">
-                        <br>
-                        <br>
-                        
-                        <label for="telefone">Telefone Principal</label>
-                        <br>
-                        <input type="tel"  class="coluna22" id="telefone" name="telefone" >
-                        <br>
-                        <br>
+        <form action="/registro" method="get">
+      <label for="nome">Nome</label>
+        
+     <input type="text" class="coluna22" id="nome" name="nome" placeholder="Digite seu nome">
+       
+     <label for="cpf">CPF</label>
+     
+     <input type="text" class="coluna22"  id="cpf" name="cpf" placeholder="Digite seu cpf">
+                                    
+      <label for="telefone">Telefone Principal</label>
+     
+      <input type="tel"  class="coluna22" id="telefone" name="telefone" >
+                      
+                       
                         
                         <label for="Data">Data de nascimento</label>
-                        <br>
-                        <input type="date" class="coluna22" id="Data" name="Data" >
-                        <br>
-                        <br>                    
-                    </div>
+                        
+                <input type="date" class="coluna22" id="Data" name="Data" >
+                        
+                                           
+                   </div>
+          
                 <div class="coluna3">
                     
                     <label for="sexo" >Sexo</label>
-                    <br>
-                  <div class="textociruclo">
-                    <input type="radio"  name="sexo" value="Feminino">
-                    <label  for="sexo">Feminino</label>
+                   
+                  <div class="textocirculo">
+                    <input type="radio" class="radio"  name="sexo" value="Feminino">
+                    <label  for="sexo">F</label>
                     
-                    <input type="radio"   name="sexo" value="Masculino">
-                    <label for="sexo"  >Masculino</label>
+                    <input type="radio" class="radio"  name="sexo" value="Masculino">
+                    <label for="sexo"  >M</label>
                 </div>
-                   <br>
+                  
                           
                      <label for="rg">RG</label>
-                     <br>
+                    
                     <input type="text" class="coluna22" id="RG" name="RG" placeholder="Digite seu RG">  
-                    <br>
-                    <br>
+                    
                     
                     <label for="telefone">Telefone Secundário</label>
-                    <br>
+                   
                     <input type="tel"  class="coluna22" id="telefone" name="telefone">
-                    <br>
-                    <br>
-                    <label for="Receber">Receber Newsletter</label>
-                    <br>
-
-                  <div class="textociruclo">
-                    <input type="radio"  name="Receber">
-                    <label class="Receber" for="sexo">S</label>
                     
-                    <input type="radio"   name="Receber">
+                    <label for="Receber">Receber Newsletter</label>
+                    
+
+                  <div class="textocirculo">
+                    <input type="radio" class="radio"  name="Receber">
+                    <label for="Receber">S</label>
+                    <input type="radio"  class="radio" name="Receber">
                     <label for="Receber">N</label>
                 </div>
                 </div>
                 </div>
+
                     <h3 class="instatexto">Instagram</h3>
 
                     <label class="insta" for="Instagram">Instagram </label>
                    
                    <input type="Instagram" class="instabarra" id="Instagram" name="Instagram">
-                    <div class="vazio">
-                </div>         
-                           
+                   
+                      
+                             
                 <button > <a href="./home.html">
                 SALVAR DADOS</button>
             </a>
-                            <!-- <h3 id="titulo-Meus Endereços">Meus Endereços</h3> -->
+             
+                <!-- <h3 id="titulo-Meus Endereços">Meus Endereços</h3> -->
                 <!-- <h3 id="titulo-Meus Cartões">Meus Cartões</h3>  -->
 
+
+              
                     <!-- <h3 id="titulo-Alterar E-mail">Alterar E-mail</h3>
             <h3 id="titulo-Alterar Senha">Alterar Senha</h3>
             <h3 id="titulo-Meus Dados">Meus Dados</h3>
@@ -266,17 +212,30 @@
         </main>
     </section>
     </section>
-    <img src="../imagens/icones/icone chat.png" alt="" class="chat">
+
+    <!-- <img src="../imagens/icones/icone chat.png" alt="" class="chat" > -->
+
 
     <!-- footer define o rodapé -->
     <footer>
         <div class="textorodapé">
+
+
             <p class="rodapé">
                 © 2021 Approve Street Wear Comercial LTDA / CNPJ: 18.391.981/0001-00 - Todos os direitos reservados.
+
             </p>
+
             AMBIENTE 100% SEGURO
+
         </div>
+
     </footer>
+
 </body>
+
 </html>
+
+
+
 </body>
