@@ -1,5 +1,6 @@
 var express = require('express');
 var router = express.Router();
+var usuarioController=require("../controllers/usuarioController")
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
@@ -7,5 +8,5 @@ router.get('/', function(req, res, next) {
 });
 
 router.get("/usuario",usuarioController.index)
-module.exports = router;
 
+module.exports = router;
