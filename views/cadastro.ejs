@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cadastro</title>
+    <link rel="stylesheet" href="./cadastro.css">
+  </head>
+  <body>
+    <main>
+      <section id="container-signup">
+        <h1 class="tituloPrincipal">Cadastro</h1>
+        <br>
+        <h2 class="paragraph">Por favor, preencha os campos abaixo para criar sua conta na loja</h2>
+        <h3 class="DadosPessoais">Dados Pessoais</h3>
+        <br>
+        <div class="grupoDeDados">
+          <label for="email">E-Mail<span> *</span>
+          </label>
+          <input type="Email" name="E-mail" id="email-id" placeholder="E-Mail"/></div>
+          <br>
+          <div class="grupoDeDados">
+          <label for="cpf">CPF<span> *</span>
+          </label>
+          <input type="CPF" name="CPF" id="cpf-id"/></div>
+          <br>
+          <div class="grupoDeDados">
+          <label for="name">Nome Completo<span> *</span>
+          </label>
+          <input type="name" name="Nome" id="name-id"/></div>
+          <br>
+          <div class="grupoDeDados">
+          <label for="birthdate-id">Data de Nascimento<span> *</span></label>
+            <input
+              type="date"
+              name="birthdate"
+              id="birthdate-id"
+              min="1900-01-01"
+              max="2022-07-07"/></div>
+          <br>
+          <div class="grupoDeDados">
+          <label for="interest">Gênero<span> *</span></label>
+            <select name="interest" id="interest">
+              <option value="" selected>Selecione</option>
+              <option value="Masculino">Masculino</option>
+              <option value="Feminino">Feminino</option>
+              <option value="Outro">Outros</option>
+            </select></div>
+            <br>
+            <div class="grupoDeDados">
+            <label for="password-id">Informa a Senha<span> *</span></label>
+            <input type="password" name="password" id="password-id" /></div>
+            <br>
+            <div class="grupoDeDados">
+            <label for="password.c-id">Confirme a Senha<span> *</span></label>
+            <input type="confirm.password" name="confirm.password" id="passwordc-id" /></div>
+            <br>
+            <div class="grupoDeDados">
+            <label for="phone-id">Telefone principal<span> *</span></label>
+            <input type="phone" name="phone" id="phone-id" /></div>
+            <br>
+            <div class="grupoDeDados">
+            <label for="phone.s-id">Telefone Secundário</label>
+            <input type="phone" name="secondPhone" id="phone.s-id" />
+          </div>
+          <br><br>
+          <h3 class="instagram-title">Instagram</h3>
+        <br>
+          <br>
+          <div class="container-input">
+            <label for="instagram-id">Instagram</label>
+            <input type="socialMedia" name="instagram" id="socialMedia-id" />
+          </div>
+          <br>
+          <div class="form-check cadnewsletter">
+            <input class="form-check-input" data-val="true" data-val-required="The Recebimento de Newsletter field is required." id="Newsletter" name="Newsletter" type="checkbox" value="true">
+            <label class="form-check-label" for="Newsletter">Recebimento de Newsletter</label>
+         </div>
+          </div>
+          <br><br>
+          <h3 class="end-cadastro-title">Endereço de Cadastro</h3>
+          <br>
+          <div class="destinyName">
+            <label for="destinyName">Nome do Destinatário<span> *</span>
+            </label>
+            <input type="destinyName" name="destinyName" id="destinyName-id" placeholder="Quem receberá a entrega?"/></div>
+          </div>
+          <br>
+          <div class="container-input">
+            <label for="CEP-id">CEP *</label>
+            <input type="CEP" name="CEP" id="CEP-id" />
+          </div>
+          <div><a class="helpCep" id="naoSeiCep" href="https://buscacepinter.correios.com.br/app/endereco/index.php" target="_blank">NÃO SABE O CEP?</a></div>
+          <br><br>
+          <button type="submit" class="btn-primary" disabled="disabled">Cadastrar</button>
+          <br>
+          <div>
+          <input type="checkbox" name="agree" id="agree-id" required />
+          <label class="termoseCondicoes">Li, compreendi e concordo com as <a target="_blank" href="https://www.justapprove.com.br/PoliticadePrivacidade">Condições Gerais</a>, inclusive com relação à proteção de dados pessoais, finalidades e hipóteses de tratamento de dados</label>
+          </div>
+          <br><br><br><br>
+          <div>
+            <p class="rodapePI">Projeto Integrador Digital House © 2022 Grupo Seven LTDA - Todos os direitos reservados.</p>
+         </div>
+          <br><br>
+          <div class="made-by">
+            <span>Desenvolvido por: Grupo Seven</span>
+          </div>
+          <br><br>
+          <div class="safeSecurity">
+            <img src="" alt="">
+            <span>AMBIENTE 100% SEGURO</span>
+          </div>
+          <br><br>
+       </html>

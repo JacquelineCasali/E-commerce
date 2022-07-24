@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carrinho</title>
+    <link rel="stylesheet" href="./carrinho.css">
+<body>
+    <header>
+        <!-- a href linkar  -->
+        <a href="./home.html">
+            <!-- img importa imagem alt escreve mensagem quando a imagem nao aparece  -->
+            <!-- width=largura height=altura -->
+            <img src="../imagens/icones/cabeçalho usuario.png" width="100%" alt="Imagen não encontrada">
+        </a>
+
+    </header>
+    <main>
+   <ul class="lista">
+    <li class="produtos">
+        <img class = "img-produto"   src="../images/camisa-flamengo.jpg">
+        <div class="descriçao">
+          
+            <a href="./produtos.html">
+                Camiseta do Flamengo 22/23
+            </a>
+            <div class="Tamanho">
+                Tamanho: PP
+            </div>
+
+        </div>
+        <div class = "select">
+            <div class="quantidade">
+                <div id="quant">-</div>
+                <div id="valor">2</div>
+                <div id="quant">+</div>
+            </div>
+            <div> Valor Unitário: R$ 200,00</div>
+            <div> Valor Total: R$ 400,00</div>
+        </div>
+    </li>
+    <li class="produtos">
+        <img class = "img-produto"   src="../images/camisa-flamengo.jpg">
+        <div class="descriçao">
+          
+            <a href="./produtos.html">
+                Camiseta do Flamengo 22/23
+            </a>
+            <div class="Tamanho">
+                Tamanho: PP
+            </div>
+
+        </div>
+        <div class = "select">
+            <div class="quantidade">
+                <div id="quant">-</div>
+                <div id="valor">2</div>
+                <div id="quant">+</div>
+            </div>
+            <div> Valor Unitário: R$ 200,00</div>
+            <div> Valor Total: R$ 400,00</div>
+        </div>
+    </li>
+    </ul>
+    <div class="buy">
+        <div class="subtotal">
+            <div>SUBTOTAL</div>
+            <div>R$ 800,00</div>
+        </div>
+        <div class="endereco">
+                <p>DIGITE O CEP DO SEU ENDEREÇO</p>
+            <input type="text" value="00000-000" id="cep">
+            <input type="button" id="check-cep" value="Buscar">
+            </div>
+        <div class="esqueceu-cep"> NÃO SABE SEU CEP?</div>
+        <div class="cupom">
+            <div class="subtotal">CUPOM DE DESCONTO</div>
+            <input type="text" value="Código" id="cupom">
+            <input type="button" id="check-cep" value="Calcular">
+        </div>
+        <div class="valor-total">
+            <div>TOTAL</div>
+            <div>R$ 800,00</div>
+        </div>
+        <a href="./finalizacao.html"><div class="botao-comprar">
+            <input type="button" value="Finalizar Compra" id="bt-comprar">
+        </div></a>
+        </div>
+   </section>
+</main>
+
+<footer>
+    <ul class="dados-empresa" type="none">
+            <li>2021 Approve Street Wear Comercial LTDA / CNPJ: 18.391.981/0001-00 - Todos os direitos reservados</li>        
+    </ul>
+    
+    <ul class="desenvolvido" type="none">
+        <li>Desenvolvido por Seri.e Design</li>
+        <li><a href="../images/logo-traycorp.svg">
+            <img src="../images/logo-traycorp.svg">
+        </a></li>
+    </ul>
+
+    <ul class="seguro" TYPE="none">
+        <li><a href="../images/lock.png"><img src="../images/lock.png"></a></li><li>AMBIENTE 100% SEGURO</li>
+    </ul>
+</footer>
+
+
+</body>
+</html>
