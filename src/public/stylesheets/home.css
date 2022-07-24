@@ -1,0 +1,166 @@
+*{
+    box-sizing: border-box;   
+}
+@media (max-width: 320px){
+.banner{
+    margin-bottom: 30px;
+    padding-right: 5px;
+}
+.banner2{
+    display: none;
+}
+
+.img-destaques{
+    width: 100vw;
+}
+
+.title-section{
+    /* margin-bottom:20px;
+    font-family: 'Raleway';
+    font-size: 21px; */
+
+    font-size: 21px;
+    font-weight: bold;
+    color: #303030;
+    margin-bottom: 30px;
+    letter-spacing: 0px;
+    padding-left: 10px;
+    
+}
+
+.vitrine{
+    width: 100vw;
+    padding-right: 5px;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-around;
+    margin-bottom: 5px;
+}
+
+.produtos{
+    padding-right: 5px;
+    position: relative;
+    width: 40%;
+    display: flex;
+    flex-direction: column;
+    margin-bottom:5px;
+    font-family: 'Raleway';
+    font-size: 12px;
+
+}
+
+.produtos a{
+    text-decoration: none;
+}
+
+
+.img-products{
+    width: 100%;
+    margin-bottom: 5px;
+}
+
+.tag-new{
+    padding: 5px;
+    height: 20px;
+    position: absolute;
+    top:5px;
+    
+    font-weight: bold;
+    background-color: rgb(200, 200, 200);
+}
+
+.tag-desconto{
+    padding: 5px;
+    height: 20px;
+    position: absolute;
+    top:5px;
+    
+    font-weight: bold;
+    background-color: lightcoral
+}
+
+}
+
+@media(min-width:321px){
+    .banner{
+        display: none;
+    }
+    
+    
+    .banner2{
+        margin-bottom: 15px;
+        padding-right: 5px;
+    }
+    .img-destaques{
+        width: 100vw;
+    }
+    
+    .title-section{
+        /* margin-bottom:20px;
+        font-family: 'Raleway';
+        font-size: 21px; */
+    
+        font-size: 21px;
+        font-weight: bold;
+        color: #303030;
+        margin-bottom: 30px;
+        letter-spacing: 0px;
+        padding-left: 10px;
+        
+    }
+    
+    .vitrine{
+        width: 100vw;
+        padding-right: 5px;
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: space-around;
+        margin-bottom: 5px;
+    }
+    
+    .produtos{
+        padding-right: 5px;
+        position: relative;
+        width: 18%;
+        display: flex;
+        flex-direction: column;
+        margin-bottom:5px;
+        font-family: 'Raleway';
+        font-size: 12px;
+    
+    }
+
+    .produtos a{
+        text-decoration: none;
+    }
+    
+    .img-products{
+        width: 100%;
+        margin-bottom: 5px;
+    }
+    
+    .tag-new{
+        padding: 5px;
+        height: 20px;
+        position: absolute;
+        top:5px;
+        
+        font-weight: bold;
+        background-color: rgb(200, 200, 200);
+    }
+    
+    .tag-desconto{
+        padding: 5px;
+        height: 20px;
+        position: absolute;
+        top:5px;
+        
+        font-weight: bold;
+        background-color: lightcoral
+    }
+    
+
+
+}

@@ -41,5 +41,5 @@ app.use(function(err, req, res, next) {
 
 module.exports = app;
 app.listen(port, () => {
-  console.log("Estamos rodando em: http://localhost:" + port + "/usuario");
+  console.log("Estamos rodando em: http://localhost:" + port);
 });
