@@ -1,0 +1,303 @@
+*{
+    box-sizing: border-box;
+}
+/* Caminho para baixar fontes externas. Salvar todas as fontes na posta ../fonts */
+/* https://fonts.google.com/ */
+
+footer a{
+    text-decoration: none;
+    color:#303030;
+}
+
+
+
+
+@media (max-width: 320px){
+
+    @font-face {
+        font-family:'Raleway' ;
+        src: url('../fonts/Raleway-VariableFont_wght.ttf') format('truetype');
+        font-weight:normal;
+        font-style:normal;
+    }
+
+    header{
+        padding-right: 15px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width:100vw;
+        height: 50px;
+        font-size: 8px;
+        font-family: 'Raleway';
+    }
+
+    .img-logo{
+        height: 100px;
+        width: 100px;
+    }
+
+    .logo-header{
+        font-weight: bold;
+        text-transform: uppercase;
+
+        display: flex;
+        justify-content: left;
+
+    }
+
+    .img-menuicon{
+        margin-right: 5px;
+        cursor:pointer;
+    }
+
+    .menu-hearder{
+        font-weight: bold;
+        display: flex;
+        flex-wrap: nowrap;
+        justify-content: left;
+
+    }
+
+    .img-search-icon2{
+        display: none;
+    }
+
+    .icons-header{
+        display: flex;
+        justify-content: left;
+    }
+
+    .img-person{
+        margin-right: 15px;
+
+    }
+
+    .user{
+        display: flex;
+        font-size: 5px;
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    .user-link a{
+        text-decoration: none;
+
+    }
+    
+
+    #check{
+        display: none;
+    }
+    
+    .nav-bar{
+        width: 80vw;
+        height: 100vw;
+        position: absolute;
+        display: flex;
+        flex-direction: column;
+        left: -300px;
+        transition: all 0.5s linear;
+        background-color: rgb(250, 253, 255);
+    
+    
+        font-size:12px;
+    
+    }
+    
+    .section-link{
+        margin-top: 20px;
+        margin-left:15px;
+        padding-left: 20px;
+        
+        
+    
+        color: black;
+        text-decoration: none;
+    }
+    
+    
+    #check:checked ~.nav-bar{
+        transform: translateX(300px);
+    
+    }
+    
+    footer{
+        padding-right: 5px;
+        background-color: #f2f2f2;
+        border-top: 1px solid #d2d2d2;
+        border-bottom: 1px solid #d2d2d2;
+        padding-top: 20px;
+        padding-bottom: 10px;
+        font-family: 'Raleway';
+        font-size:8px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        position: relative;
+    }
+    
+    footer a{
+        text-decoration: none;
+    }
+
+    .dados-empresa{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-transform: uppercase;
+        margin-bottom: 2px;
+    }
+
+    
+    
+    .redes-sociais{
+        display:flex;
+        justify-content: space-around;
+        align-items: center;
+    }
+    
+    .icon-socialnetworks{
+        padding: 5px;
+    }
+
+    .gap{
+        display: none;
+    }
+
+    
+}
+
+@media(min-width:321px){
+   
+    @font-face {
+        font-family:'Raleway' ;
+        src: url('../fonts/Raleway-VariableFont_wght.ttf') format('truetype');
+        font-weight:normal;
+        font-style:normal;
+    }
+   
+   
+    header{
+    padding-right: 25px;
+    width:100vw;
+    height: 70px;
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 10px;
+    font-family: 'Raleway';
+  } 
+
+ /* Para esconder o menu botão de menu da versão mobile */
+  #check{
+    display: none;
+    position: absolute;
+  } 
+
+  #icon{
+    display: none;
+    position: absolute;
+  }
+
+  /* Esconder o botão lupa dentro do nav-bar */
+  .img-search-icon{
+    display: none;
+  }
+  
+  /* Na versão de pc os elementos precisam ser reordenados. Atribuir a propriedade order em cada elemento do header. */
+  .menu-hearder{
+    order:-1;
+  }
+
+  .section-link{
+    color: #5f5f5f;
+    padding-left: 10px;
+    text-decoration: none;
+}
+
+  .logo-header{
+   order:0;
+  }
+  .img-logo{
+    height: 50px;
+  }
+  .icons-header{
+    order:2;
+  }
+  
+  .icons-header{
+    display: flex;
+    width: 8%;
+    align-items: flex-start;
+    justify-content: space-between;
+    }
+
+    .user{
+        display: flex;
+        font-size: 10px;
+        flex-direction: column;
+        justify-content: center;
+        align-items: flex-start;
+    }
+    .user-link{
+        position: absolute;
+        margin-right: 50px;
+        top:48px;
+    }
+
+
+    .user-link a{
+        
+        text-decoration: none;
+    }
+
+}
+    footer{
+        padding-right: 5px;
+        background-color: #f2f2f2;
+        border-top: 1px solid #d2d2d2;
+        border-bottom: 1px solid #d2d2d2;
+        padding-top: 30px;
+        padding-bottom: 30px;
+        font-family: 'Raleway';
+        font-size:11px;
+        color: #303030;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        position: relative;
+    }
+
+
+    .dados-empresa{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-transform: uppercase;
+    }
+
+    .redes-sociais{
+        display:flex;
+        justify-content: space-around;
+        align-items: center;
+    }
+
+    .icon-socialnetworks{
+        padding: 5px;
+    }
+
+
+
+.devellopers{
+    position: absolute;
+    bottom:0px;
+    right: 2vw;
+}
+
+
