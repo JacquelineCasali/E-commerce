@@ -10,4 +10,5 @@ router.get('/', function(req, res, next) {
 router.get( "/usuario",usuarioController.usuario)
 router.get("/finalizacao",usuarioController.finalizacao)
 router.get("/sucesso",usuarioController.sucesso)
+
 module.exports = router;
