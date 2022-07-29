@@ -5,51 +5,56 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Finalizacao</title>
-    <link rel="stylesheet" href="../css/global.css">
-    <link rel="stylesheet" href="../css/finalizacao.css">
+    <!-- <link rel="stylesheet" href="../css/global.css"> -->
+    <link rel="stylesheet" href="stylesheets/finalizacao.css">
 </head>
+
+
 <body>
-    <headerfinalizacao>
-        <div class="logo-header"><img class="img-logo" src="../images/logo-fx.svg"></div>
+    <header>
+        <img src="../images/icones/cabeçalho usuario.png" width="100%"  max-width="100%" alt="Imagen não encontrada">    
             
-            
-    </headerfinalizacao>       
+    </header>       
     
     <br>
-    <div class="Informacoespessoais"><img src="../images/profile.png" class="profile">  INFORMAÇÕES PESSOAIS
+    <div class="Informacoespessoais"><img src="images/profile.png" class="profile">  INFORMAÇÕES PESSOAIS
         <br>
         <hr size="5" width="20%" align="left" noshade color="black">
         
      Olá Usuário! 
      <br>
-    <img src="../images/email.png" class="profile">  usuario@email.com
+    <img src="images/email.png" class="profile">  usuario@email.com
     <br>
-    <img src="../images/user.png" class="profile">  Nome do usuário
+    <img src="images/user.png" class="profile">  Nome do usuário
     <br>
-    <img src="../images/phone.png" class="profile">  (xx)0000-0000
+    <img src="images/phone.png" class="profile">  (xx)0000-0000
     <br>
-    <img src="../images/documento.png" class="profile">  111.111.111-11
-    Sair ou Trocar
+    <img src="images/documento.png" class="profile">  111.111.111-11
+    
+    <!-- Sair ou Trocar -->
+    <a href="./login.ejs">Sair ou Trocar</a>
     </div>
     <br>
-    <div class="enderecoentrega"><img src="../images/endereco.png" class="endereco">  ENDEREÇO DE ENTREGA    
+    <div class="enderecoentrega"><img src="images/endereco.png" class="endereco">  ENDEREÇO DE ENTREGA    
     <br>
     <hr size="5" width="20%" align="left" noshade color="black">
     <br>
-    <img src="../images/send.png" class="endereco">  Rua xxxxx   <img src="../images/edit.png" class="endereco">
+    <img src="images/send.png" class="endereco">  Rua xxxxx   <img src="images/edit.png" class="endereco">
     <br>
     Bairro, Cidade, Estado
     <br>
     CEP: xxxxx-xxx
     <br>
     <br>
-      <div class="buttonendereco">SELECIONAR OUTRO ENDEREÇO</div>
+    <button class="buttonendereco">SELECIONAR OUTRO ENDEREÇO</button>
+      <!-- <div class="buttonendereco">SELECIONAR OUTRO ENDEREÇO</div> -->
       <br>
       <br>
-      <div class="buttonendereco">ADICIONAR OUTRO ENDEREÇO</div>
+      <button class="buttonendereco">ADICIONAR OUTRO ENDEREÇO</button>
+      <!-- <div class="buttonendereco">ADICIONAR OUTRO ENDEREÇO</div> -->
     </div>
     <br>
-    <div class="formasenvio"><img src="../images/entrega.png" class="envio">  FORMAS DE ENVIO
+    <div class="formasenvio"><img src="images/entrega.png" class="envio">  FORMAS DE ENVIO
     <br>
     <hr size="5" width="20%" align="left" noshade color="black">
         Selecione uma forma de envio  
@@ -62,7 +67,7 @@
     <br>
     <br>
     </div>
-    <div class="cupom"><img src="../images/entrega.png" class="envio">  CUPOM DE DESCONTO
+    <div class="cupom"><img src="/images/entrega.png" class="envio"> CUPOM DE DESCONTO
         <hr size="5" width="20%" align="left" noshade color="black">
         
         <form>
@@ -78,15 +83,15 @@
        
     <br>
     </div>
-    <div class="pagamento"><img src="../images/pagamento.png" class="envio">  FORMA DE PAGAMENTO
+    <div class="pagamento"><img src="/images/pagamento.png" class="envio">  FORMA DE PAGAMENTO
         <br>
         <hr size="5" width="20%" align="left" noshade color="black">
      Selecione uma forma de pagamento 
     <br>
     <br>
-        <input type="radio" id="credito" name="formas-pagamento" value="credito" /><label for="credito"><img src="../images/credito.png" ></label>
-        <input type="radio" id="pix" name="formas-pagamento" value="pix" /><label for="pix"><img src="../images/pix.png" ></label>
-        <input type="radio" id="boleto" name="formas-pagamento" value="boleto" /><label for="boleto"><img src="../images/boleto.png" ></label>
+        <input type="radio" id="credito" name="formas-pagamento" value="credito" /><label for="credito"><img src="/images/credito.png" ></label>
+        <input type="radio" id="pix" name="formas-pagamento" value="pix" /><label for="pix"><img src="/images/pix.png" ></label>
+        <input type="radio" id="boleto" name="formas-pagamento" value="boleto" /><label for="boleto"><img src="/images/boleto.png" ></label>
     <br>
     <br>
     </div>
@@ -193,10 +198,10 @@
 -->
        
 
-    <div class="pedido"><img src="../images/pagamento.png" class="envio">  RESUMO DO PEDIDO
+    <div class="pedido"><img src="images/pagamento.png" class="envio">  RESUMO DO PEDIDO
         <hr size="5" width="20%" align="left" noshade color="black">
         <br>
-        <img src="../images/Moleton.png" class="img-products">
+        <img src="images/Moleton.png" class="img-products">
         <div class="item">Moleton</div>
         <div class="tamanho">Tamanho: G</div> 
         <div class="quantidade">Quantidade: 2</div>
@@ -217,25 +222,26 @@
     <br>
     <div class="total">Total: R$ 299,00</div>
     <br>
+<button class="buttonfinal">Finalizar Compra</button>
 
-    <div class="buttonfinal">Finalizar Compra</div>
+    <!-- <div class="buttonfinal">Finalizar Compra</div> -->
     </div>
     
-    <footerfinalizacao>
+    <footer>
         <ul class="dados-empresa" type="none">
                 <li>2021 Approve Street Wear Comercial LTDA / CNPJ: 18.391.981/0001-00 - Todos os direitos reservados</li>        
         </ul>
         
         <ul class="desenvolvido" type="none">
             <li>Desenvolvido por Seri.e Design</li>
-            <li><a href="../images/logo-traycorp.svg">
-                <img src="../images/logo-traycorp.svg">
+            <li><a href="/images/logo-traycorp.svg">
+                <img src="/images/logo-traycorp.svg">
             </a></li>
         </ul>
 
         <ul class="seguro" TYPE="none">
-            <li><a href="../images/lock.png"><img src="../images/lock.png"></a></li><li>AMBIENTE 100% SEGURO</li>
+            <li><a href="images/lock.png"><img src="images/lock.png"></a></li><li>AMBIENTE 100% SEGURO</li>
         </ul>
-    </footerfinalizacao>
+    </footer>
 </body>
 </html>

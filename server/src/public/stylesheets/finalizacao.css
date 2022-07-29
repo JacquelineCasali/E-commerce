@@ -5,7 +5,7 @@
 
 
 
-headerfinalizacao{
+header{
     background-color:black;
     font-family: 'Raleway';
     font-size:8px;
@@ -72,11 +72,11 @@ headerfinalizacao{
     height: 200x;
     border: solid 1px rgb(196, 195, 195);
     margin: 30px auto;
-    padding: 20 px;
+    padding: 20px;
     font-family: 'Raleway';
 }
 
-footerfinalizacao{
+footer{
     font-family: 'Raleway';
     font-size:8px;
     display: flex;
