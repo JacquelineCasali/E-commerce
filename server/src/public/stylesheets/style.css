@@ -24,28 +24,20 @@ aside.menu{
   width: 100%; 
   float: none;
   display: block;
- 
-   
+    
 }
-.foto-usuario{
-display: block;
-text-align: center;
-/* border: 4px solid blue; */
-margin: 0;
-padding: 0;
-/* line-height: 15px; */
-}
-
 /* foto perfil menu */
  .foto-perfil{
-  max-width: 50%;
-  max-height:50%;
+  max-width: 85%;
+  max-height:60%;
   object-fit: contain;
+  padding-left: 75px;
            } 
   input.btn.btn-success{
-      max-width: 20%;
-      max-height:50%;
+    max-width: 85%;
+    max-height:60%;
       object-fit: contain;
+      padding-left: 75px;
    }
    a{
       text-decoration: none;
@@ -68,7 +60,7 @@ padding: 0;
       padding: 0;
       width: 100%;
       position: relative;
-      margin: 15px 0 15px 15px;
+      margin: 15px 0 15px 0;
       font-family: 'Open Sans',Arial,Helvetica,sans-serif;
         
     }
@@ -99,7 +91,7 @@ ul{
 
 /*  texto minhas compras e cadastro */
   h3{
-      font-size: 20px;
+      font-size: 1.1rem;
       color: #102133;
       font-weight: 900;
       padding: 15px;
@@ -127,7 +119,7 @@ li{
   line-height: 65px;
   /* posição do texto ou objeto no quadrado */
   /* define a espaçamento horizontal antes da primeira linha  */
-  text-indent: 25px;
+  text-indent: 15px;
   cursor: pointer;
   }
   /* formatando a imagem */
@@ -148,7 +140,7 @@ li{
       text-align: left;
       font-family: 'Open Sans',Arial,Helvetica,sans-serif;
       /* tamanho da letra */
-      font-size: 20px;
+      font-size: 1rem;
       /* espessura da fonte */
       font-weight:400;
       color:#999;
@@ -243,13 +235,13 @@ border: 2px solid #dcdcdc
 .textocirculo{ 
 
 /* height: 50px; */
-  width: 40%; 
+  width: 80%; 
   display: flex;
   position: relative;
   /* min-height: 90px; */
   margin-bottom: 53px;
   margin-top: 8px;
-  
+  vertical-align: middle;
   
    }
 
@@ -266,7 +258,7 @@ font-size:22px ;
 font-weight: 700;
 border-bottom: solid 2px #d9d9d9;
 text-align: left;
-display: block;
+display: flex;
 }
 
 .insta{
@@ -301,12 +293,15 @@ position: relative;
 display: inline-block;
 background: black;
 border-radius: 5px;
-padding: 10px;
-/* height: 40px; */
+/* padding: 15px;
+max-width: 250px;
+min-width: 100px; */
+height: 45px;
 /* line-height: 40px; */
 margin-top:50px ;
+
 /* left: 85%; */
-font-size:10px;
+/* font-size:15px; */
 
 
 }
@@ -352,20 +347,32 @@ margin-top: 20px;
 padding: 30px 30px;
 display: inline-block;
 width: 100%;
+vertical-align: top;
 background-color: #f5f5f5;
 font-size: 14px;
 color:#999;
 /* text-align: center; */
 border-top: 3px solid #f5f5f5;
-max-width: 100%;
-
 box-sizing: border-box;
 }
-footer div.textorodapé{
+
+p.textorodapé{
 width: 100%;
-text-align: left;
+float: left;
+margin-bottom: 10px;
 }
-footer p.rodapé{
+
+
+/* cadeado */
+.cadeado{
+   max-width: 30px;
+   /* display:block; */
+   max-height: 30px;
+   vertical-align:middle;
+   
+}
+
+/* footer p.rodapé{
 width: 60%;
 
 text-align:center;
@@ -375,7 +382,7 @@ padding-right: 30px;
 margin-bottom: 15px;
 margin-right: 50px;
 padding-bottom: 20px;
-}
+} */
 
 
 /* Daqui para baixo celular grande ou tablet ou maior*/
@@ -391,8 +398,8 @@ section{
       float: none;
       display: flex;
       height: auto;
-      width: 90%;
-      margin: 15px 0 15px 15px;
+      width: 100%;
+      margin: 15px 0 15px 0;
   }
   .foto-perfil{
       
@@ -427,7 +434,10 @@ section{
   li a{
     object-fit: contain;
   }
-
+  footer div.textorodapé{
+  padding-top: 19px;
+  padding-bottom: 19px;
+    }
            
 
 }
@@ -435,7 +445,8 @@ section{
 @media(min-width:769px){
   section{
       display: flex; 
-      padding:32px 15px;                  
+      padding:2em 15px;   
+                 
     }
     aside.menu{
       margin-right:15px ;
@@ -448,25 +459,32 @@ section{
       }
 /* foto perfil menu */
 
+  
 .foto-perfil{
   /* margin-left: auto; */
-  margin-right: auto;
-   max-width: 70%;
-   max-height:50%;
+  /* margin-right: auto; */
+  max-width: 80%;
+  max-height:60%;
    object-fit: contain;
+   padding: 0;
+  
+   display: flex;
+   margin-left:30px;
             } 
    input.btn.btn-success{
        /* margin-left: auto; */
       margin-right: auto;
-       max-width: 80%;
-       max-height:50%;
+      max-width: 85%;
+      max-height:60%;
        object-fit: contain;
+       padding: 0;
+       margin-left:30px;
     }
   
   .perfil{
       float: left;
       display: block;
-      margin: 15px 0 15px 15px;
+      margin: 15px 0 15px 0;
        }
 
   .mobile-menu{
@@ -493,9 +511,22 @@ section{
    display: block;
    position: relative;
             
-          
-           
             }
-            
+
+  button{
+    display: block;
+    float: right;
+
+   
+max-width: 250px;
+min-width: 100px;
+height: 45px;
+margin-right: 10px;
     
+              }
+            
+            footer div.textorodapé{
+              padding-top: 19px;
+              padding-bottom: 19px;
+                }
 }
