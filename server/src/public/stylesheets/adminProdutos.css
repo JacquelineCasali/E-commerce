@@ -337,6 +337,7 @@ tbody tr:nth-child(even) {
     overflow-x: auto;
 }
 
+
 @media only screen and (max-width: 1200px) {
     .sidebar {
         width: 60px;
@@ -414,10 +415,37 @@ tbody tr:nth-child(even) {
     }
 }
 
+@media only screen and (max-width: 600px){
+    .sidebar {
+        width: auto;
+        height: auto;
+    }
+    .sidebar-menu{
+        display: none;
+    }
+    .main-content{
+        margin-left: 0;
+    }
+    .main-content header{
+        left: 48px;
+        width: calc(100% - 48px);
+    }
+    #sidebar-toggle:checked ~ .sidebar{
+        height: 100%;
+    }
+    #sidebar-toggle:checked ~ .sidebar .sidebar-menu{
+        display: block;
+    }
+    #sidebar-toggle:checked ~ .main-content, #sidebar-toggle:checked ~ .main-content header{
+        margin-left: 0;
+        left: 48px;
+        width: calc(100% - 48px);
+    }
+}
+
 @media only screen and (max-width: 450px) {
     main {
         padding-left: 1rem;
         padding-right: 1rem;
     }
 }
-

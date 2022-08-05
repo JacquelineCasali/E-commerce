@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
     <title>Administrador deProdutos</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/lykmapipo/themify-icons@0.1.2/css/themify-icons.css">
-    <link rel="stylesheet" href="adminProdutos.css">
+    <link rel="stylesheet" href="./stylesheets/adminProdutos.css">
 </head>
 <body>
     
@@ -116,46 +116,25 @@
                 <thead>
                 <tr>
                 <th>Produtos Cadastrados</th>
-                <th>Data de Cadastro</th>
                 <th>Última Alteração</th>
                 <th>Status</th>
+                
                 </tr>
                 </thead>
                 <tbody>
-                <tr>
-                <td>Camisa Flamengo Taman...</td>
-                <td>15 Ago, 2022</td>
-                <td>22 Ago, 2022</td>
-                <td>
-                    <span class="badge warning">Inativo</span>
-                </td>
-                </tr>
 
-                <tr>
-                <td>Camisa Vasco Taman...</td>
-                <td>15 Ago, 2022</td>
-                <td>22 Ago, 2022</td>
-                <td>
-                    <span class="badge success">Ativo</span>
-                </td>
-                <tr>
+                    <% for(let produto of produtos) { %>
+                        <tr>
+                            <td><%= produto.nome %></td>
+                            <td><%= produto.ultimaAlteracao %></td>
+                            <% if(produto.status === "Ativo") { %>
+                                <td><span class="badge success"><%= produto.status %></span></td>
+                            <% } else { %>
+                                <td><span class="badge warning"><%= produto.status %></span></td>
+                            <% } %>
+                        </tr>
+                    <% } %>
 
-                <td>Camisa Náutico Taman...</td>
-                <td>15 Ago, 2022</td>
-                <td>22 Ago, 2022</td>
-                <td>
-                    <span class="badge warning">Inativo</span>
-                </td>
-                </tr>
-
-                <td>Camisa Bahia Taman...</td>
-                <td>15 Ago, 2022</td>
-                <td>22 Ago, 2022</td>
-                <td>
-                    <span class="badge success">Ativo</span>
-                </td>
-                </tr>
-                </tr>
                 </tbody>
                 </table>
                 </div>
