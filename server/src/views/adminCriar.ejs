@@ -4,19 +4,25 @@
         <form action="/admin-produtos/criar" method="post">
           <input type="text" name="nome" placeholder="Nome do produto" />
           <br />
-          <br />
-          <input type="text" name="descricao" placeholder="Descrição" />
-          <br />
+          <input type="text" name="tamanho" placeholder="Tamanho" />
           <br />
           <input type="text" name="categoria" placeholder="Categoria" />
           <br />
+          <input type="number" name="preco" placeholder="Preço" pattern="[0-9]+([,\.][0-9]+)?" min="0" step="any" />
           <br />
-          <input type="number" name="preco" placeholder="Preço" />
+          <input type="text" name="descricao" placeholder="Descrição" />
           <br />
+          <select name="status">
+            <option value=""></option>
+            <option value="ativo" selected>Ativo</option>
+            <option value="inativo">Inativo</option>
+          </select>
+          <br /> 
+          <label for="produto-img" style="align-self: baseline;">Imagem do Produto</label>
+          <input type="file" id="produto-img" name="produto-img" accept="image/png, image/jpeg">
           <br />
-          <input type="text" name="tamanho" placeholder="Tamanho" />
-          <br />
-          <br />
+          <br /> 
+          <br /> 
           <div class="form-buttons">
             <button class="reset-button" type="reset">Limpar</button>
             <button class="add-button" type="submit">Adicionar produto</button>
