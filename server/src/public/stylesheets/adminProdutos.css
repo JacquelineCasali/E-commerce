@@ -211,6 +211,7 @@ main {
 .activity-card h3 {
     color: var(--text-grey);
     margin: 1rem;
+    margin-right: 0;
 }
 
 .activity-card table {
@@ -335,6 +336,42 @@ tbody tr:nth-child(even) {
 
 .table-responsive {
     overflow-x: auto;
+}
+
+.table-header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.add-product-button{
+    margin: 1rem;
+    margin-left: 0;
+    background:mediumseagreen;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 30px;
+    height: 30px;
+}
+
+.add-product-button span{
+    font-weight: 900;
+    color: #fff;
+}
+
+.product-edit-buttons{
+    font-size: 18px;
+    color: #1D2231;
+}
+
+.edit-button{
+    font-size: 17px;
+}
+
+.edit-button, .visualize-button{
+    margin-left: 5px;
 }
 
 

@@ -1,0 +1,26 @@
+<%- include("./partials/head") %>
+    <main>
+        <h1>Criar produto</h1>
+        <form action="/admin-produtos/criar" method="post">
+          <input type="text" name="nome" placeholder="Nome do produto" />
+          <br />
+          <br />
+          <input type="text" name="descricao" placeholder="Descrição" />
+          <br />
+          <br />
+          <input type="text" name="categoria" placeholder="Categoria" />
+          <br />
+          <br />
+          <input type="number" name="preco" placeholder="Preço" />
+          <br />
+          <br />
+          <input type="text" name="tamanho" placeholder="Tamanho" />
+          <br />
+          <br />
+          <div class="form-buttons">
+            <button class="reset-button" type="reset">Limpar</button>
+            <button class="add-button" type="submit">Adicionar produto</button>
+          </div>
+        </form>
+    </main>
+<%- include("./partials/footer") %>
