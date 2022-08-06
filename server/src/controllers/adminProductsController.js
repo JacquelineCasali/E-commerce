@@ -46,8 +46,69 @@ const adminProductsController = {
         return res.render("adminProdutos", { produtos });
     },
     adminCriar: (req,res) => {
-        return res.render("adminCriar", { title:"Criar Produto", cssCaminho: "/stylesheets/adminCriar.css" })
+      const { nome, tamanho, categoria, preco, descricao, status } = "";
+        return res.render("adminCriar", { title:"Criar Produto", cssCaminho: "/stylesheets/adminCriar.css", text: {
+          nome: nome,
+          tamanho: tamanho,
+          categoria: categoria,
+          preco: preco,
+          descricao: descricao,
+          status: status,
+        } })
     },
+    adminStore: (req, res) => {
+        const { nome, tamanho, categoria, preco, descricao, status } = req.body;
+
+        if (!nome || !tamanho || !categoria || !preco || !descricao || !status ) {
+          return res.render("adminCriar", { 
+            title: "Criar Produto",
+            cssCaminho: "/stylesheets/adminCriar.css",
+            error: { message: "Preencha todos os campos!" },
+            text: {
+              nome: nome,
+              tamanho: tamanho,
+              categoria: categoria,
+              preco: preco,
+              descricao: descricao,
+              status: status,
+            }
+          });
+        }
+
+        produtos.push({
+            id: produtos.length + 1,
+            nome,
+            tamanho,
+            categoria,
+            preco,
+            descricao,
+            status,
+            ultimaAlteracao: "10/10/2010",
+        });
+        return res.status(201).json({ message: "Usuário criado com sucesso!" });
+    },
+    adminDestroy: (req, res) => {
+        const { id } = req.params;
+        const result = produtos.findIndex(
+          (produto) =>
+            produto.id === parseInt(id)
+        );
+        if (result === -1) {
+          return res.status(400).json({ message: "Nenhum usuário encontrado" });
+        }
+        produtos.splice(result, 1);
+        return res.status(200).json({ message: "Usuário deletado com sucesso" });
+      },
+    adminDelete: (req, res) => {
+        const { id } = req.params;
+        const productResult = produtos.find(
+          (produto) => produto.id === parseInt(id)
+        );
+        if (!productResult) {
+          return res.status(400).json({ message: "Nenhum usuário encontrado" });
+        }
+        return res.render("adminDeletar", { title:"Deletar Produto", cssCaminho: "/stylesheets/adminDeletar.css", produto: productResult })
+      },
     }
     
     module.exports = adminProductsController;

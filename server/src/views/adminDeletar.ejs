@@ -1,0 +1,19 @@
+<%- include("./partials/head") %>
+    <main>
+        <h1>Deletar Usuário</h1>
+        <div>
+            <img src="" alt="">
+            <span><%= produto.nome %></span>
+            <span><%= produto.tamanho %></span>
+            <span><%= produto.categoria %></span>
+            <span><%= produto.preco %></span>
+            <span><%= produto.descricao %></span>
+            <span><%= produto.status %></span>
+            <span><%= produto.ultimaAlteracao %></span>
+        </div>
+        <form action="/admin-produtos/delete/<%= produto.id %>?_method=delete" method="post">
+            <a href="/admin-produtos"><button type="button">Não, voltar!</button></a>
+            <button type="submit">Sim</button>
+        </form>
+    </main>
+<%- include("./partials/footer") %>

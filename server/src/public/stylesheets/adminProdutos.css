@@ -106,6 +106,7 @@ header {
 .search-wrapper {
     display: flex;
     align-items: center;
+    width: 100%;
 }
 
 .search-wrapper input {
@@ -113,6 +114,7 @@ header {
     outline: 0;
     padding: 1rem;
     height: 38px;
+    width: 100%;
 }
 
 .social-icons {
@@ -193,12 +195,6 @@ main {
 .recent {
     margin-top: 3rem;
     margin-bottom: 3rem;
-}
-
-.activity-grid {
-    display: grid;
-    grid-template-columns: 75% 25%;
-    grid-column-gap: 1.5rem;
 }
 
 .activity-card,
