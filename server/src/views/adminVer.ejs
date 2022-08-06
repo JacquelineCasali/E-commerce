@@ -1,0 +1,88 @@
+<%- include("./partials/head") %>
+
+<input type="checkbox" id="sidebar-toggle">
+<div class="sidebar">
+  <div class="sidebar-header">
+      <h3 class="brand">
+          <span>Approve</span>
+      </h3>
+      <label for="sidebar-toggle" class="ti-menu-alt"></label>
+  </div>
+
+  <div class="sidebar-menu">
+      <ul>
+          <li>
+              <a href="/admin-produtos">
+                  <span class="ti-home"></span>
+                  <span>Tela Inicial</span>
+              </a>
+          </li>
+          <li>
+              <a href="/admin-produtos">
+                  <span class="ti-face-smile"></span>
+                  <span>Vendedores</span>
+              </a>
+          </li>
+          <li>
+              <a href="/admin-produtos">
+                  <span class="ti-clipboard"></span>
+                  <span>Pagamentos</span>
+              </a>
+          </li>
+          <li>
+              <a href="/admin-produtos">
+                  <span class="ti-book"></span>
+                  <span>Produtos</span>
+              </a>
+          </li>
+          <li>
+              <a href="/admin-produtos">
+                  <span class="ti-settings"></span>
+                  <span>Config. e Relatórios</span>
+              </a>
+          </li>
+      </ul>
+  </div>
+</div>
+    <main class="main-content">
+      <header></header>
+        <h1>Produto</h1>
+        <% if(locals.successMessage) { %>
+            <h2 class="success-message"><%= successMessage %></h2>
+            <br />
+            <% } %>
+        <form action="/admin-produtos/<%= produto.id %>?_method=patch" method="post">
+            <label for="nome"></label>
+          <input type="text" name="nome" placeholder="Nome do produto" value="<%= produto.nome %>" />
+          <br />
+          <input type="text" name="tamanho" placeholder="Tamanho" value="<%= produto.tamanho %>"/>
+          <br />
+          <input type="text" name="categoria" placeholder="Categoria" value="<%= produto.categoria %>"/>
+          <br />
+          <input type="number" name="preco" placeholder="Preço" pattern="[0-9]+([,\.][0-9]+)?" min="0" step="any" value="<%= parseFloat(produto.preco) %>"/>
+          <br />
+          <input type="text" name="descricao" placeholder="Descrição" value="<%= produto.descricao %>" />
+          <br />
+          <select name="status">
+            <% if (produto.status === "Ativo") { %>
+                <option value="Ativo" selected>Ativo</option>
+                <option value="Inativo">Inativo</option>
+            <% } else { %>
+                <option value="Ativo" >Ativo</option>
+                <option value="Inativo" selected>Inativo</option>
+            <% } %>
+          </select>
+          <br /> 
+          <label for="produto-img" style="align-self: baseline;">Imagem do Produto</label>
+          <input type="file" id="produto-img" name="produto-img" accept="image/png, image/jpeg">
+          <br />
+          <br /> 
+          <br /> 
+          <div class="form-buttons">
+            <a href="/admin-produtos" class="back-button"><button class="reset-button" type="button">Voltar</button></a>
+            <button class="add-button" type="submit">Salvar Alteração</button>
+          </div>
+        </form>
+        
+    </main>
+<%- include("./partials/footer") %>
