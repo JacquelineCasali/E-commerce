@@ -51,7 +51,7 @@
             <h2 class="error-message"><%= error.message %></h2>
             <br />
             <% } %>
-        <form action="/admin-produtos/criar" method="post">
+        <form action="/admin-produtos/criar" method="post" enctype="multipart/form-data">
           <input type="text" name="nome" placeholder="Nome do produto" 
             <% if (locals.text.nome) { %>
                 value="<%= text.nome %>"
@@ -83,9 +83,19 @@
           />
           <br />
           <select name="status">
-            <option value="" selected></option>
-            <option value="Ativo">Ativo</option>
-            <option value="Inativo">Inativo</option>
+            <% if (locals.text.status === "Ativo") { %>
+                <option value="" ></option>
+                <option value="Ativo" selected>Ativo</option>
+                <option value="Inativo">Inativo</option>
+            <% } else if (locals.text.status === "Inativo") { %>
+                <option value="" ></option>
+                <option value="Ativo" >Ativo</option>
+                <option value="Inativo" selected>Inativo</option>
+            <% } else { %>
+                <option value="" selected></option>
+                <option value="Ativo">Ativo</option>
+                <option value="Inativo">Inativo</option>
+            <% } %>
           </select>
           <br /> 
           <label for="produto-img" style="align-self: baseline;">Imagem do Produto</label>
