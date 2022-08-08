@@ -1,21 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const multer = require("multer");
-const crypto = require("crypto");
-
-const storage = multer.diskStorage({
-    destination: (req, file, cb) => {
-        cb(null, __dirname  + "/../public/images/")
-    },
-    filename: (req, file, cb) => {
-        const extension = file.originalname.split(".")[1];
-        const newName = crypto.randomBytes(15).toString("hex");
-
-        cb(null, `${newName}.${extension}`)
-    }
-});
-
-const upload = multer({ storage })
+const upload = require("../helpers/multer");
 
 const adminProductsController=require("../controllers/adminProductsController");
 

@@ -1,6 +1,6 @@
 const files = require("../helpers/files");
 const fs = require("fs");
-const { constants } = require("buffer");
+const upload = require("../config/upload");
 
 var produtos = [
     {   
@@ -115,7 +115,7 @@ const adminProductsController = {
 
         const product = {
           ...productResult,
-          imagem: files.base64Encode(__dirname + "/../public/images/" + productResult.imagem),
+          imagem: files.base64Encode( upload.imagePath + productResult.imagem),
         }
 
         return res.render("adminVer", { title: productResult.nome, cssCaminho: "/stylesheets/adminVer.css", produto: product, successMessage: "Produto cadastrado com sucesso!" }).status(201).json({ message: "Usuário criado com sucesso!" });
@@ -129,6 +129,8 @@ const adminProductsController = {
         if (result === -1) {
           return res.status(400).json({ message: "Nenhum usuário encontrado" });
         }
+
+        fs.unlinkSync( upload.imagePath + produtos[result].imagem);
         produtos.splice(result, 1);
         return res.status(200).json({ message: "Usuário deletado com sucesso" });
       },
@@ -140,7 +142,11 @@ const adminProductsController = {
         if (!productResult) {
           return res.status(400).json({ message: "Nenhum usuário encontrado" });
         }
-        return res.render("adminDeletar", { title:"Deletar Produto", cssCaminho: "/stylesheets/adminDeletar.css", produto: productResult })
+        const product = {
+          ...productResult,
+          imagem: files.base64Encode( upload.imagePath + productResult.imagem),
+        }
+        return res.render("adminDeletar", { title:"Deletar Produto", cssCaminho: "/stylesheets/adminDeletar.css", produto: product })
       },
     adminShow: (req, res) => {
         const { id } = req.params;
@@ -151,7 +157,7 @@ const adminProductsController = {
         }
         const product = {
           ...productResult,
-          imagem: files.base64Encode(__dirname + "/../public/images/" + productResult.imagem)
+          imagem: files.base64Encode( upload.imagePath + productResult.imagem),
         }
         return res.render("adminVer", { title: "Produto | " + productResult.nome, cssCaminho: "/stylesheets/adminVer.css", produto: product})
       },
@@ -196,14 +202,14 @@ const adminProductsController = {
         if (status) newProduct.status = status;
         if (filename) {
           let imagemTmp = newProduct.imagem;
-          fs.unlinkSync(__dirname + "/../public/images/" + imagemTmp);
+          fs.unlinkSync( upload.imagePath + imagemTmp);
           newProduct.imagem = filename;
         }
         newProduct.ultimaAlteracao = alteracao;
 
         const product = {
           ...productResult,
-          imagem: files.base64Encode(__dirname + "/../public/images/" + productResult.imagem),
+          imagem: files.base64Encode( upload.imagePath + productResult.imagem),
         }
         return res.render("adminVer", { title: productResult.nome, cssCaminho: "/stylesheets/adminVer.css", produto: product, successMessage })
         .status(200)

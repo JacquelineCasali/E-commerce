@@ -21,6 +21,10 @@ main{
     flex-direction: column;
     align-items: center;
 }
+main div{
+    display: flex;
+    flex-direction: column;
+}
 
 h1{
     margin-top: 30px;
@@ -45,4 +49,17 @@ button{
     background-color: rgb(155, 0, 0);
     color: #fff;
     margin-left: 10px;
+}
+
+img{
+    width: 300px;
+    height: 300px;
+    align-self: center;
+}
+
+@media (max-width: 400px){
+    img{
+        width: 270px;
+        height: 270px;
+    }
 }
