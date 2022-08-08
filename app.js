@@ -10,6 +10,7 @@ var usersRouter = require('./server/src/routes/usersRoute');
 var loginRouter = require('./server/src/routes/loginRoute');
 var paymentRouter = require('./server/src/routes/paymentRoute');
 var adminProductRouter = require('./server/src/routes/adminProductsRoute');
+var produtoRouter = require('./server/src/routes/productRoute');
 
 var app = express();
 
@@ -29,6 +30,7 @@ app.use('/usuario', usersRouter);
 app.use('/login', loginRouter);
 app.use('/finalizacao', paymentRouter);
 app.use('/admin-produtos', adminProductRouter);
+app.use('/produto',produtoRouter)
 
 
 // catch 404 and forward to error handler
