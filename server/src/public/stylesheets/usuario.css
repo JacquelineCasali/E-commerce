@@ -353,10 +353,12 @@ border-top: 3px solid #f5f5f5;
 box-sizing: border-box;
 }
 
-p.textorodapé{
+p.rodapé{
 width: 100%;
+/* display: flex; */
 float: left;
-margin-bottom: 10px;
+margin-bottom: 20px;
+padding-left: 20px;
 }
 
 
@@ -364,8 +366,9 @@ margin-bottom: 10px;
 .cadeado{
    max-width: 30px;
    /* display:block; */
-   max-height: 30px;
+   /* max-height: 30px; */
    vertical-align:middle;
+
    
 }
 
