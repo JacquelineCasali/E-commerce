@@ -1,3 +1,7 @@
+const files = require("../helpers/files");
+const fs = require("fs");
+const { constants } = require("buffer");
+
 var produtos = [
     {   
         id: 1,
@@ -8,6 +12,7 @@ var produtos = [
         descricao: "Descrição do produto",
         status: "Ativo",
         ultimaAlteracao: "05/08/2022",
+        imagem: "Moleton.png"
     },
     {   
         id: 2,
@@ -18,6 +23,7 @@ var produtos = [
         descricao: "Descrição do produto",
         status: "Ativo",
         ultimaAlteracao: "09/07/2022",
+        imagem: "Moleton.png"
     },
     {   
         id: 3,
@@ -28,6 +34,7 @@ var produtos = [
         descricao: "Descrição do produto", 
         status: "Inativo",
         ultimaAlteracao: "15/08/2021",
+        imagem: "camisa-flamengo1.jpg"
     },
     {   
         id: 4,
@@ -38,6 +45,7 @@ var produtos = [
         descricao: "Descrição do produto",
         status: "Inativo",
         ultimaAlteracao: "15/08/2021",
+        imagem: "camisa-flamengo1.jpg"
     }
 ] 
 
@@ -62,11 +70,15 @@ const adminProductsController = {
     },
     adminStore: (req, res) => {
         const { nome, tamanho, categoria, preco, descricao, status } = req.body;
+        let filename;
+        if (req.file) {
+          filename = req.file.filename;
+        }
         const date = Date.now();
         const atualDate = new Date (date);
         const alteracao = atualDate.toLocaleDateString();
 
-        if (!nome || !tamanho || !categoria || !preco || !descricao || !status ) {
+        if (!nome || !tamanho || !categoria || !preco || !descricao || !status || filename === undefined ) {
           return res.render("adminCriar", { 
             title: "Criar Produto",
             cssCaminho: "/stylesheets/adminCriar.css",
@@ -83,8 +95,10 @@ const adminProductsController = {
           });
         }
 
+        const id  = produtos.length + 1;
+
         produtos.push({
-            id: produtos.length + 1,
+            id: id,
             nome,
             tamanho,
             categoria,
@@ -92,8 +106,19 @@ const adminProductsController = {
             descricao,
             status,
             ultimaAlteracao: alteracao,
+            imagem: filename,
         });
-        return res.status(201).json({ message: "Usuário criado com sucesso!" });
+
+        const productResult = produtos.find(
+          (produto) => produto.id === parseInt(id)
+        );
+
+        const product = {
+          ...productResult,
+          imagem: files.base64Encode(__dirname + "/../public/images/" + productResult.imagem),
+        }
+
+        return res.render("adminVer", { title: productResult.nome, cssCaminho: "/stylesheets/adminVer.css", produto: product, successMessage: "Produto cadastrado com sucesso!" }).status(201).json({ message: "Usuário criado com sucesso!" });
     },
     adminDestroy: (req, res) => {
         const { id } = req.params;
@@ -117,19 +142,27 @@ const adminProductsController = {
         }
         return res.render("adminDeletar", { title:"Deletar Produto", cssCaminho: "/stylesheets/adminDeletar.css", produto: productResult })
       },
-      adminShow: (req, res) => {
+    adminShow: (req, res) => {
         const { id } = req.params;
-        const productResult = produtos.find(
-          (produto) => produto.id === parseInt(id)
-        );
+        const productResult = produtos.find((produto) => produto.id === parseInt(id));
+
         if (!productResult) {
           return res.status(400).json({ message: "Nenhum usuário encontrado" });
         }
-        return res.render("adminVer", { title: productResult.nome, cssCaminho: "/stylesheets/adminVer.css", produto: productResult, successMessage: "" })
+        const product = {
+          ...productResult,
+          imagem: files.base64Encode(__dirname + "/../public/images/" + productResult.imagem)
+        }
+        return res.render("adminVer", { title: "Produto | " + productResult.nome, cssCaminho: "/stylesheets/adminVer.css", produto: product})
       },
-      adminUpdate: (req, res) => {
+    adminUpdate: (req, res) => {
         const { id } = req.params;
         const { nome, tamanho, categoria, preco, descricao, status } = req.body;
+        let filename;
+        if (req.file) {
+          filename = req.file.filename;
+        }
+
         const date = Date.now();
         const atualDate = new Date (date);
         const alteracao = atualDate.toLocaleDateString();
@@ -142,13 +175,17 @@ const adminProductsController = {
           return res.status(400).json({ message: "Nenhum usuário encontrado" });
         }
 
-        if( nome !== productResult.nome || 
+        if( 
+          nome !== productResult.nome || 
           tamanho !== productResult.tamanho || 
           categoria !== productResult.categoria || 
           parseFloat(preco) !== parseFloat(productResult.preco) || 
           descricao !== productResult.descricao || 
-          status !== productResult.status ) { 
+          status !== productResult.status || 
+          filename !== undefined) { 
             var successMessage = "Produto atualizado com sucesso!"};
+
+            console.log(filename)
 
         const newProduct = productResult;
         if (nome) newProduct.nome = nome;
@@ -157,8 +194,18 @@ const adminProductsController = {
         if (preco) newProduct.preco = preco;
         if (descricao) newProduct.descricao = descricao;
         if (status) newProduct.status = status;
+        if (filename) {
+          let imagemTmp = newProduct.imagem;
+          fs.unlinkSync(__dirname + "/../public/images/" + imagemTmp);
+          newProduct.imagem = filename;
+        }
         newProduct.ultimaAlteracao = alteracao;
-        return res.render("adminVer", { title: productResult.nome, cssCaminho: "/stylesheets/adminVer.css", produto: productResult, successMessage })
+
+        const product = {
+          ...productResult,
+          imagem: files.base64Encode(__dirname + "/../public/images/" + productResult.imagem),
+        }
+        return res.render("adminVer", { title: productResult.nome, cssCaminho: "/stylesheets/adminVer.css", produto: product, successMessage })
         .status(200)
         .json({ message: "Atualização realizada com sucesso" });
       }
