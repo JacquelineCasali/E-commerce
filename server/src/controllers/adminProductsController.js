@@ -78,23 +78,6 @@ const adminProductsController = {
         const atualDate = new Date (date);
         const alteracao = atualDate.toLocaleDateString();
 
-        if (!nome || !tamanho || !categoria || !preco || !descricao || !status || filename === undefined ) {
-          return res.render("adminCriar", { 
-            title: "Criar Produto",
-            cssCaminho: "/stylesheets/adminCriar.css",
-            error: { message: "Preencha todos os campos!" },
-            text: {
-              nome: nome,
-              tamanho: tamanho,
-              categoria: categoria,
-              preco: preco,
-              descricao: descricao,
-              status: status,
-              ultimaAlteracao: alteracao,
-            }
-          });
-        }
-
         const id  = produtos.length + 1;
 
         produtos.push({
@@ -132,7 +115,7 @@ const adminProductsController = {
 
         fs.unlinkSync( upload.imagePath + produtos[result].imagem);
         produtos.splice(result, 1);
-        return res.status(200).json({ message: "Usuário deletado com sucesso" });
+        return res.redirect("/admin-produtos");
       },
     adminDelete: (req, res) => {
         const { id } = req.params;
