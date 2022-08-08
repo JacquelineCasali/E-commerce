@@ -1,21 +1,101 @@
 <%- include("./partials/head") %>
-    <main>
+
+<input type="checkbox" id="sidebar-toggle">
+<div class="sidebar">
+  <div class="sidebar-header">
+      <h3 class="brand">
+          <span>Approve</span>
+      </h3>
+      <label for="sidebar-toggle" class="ti-menu-alt"></label>
+  </div>
+
+  <div class="sidebar-menu">
+      <ul>
+          <li>
+              <a href="/admin-produtos">
+                  <span class="ti-home"></span>
+                  <span>Tela Inicial</span>
+              </a>
+          </li>
+          <li>
+              <a href="/admin-produtos">
+                  <span class="ti-face-smile"></span>
+                  <span>Vendedores</span>
+              </a>
+          </li>
+          <li>
+              <a href="/admin-produtos">
+                  <span class="ti-clipboard"></span>
+                  <span>Pagamentos</span>
+              </a>
+          </li>
+          <li>
+              <a href="/admin-produtos">
+                  <span class="ti-book"></span>
+                  <span>Produtos</span>
+              </a>
+          </li>
+          <li>
+              <a href="/admin-produtos">
+                  <span class="ti-settings"></span>
+                  <span>Config. e Relatórios</span>
+              </a>
+          </li>
+      </ul>
+  </div>
+</div>
+    <main class="main-content">
+      <header></header>
         <h1>Criar produto</h1>
-        <form action="/admin-produtos/criar" method="post">
-          <input type="text" name="nome" placeholder="Nome do produto" />
+        <% if(locals.error) { %>
+            <h2 class="error-message"><%= error.message %></h2>
+            <br />
+            <% } %>
+        <form action="/admin-produtos/criar" method="post" enctype="multipart/form-data">
+          <input type="text" name="nome" placeholder="Nome do produto" 
+            <% if (locals.text.nome) { %>
+                value="<%= text.nome %>"
+            <% } %>
+          />
           <br />
-          <input type="text" name="tamanho" placeholder="Tamanho" />
+          <input type="text" name="tamanho" placeholder="Tamanho" 
+            <% if (locals.text.tamanho) { %>
+                value="<%= text.tamanho %>"
+            <% } %>
+          />
           <br />
-          <input type="text" name="categoria" placeholder="Categoria" />
+          <input type="text" name="categoria" placeholder="Categoria" 
+            <% if (locals.text.categoria) { %>
+                value="<%= text.categoria %>"
+            <% } %>
+          />
           <br />
-          <input type="number" name="preco" placeholder="Preço" pattern="[0-9]+([,\.][0-9]+)?" min="0" step="any" />
+          <input type="number" name="preco" placeholder="Preço" pattern="[0-9]+([,\.][0-9]+)?" min="0" step="any" 
+            <% if (locals.text.preco) { %>
+                value="<%= text.preco %>"
+            <% } %>
+          />
           <br />
-          <input type="text" name="descricao" placeholder="Descrição" />
+          <input type="text" name="descricao" placeholder="Descrição" 
+            <% if (locals.text.descricao) { %>
+                value="<%= text.descricao %>"
+            <% } %>
+          />
           <br />
           <select name="status">
-            <option value=""></option>
-            <option value="ativo" selected>Ativo</option>
-            <option value="inativo">Inativo</option>
+            <% if (locals.text.status === "Ativo") { %>
+                <option value="" ></option>
+                <option value="Ativo" selected>Ativo</option>
+                <option value="Inativo">Inativo</option>
+            <% } else if (locals.text.status === "Inativo") { %>
+                <option value="" ></option>
+                <option value="Ativo" >Ativo</option>
+                <option value="Inativo" selected>Inativo</option>
+            <% } else { %>
+                <option value="" selected></option>
+                <option value="Ativo">Ativo</option>
+                <option value="Inativo">Inativo</option>
+            <% } %>
           </select>
           <br /> 
           <label for="produto-img" style="align-self: baseline;">Imagem do Produto</label>
@@ -24,9 +104,10 @@
           <br /> 
           <br /> 
           <div class="form-buttons">
-            <button class="reset-button" type="reset">Limpar</button>
+            <a href="/admin-produtos" class="back-button"><button class="reset-button" type="button">Cancelar</button></a>
             <button class="add-button" type="submit">Adicionar produto</button>
           </div>
         </form>
+        
     </main>
 <%- include("./partials/footer") %>
