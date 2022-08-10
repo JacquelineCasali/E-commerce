@@ -2,10 +2,12 @@
 <main>
     <h1>Admin Login</h1>
     <% if (locals.error) { %>
-        <h2><%= locals.error %></h2>
+        <h2 class="message"><%= locals.error %></h2>
     <% } %>
     <form action="/admin-produtos/login" method="post">
-        <input type="text" name="username" id="username" placeholder="Username">
+        <label for="username">Nome de usuário</label>
+        <input type="text" name="username" id="username" placeholder="Nome de usuário">
+        <label for="senha">Senha</label>
         <input type="password" name="senha" id="senha" placeholder="Senha">
         <button class="valid-button" type="submit">Login</button>
     </form>

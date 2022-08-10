@@ -2,11 +2,11 @@
     {
         "id": 1,
         "username": "Admin01",
-        "senha": "Senha123" 
+        "senha": "$2b$10$BC3pXZO7YH0oRf01QNrObO/KdeZELnWjrg8Y34dvRzodYsBJuV9Zu" 
     },
     {
         "id": 2,
         "username": "Admin02",
-        "senha": "AdminSenha"
+        "senha": "$2b$10$YWBXTTON11wyDkVqTVfPa.rQUnfdlC/l4BP4ph4h.j9PcOxWwBhnm"
     }
 ]

@@ -1,5 +1,6 @@
 const fs = require("fs");
 const path = require("path");
+const bcryp = require("../helpers/bcrypt");
 
 const adminAuthController = {
     adminLogin: (req, res) => {
@@ -20,7 +21,7 @@ const adminAuthController = {
 
         const userAuth = admins.find((admin) => {
             if(admin.username === username){
-                if(admin.senha === senha){
+                if(bcryp.compareHash(senha, admin.senha)){
                     return true;
                 }
             }
@@ -33,6 +34,9 @@ const adminAuthController = {
                 error: "Dados inválidos"
             })
         }
+
+        const senha123 = bcryp.generateHash("Admin@");
+        console.log(senha123);
 
         req.session.username = userAuth.username;
 
