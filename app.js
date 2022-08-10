@@ -5,6 +5,7 @@ var port=3000;
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 const methodOverride = require("method-override");
+const session = require("express-session");
 
 var indexRouter = require('./server/src/routes/indexRoute');
 var usersRouter = require('./server/src/routes/userRoute');
@@ -28,6 +29,7 @@ app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
+app.use(session({ secret: "LoginAdmin", cookie: {expires: 72000000} }));
 app.use(express.static(path.join(__dirname, 'server/src/public')));
 
 app.use('/', indexRouter);
