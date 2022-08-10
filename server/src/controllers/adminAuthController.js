@@ -35,9 +35,6 @@ const adminAuthController = {
             })
         }
 
-        const senha123 = bcryp.generateHash("Admin@");
-        console.log(senha123);
-
         req.session.username = userAuth.username;
 
         return res.redirect("/admin-produtos");
