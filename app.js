@@ -32,7 +32,7 @@ app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/login', loginRouter);
 app.use('/admin-produtos', adminProductRouter);
-app.use('/produto',produtoRouter)
+app.use('/',produtoRouter)
 app.use('/usuario', usuarioRoute);
 app.use('/finalizacao',paymentRouter);
 app.use('/cartoes',meuscartoesRoute);
