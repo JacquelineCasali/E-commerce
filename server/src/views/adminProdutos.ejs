@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
-    <title>Administrador deProdutos</title>
+    <title>Administrador de Produtos</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/lykmapipo/themify-icons@0.1.2/css/themify-icons.css">
     <link rel="stylesheet" href="/stylesheets/adminProdutos.css">
 </head>
@@ -113,7 +113,7 @@
                     <div class="activity-card">
                         <div class="table-header">
                             <h3>Produtos Cadastrados</h3>
-                            <a class="add-product-button" href=""><span class="ti-plus"></span></a>
+                            <a class="add-product-button" href="/admin-produtos/criar"><span class="ti-plus"></span></a>
                         </div>  
 
                         <div class="table-responsive">
@@ -146,13 +146,10 @@
                                                 </td>
                                             <% } %>
                                             <td class="edit-buttons-column">
-                                                <a class="delete-button product-edit-buttons" href="">
+                                                <a class="delete-button product-edit-buttons" href="/admin-produtos/delete/<%= produto.id %>">
                                                     <span class="ti-trash"></span>
                                                 </a>
-                                                <a class="edit-button product-edit-buttons" href="">
-                                                    <span class="ti-pencil-alt"></span>
-                                                </a>
-                                                <a class="visualize-button product-edit-buttons" href="">
+                                                <a class="visualize-button product-edit-buttons" href="/admin-produtos/<%= produto.id %>">
                                                     <span class="ti-eye"></span>
                                                 </a>
                                             </td>
@@ -161,48 +158,6 @@
 
                                 </tbody>
                             </table>
-                        </div>
-                    </div>
-                    <div class="summary">
-
-                        <div class="summary-card">
-                            <div class="summary-single">
-
-                                <div>
-                                    <div class="summary-single">
-                                        <span class="ti-calendar"></span>
-                                        <div>
-                                            <h5>16</h5>
-                                            <small>Pedidos em Aprovação</small>
-                                        </div>
-                                    </div>
-
-                                    <div class="summary-single">
-                                        <span class="ti-calendar"></span>
-                                        <div>
-                                            <h5>04</h5>
-                                            <small>Pedidos Aprovado</small>
-                                        </div>
-                                    </div>
-
-                                    <div class="summary-single">
-                                        <span class="ti-calendar"></span>
-                                        <div>
-                                            <h5>22</h5>
-                                            <small>Pedidos Liberado</small>
-                                        </div>
-                                    </div>
-
-                                    <div class="summary-single">
-                                        <span class="ti-calendar"></span>
-                                        <div>
-                                            <h5>199</h5>
-                                            <small>Pedidos Remetidos</small>
-                                        </div>
-                                    </div>
-                                    </button>
-                                </div>
-                            </div>
                         </div>
                     </div>
             </section>

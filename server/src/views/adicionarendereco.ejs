@@ -1,0 +1,92 @@
+ 
+
+    <!-- section toda a tela entre o cabeçalho e o rodpé -->
+    <!-- menu lateral -->
+    <%- include('./partials/usuariomenu')%>
+   
+    <!-- tela lado direito -->
+        <main class="main_content">
+
+            <div class="codigo">
+               
+                <!-- Tela lateral -->
+          <h3 class="fontebarra" id="titulo-Meus Cartões">Meus Endereços</h3> 
+            </div>            <!--meus dados  -->
+           
+           
+            <form action="/registro" method="get">   
+                <!-- <div class="row"> -->
+                  
+                    <div class="coluna2">
+                        
+        <label for="nome do destinatário">Nome do Destinatário:</label>
+                        
+        <input type="text" class="coluna22"  id="nome do destinatário" name="nome do destinatário" placeholder="Digite o nome do destinatário">
+                        
+                                          
+                    </div>
+                    
+                      <div class="coluna3">
+                        <label for="cep">CEP :</label>
+                       <input type="text" class="coluna25"  id="cep" name="cep" placeholder="Digite o cep">
+                        <a href="https://buscacepinter.correios.com.br/app/endereco/index.php">Não sei o CEP</a>
+                    </div>
+                <div class="e">
+                                          
+             <label  for="Rua">Rua :</label>
+                                    
+            <input type="text" class="coluna22" id="Rua" name="Rua">
+             </div>        
+             <div class="coluna2">
+
+                <label  for="Bairro">Bairro :</label>
+                                    
+                <input type="text" class="coluna22" id="Bairro" name="Bairro">
+            
+                <label  for="Numero">Numero :</label>
+                                    
+                <input type="text" class="coluna22" id="Numero" name="Numero">
+            
+</div>
+<div class="coluna3">
+
+    <label  for="Cidade">Cidade/Estado :</label>
+                                    
+                <input type="text" class="coluna22" id="Cidade" name="Cidade">
+            
+    <label  for="Complemento">Complemento :</label>
+                        
+    <input type="text" class="coluna22" id="Complemento" name="Complemento">
+
+</div>
+         
+              
+            </div>
+        </form>
+            <button class="endereco" type="submit" > <a href="./">
+                    SALVAR ENDEREÇO </button>
+                </a>
+               
+     
+                           
+
+            </div>
+
+                </div>  
+                
+         </div>        
+         </form>        
+           
+
+             
+         </div>
+        </main>
+    </section>
+    
+</from>
+
+
+    <!-- footer define o rodapé -->
+    <%- include('./partials/footerusuario')%>
+
+

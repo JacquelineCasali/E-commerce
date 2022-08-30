@@ -2,14 +2,16 @@ var createError = require('http-errors');
 var express = require('express');
 var path = require('path');
 var port=3000;
+var methodOverride=require("method-override");
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 
 var indexRouter = require('./server/src/routes/indexRoute');
-var usersRouter = require('./server/src/routes/usersRoute');
 var loginRouter = require('./server/src/routes/loginRoute');
-var paymentRouter = require('./server/src/routes/paymentRoute');
 var adminProductRouter = require('./server/src/routes/adminProductsRoute');
+var usuarioRoute = require('./server/src/routes/usuarioRoute');
+var paymentRouter = require('./server/src/routes/paymentRoute');
+var cadastroRoute= require('./server/src/routes/cadastroRoute');
 
 var app = express();
 
@@ -18,17 +20,21 @@ app.set('views', path.join(__dirname, 'server/src/views'));
 app.set('view engine', 'ejs');
 
 app.use(logger('dev'));
+app.use(methodOverride("_method"));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
-app.use(express.static(path.join(__dirname, 'server/src/public')));
+app.use(express.static(path.join(__dirname, 'server/public')));
+
+
+
 
 app.use('/', indexRouter);
-app.use('/usuarios', usersRouter);
-app.use('/usuario', usersRouter);
 app.use('/login', loginRouter);
-app.use('/finalizacao', paymentRouter);
 app.use('/admin-produtos', adminProductRouter);
+app.use('/MinhaConta', usuarioRoute);
+app.use('/finalizacao',paymentRouter);
+app.use('/cadastro',cadastroRoute);
 
 
 // catch 404 and forward to error handler
@@ -46,6 +52,8 @@ app.use(function(err, req, res, next) {
   res.status(err.status || 500);
   res.render('error');
 });
+
+
 
 module.exports = app;
 app.listen(port, () => {

@@ -1,0 +1,101 @@
+* {
+  background-color: #f2f2f2;
+  color: #6D6D5F;
+  font-family: montserrat, sans-serif;
+  box-sizing: border-box;
+  position: relative;
+  font-weight: 700;
+  padding: 8px;
+  width: 98%;
+}
+  .tituloPrincipal {
+     text-align: center;
+      color:#6D6D5F;
+      font-size: 36px;
+      font-weight: normal;
+      margin-top: 20px;
+      margin-bottom: 10px;
+  }
+  .paragraph {
+      text-align: center;
+      color:#6D6D5F;
+      font-size: 16px;
+      font-weight: normal;
+      margin-top: 0px;
+      margin-bottom: 32px;
+  }
+
+  h3::after {
+    content: '';
+    width: 50px;
+    height: 5px;
+    background: #000;
+    position: absolute;
+    left: 0;
+    bottom: -3px;
+  }
+  .instagram-title {
+    border-bottom: 1px solid #cecece;
+  }
+  .end-cadastro-title {
+    border-bottom: 1px solid #cecece;
+  }
+  .DadosPessoais {
+      border-bottom: 1px solid #cecece;
+      color:#6D6D5F;
+      font-size: 20px;
+      line-height: inherit;
+      font-weight: normal;
+      margin-top: 30px;
+      margin-bottom: 25px;
+      position: relative;
+  }
+  .grupoDeDados {
+    color: #ffffff;
+    font-size: 14px;
+    margin-top: 0px;
+    margin-bottom: 10px;
+    padding: 4px;
+  }
+  .helpCep {
+    font-size: 12.8px;
+    clear: both;
+    text-align: center;
+  }
+  .btn-primary {
+    padding: 8px;
+    width: 96%;
+    border: none;
+    font-size: 20.8px;
+    color: #ffffff;
+    background-color: #86e06f;
+    border-radius: 8px;
+    }
+    .btn-primary:hover{
+    background-color: #43942f;
+    }
+    .form-check.cadnewsletter {
+      padding-top: 2em;
+      display: flex;
+  }
+  .termoseCondicoes {
+    font-size: 14px;
+    color: #000000;
+    font-weight: 700;
+    
+  }
+  .rodapePI {
+    font-size: 14px;
+    color: #8c8c8c;
+    text-align: center;
+  }
+  .made-by {
+    font-size: 14px;
+    color: #8c8c8c;
+    text-align: center;
+  }
+  .safeSecurity {
+    font-size: 14px;
+    color: #8c8c8c;
+    text-align: center;
+  }
