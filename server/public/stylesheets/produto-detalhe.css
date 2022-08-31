@@ -1,200 +1,218 @@
-.conteudo{
-    display:flex;
-    justify-content:center;
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@400;600;700&display=swap');
+
+.conteudo {
+  display: flex;
+  justify-content: space-between;
+  margin-left: 10%;
+  width: 100%;
+}
+
+.image-detalhe {
+  max-width: 70%;
+  height: 1000px;
+  padding: 40px;
+  display: flex;
+  align-items: center;
+}
+
+.produto-detalhe {
+  font-family: "Raleway", sans-serif;
+  font-size: 18px;
+  width: 100%;
+  font-weight: 600px;
+  color:#303030;
+}
+
+.detalhe-container {
+  display: block;
+  width: 100%;
+  margin-top: 100px;
+  margin-left: 5%;
+}
+
+.preco-produto {
+  font-family: "Roboto", sans-serif;
+  font-size: 35px;
+  font-weight: 700px;
+  color: #6d6d6d;
+  text-transform: uppercase;
+}
+
+.botoes-produto{
+   margin-top: 30px;
+   display: flex;
    
 }
 
-.image-detalhe{
-   /* max-width: 50%; */
-   max-width:70%;
-   height: 1000px;
-   padding:40px;
-   display:flex;
-   align-items:center;
-
+.btn-comprar{
+  background-color: rgb(24, 24, 18);
+  transition: all 0.3s ease-in-out;
+  border: none;
+  font-size: 22px;
+  font-weight: 400;
+  color: #ffffff;
+  width: 50%;
+  height: 50px;
+  margin-top: 80px;
+  cursor: pointer;
 }
 
-.produto-detalhe{
-    font-family: "Raleway", sans-serif;
-    font-size: 18px;
-    width: 70%;
-    font-weight:700px;
-    color: #303030;
-
+.btn-comprar:hover {
+  background-color: #00cb00;
 }
 
-.detalhe-container{
-   display:block;
-   width:40%;
-   margin-top: 100px;
-   margin-left:5%;
-
+.link-1,
+.link-2 {
+  color: white;
+  text-decoration: none;
 }
 
-.preco-produto{
-    /* margin: 0px 0px 0px 0px; */
-    font-family: "Roboto", sans-serif;
-    font-size: 20px;
-    font-weight: 400px;
-    color: #6d6d6d;
-    text-transform: uppercase;
-    /* padding-top:215px; */
-    /* margin:auto; */
+.texto-produto {
+  display: block;
+  font-family: "Roboto", sans-serif;
+  color: rgb(24, 24, 18);
+  margin-top: 100px;
+}
 
+.sub-titulo {
+  font-family: "Roboto", sans-serif;
+  font-size: 30px;
+  font-weight: 700px;
+  color: black;
+}
+
+.detalhe-texto {
+  font-size: 20px;
+  color: #777;
+}
+
+.tamanho {
+  color: #777;
+  font-size: 16px;
+  text-transform: uppercase;
+}
+
+.botoes {
+  display: flex;
+  justify-content: center;
+  float: left;
+  font-size:20px;
+  /* width:10%; */
+}
+
+.btn-size {
+  width: 50px;
+  height: 50px;
+  border: 1px solid gray;
+  padding:10px;
+  display: flex;
+  margin:0 10px;
+}
+
+.detalhe-texto,
+.sub-titulo {
+  width: 50%;
+  margin-right: 60px;
 }
 
 
-.botoes-produto{
-    display:flex;
-    padding:100px 10px;
-}
 
-.btn-produto1{
- background-color: #4dc247;
- border:none;
- font-size:12px;
- color:#ffffff;
- width:100%;
- height:40px;
- cursor: pointer;
+@media (max-width: 375px) {
+  .conteudo {
+    display: block;
+  }
 
-}
+  .image-detalhe {
+    max-width: 375px;
+    height: 1200px;
+    padding: 40px;
+  }
 
-.btn-produto2{
-    background-color:#6d6d6d;
-    color:#ffffff;
-    font-size:12px;
-    width:100%;
-    height:40px;
-    border:none;
-    margin: 0 15px;
-    cursor: pointer;
+  .detalhe-container {
+    width: 100%;
+    margin-bottom: 200px;
+  }
 
-}
+  .produto-detalhe {
+    width: 100%;
+    display: flex;
+  }
 
-.link-1,.link-2{
-    color:white;
+  .btn-comprar {
+    width: 100%;
+    font-size: 16px;
+  }
+  .btn-produto2 {
+    display: none;
+  }
+
+  .link-1,
+  .link-2 {
     text-decoration: none;
+    color: white;
+  }
+
+  .btn-produto1 {
+    width: 100%;
+    margin-left: 50px;
+    font-size: 16px;
+  }
+  .btn-produto2 {
+    display: none;
+  }
+
+  .produto-texto {
+    margin-bottom: 100px;
+    margin-left: 100px;
+  }
 }
 
-.texto-produto{
-    display:block;
-    font-family: "Raleway", sans-serif;
-    color: #303030;
+@media (max-width: 675px) {
+  .conteudo {
+    display: block;
+  }
+  .imagem-detalhe {
+    margin-left: 50px;
+    width:100%;
+    height: 500px;
+  }
 
+  .produto-detalhe {
+    width: 100%;
+    margin-left: 40px;
+  }
+
+  .preco-produto {
+    margin-left: 50px;
+  }
+
+  .detalhe-container {
+    width: 100%;
+    margin-bottom: 200px;
+  }
+
+  .btn-produto1 {
+    margin-left: 10px;
+    width: 100%;
+    font-size: 16px;
+  }
+  .btn-produto2 {
+    display: none;
+  }
+  .sub-titulo {
+    margin-left: 50px;
+    width: 100%;
+  }
+  .detalhe-texto {
+    margin-left: 50px;
+  }
 }
 
-.sub-titulo{
-    font-family: "Raleway", sans-serif;
-    font-size: 18px;
-    width: 70%;
-    font-weight:700px;
-    color: #303030;
-}
-
-
-
-@media(max-width:375px){
-    .conteudo{
-       display: block;
-
-    }
-
-    .image-detalhe{
-        max-width:375px;
-        height: 1200px;
-        padding:40px;
-    }
-
-    .detalhe-container{
-        width:100%;
-        margin-bottom: 200px;
-    }
-
-    .produto-detalhe{
-        width: 100%;
-        display: flex;
-        
-    }
-
-    .btn-produto1{
-        width:100%;
-        font-size: 16px;
-    }
-    .btn-produto2{
-       display:none;
-    }
-
-    .link-1,.link-2{
-        text-decoration: none;
-        color:white;
-    }
-
-    .btn-produto1{
-        width:100%;
-        margin-left: 50px;
-        font-size: 16px;
-    }
-    .btn-produto2{
-       display:none;
-    }
-    
-    .produto-texto{
-        margin-bottom: 100px;
-        margin-left:100px ;
-    }
-}
-
-@media (max-width:675px){
-    .conteudo{
-        display:block;
-    }
-    .image-detalhe{
-        margin-left:50px;
-        max-width:100%;
-        height:800px;
-    }
-
-    .produto-detalhe{
-        width: 100%;
-        margin-left: 40px;
-    }
-
-    .preco-produto{
-        margin-left: 50px;
-    }
-
-    .detalhe-container{
-        width:100%;
-        margin-bottom: 200px;
-    }
-
-    .btn-produto1{
-        margin-left: 10px;
-        width:100%;
-        font-size: 16px;
-    }
-    .btn-produto2{
-       display:none;
-    }
-    .sub-titulo{
-        margin-left: 50px;
-    }
-    .detalhe-texto{
-        margin-left: 50px;
-    }
-
-    
-}
-
-@media (max-width:700px){
-    .image-detalhe{
-        width:100%;
-    }
-}
-
-@media (max-width:800px){
-    .conteudo{
-        display: block;
-    }
+@media (max-width: 425px) {
+  .image-detalhe {
+    width: 100%;
+  }
+  .conteudo {
+    display: block;
+  }
 }
