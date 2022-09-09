@@ -2,10 +2,13 @@
   margin:0  ;
   padding: 0;
   box-sizing: border-box;
-  font-size: 16px;
   font-family: "Montserrat",sans-serif;
   width: 100%;
      }
+
+  html{
+    font-size: 16px;
+  }
   /* formatação geral entre o cabeçalho e o rodapé */
 section{
   background:#fff;
@@ -19,8 +22,6 @@ section{
     
 }
 aside.menu{
-  /* width:largura; */
-  /* margin: 15px 0 0 15px; */
   width: 100%; 
   float: none;
   display: block;
@@ -64,6 +65,7 @@ aside.menu{
       font-family: 'Open Sans',Arial,Helvetica,sans-serif;
         
     }
+
 /* criando o incone  */
 .mobile-menu{ 
   display: block;
@@ -160,10 +162,9 @@ ul li a:hover{
 /* seção da lateral a direita onde vao vir as telas
  */
  section main.main_content{
-  /* float:right; posição do elemento na tela */
   width: 100%;
   float:none;
-  /* box-sizing: border-box; */
+ margin-left: 10px;
   
  
            }
@@ -194,15 +195,12 @@ border-bottom: 2px solid #d9d9d9;
 .row{
 width: 100%;
 display: block;
-/* float:inline-end; */
-/* border: 3px solid green; */
-/* height: 90vh; */
 box-sizing: border-box;
-/* padding: 10px; */
-/* padding: 10px 5px 0 5px; */
+
 }
 
-.coluna2{ 
+.coluna2,
+.coluna3{ 
 width: 100%;
 float:inline-start; 
 display: block;
@@ -213,21 +211,7 @@ margin-bottom: 8px;
 padding: 10px 5px 0 5px;
 
  } 
-        
-
-.coluna3{
-width: 100%; 
-float: inline-end;
-display: block;
-position: relative;
-min-height: 50%;
-margin-bottom: 8px;
-padding: 10px 5px 0 5px;
-
-
- }
-
-
+   
 /* retangulo texto */
 .coluna22{
 height: 40px;
@@ -239,18 +223,33 @@ border: 2px solid #dcdcdc
  
 
 .textocirculo{ 
-
-/* height: 50px; */
-  width: 70%; 
-  display: flex;
-  /* flex-wrap: wrap; */
-  position: relative;
-  /* min-height: 90px; */
-  margin-bottom: 35px;
-  margin-top: 18px;
-  vertical-align: middle;
-  
+display: flex;
+/* margin-bottom: 35px; */
+margin-top: 18px;
+ 
    }
+
+   .textocirculo1{ 
+    display: flex;
+    /* margin-bottom: 35px; */
+   width: 30%;
+        
+       }
+.textocirculo label{
+  padding: 0 5px 0 5px;
+  margin-bottom: 35px;
+  vertical-align: middle;
+  /* width: 20%; */
+}
+
+  
+  .textocirculo input[type="radio"]{
+    width: 45px;
+    height: 15px;
+    cursor: pointer;
+    padding: 0;
+    margin: 0;
+  }
 
    div.e{
     background:#fff;
@@ -263,9 +262,6 @@ border: 2px solid #dcdcdc
      box-sizing: border-box; */
       
   }
-
-
-
 .instatexto{
 margin-bottom: 15px;
 margin-top: 10px;
@@ -300,33 +296,30 @@ height: 40px;
 padding: 0 10px;
 width: 100%; 
 margin:5px 0 10px 0;
-
 border: 2px solid #dcdcdc;
 
 }
+/* botao  */
+/* botao */
 
-button{
-position: relative;
-display: inline-block;
-background: black;
-border-radius: 5px;
-
-height: 45px;
-
-margin-top:50px ;
-
-
-
-}
+.usuario,
+.endereco,
+.cartoes1{
+  position: relative;
+  display: inline-block;
+  background: black;
+  border-radius: 5px;
+  height: 45px;
+  margin-top:50px ;
+  
+  }
 button a{
 color: #f5f5f5;
 font-weight: normal;
 font-size: 18px;
 text-align: center;
 
-
 }
-
 
 /* icone chat */
 img.chat{
@@ -340,24 +333,26 @@ img.chat{
 
 /* footer rodapé*/
 footer{
-margin-top: 20px;
-padding: 30px 30px;
-display: inline-block;
-width: 100%;
-vertical-align: top;
-background-color: #f5f5f5;
-font-size: 14px;
-color:#999;
-/* text-align: center; */
-border-top: 3px solid #f5f5f5;
-box-sizing: border-box;
-}
+  margin-top: 20px;
+  padding: 30px 30px;
+  display: inline-block;
+  /* width: 100%; */
+  vertical-align: top;
+  background-color: #f5f5f5;
+  font-size: 14px;
+  color:#999;
+  /* text-align: center; */
+  border-top: 3px solid #f5f5f5;
+  box-sizing: border-box;
+  }
 
-p.textorodapé{
-width: 100%;
-float: left;
-margin-bottom: 10px;
-}
+p.rodapé{
+  width: 100%;
+  /* display: flex; */
+  float: left;
+  margin-bottom: 20px;
+  padding-left: 20px;
+  }
 
 
 /* cadeado */
@@ -366,21 +361,152 @@ margin-bottom: 10px;
    /* display:block; */
    max-height: 30px;
    vertical-align:middle;
-   
+      
+}
+/* cartoes  */
+p{
+  color: #999;
+  font-family: "montserrat", sans-serif;
+  font-size: 16px;
+  margin-bottom: 25px;
+
 }
 
-/* footer p.rodapé{
-width: 60%;
+  /* adicionar endereco */
+  .coluna25{
+    height: 40px;
+    padding: 0 10px;
+    width: 100%; 
+    margin:5px 0 0 0;
+    border: 2px solid #dcdcdc
+          }
 
-text-align:center;
+
+/* adicionar cartao */
+.foto-cartao{
+  max-width:85%;
+  max-height:60%;
+  object-fit: contain;
+  padding-left: 75px;
+  margin-bottom: 10px;
+           } 
+
+/* retangulo texto */
+
+select.mes{
+  display: block;
+  padding: 0 15px;
+  font-size: 14px;
+  background-color: #fff;
+  height: 40px;
+  color: #000;
+  border: 2px solid #e1e1e1;
+  text-align: center;
+  padding: 0 10px; 
+  margin: 5px 0 25px 0;
+  width: 100%;
+ 
+}
+
+.botaocartao {
+position: relative;
+display:flex;
+background: black;
+border-radius: 5px;
+height: 45px;
+margin-top:50px ;
+align-items: center;
+
+}
+table{
+  display: table;
+  border-collapse: collapse;
+  box-sizing: border-box;
+  text-indent: initial;
+  border-spacing: 2px;
+  border-color: grey;
+}
+
+/* tabela */
+.tab{
+  width: 100%;
+  border-spacing: 0;
+  text-transform: uppercase;
+  text-align: center;
+
+}
+
+thead{
+  display: table-header-group;
+  vertical-align: middle;
+  /* width: 100%; */
+  background: #f5f5f5;
+  border: 2px solid  #e5e5e5;
+
+    /* border:  2px solid  #e5e5e5; */
+} 
+
+tr{
+  text-align: center;
+  height: 48px;
+  display: table-row;
+  vertical-align: inherit;
+ 
+  
+ 
+  
+}
+th{
+/* border: solid 3px blue; */
+  /* border: solid 2px #e5e5e5; */
+  color: #555;
+  font-size: 12px;
+  font-weight: 700;
+  display: table-cell;
+  vertical-align: inherit;
+  border-collapse: collapse;
+  border-right: solid 1px #e5e5e5;
+text-align: inherit;
+}
+
+tbody{
+ 
+  display: table-row-group;
+  vertical-align: middle; 
+  text-align: center;
+  border-collapse: collapse;
+  height: 10px;
+ 
+} 
+tbody  tr{
+height: 20px;
+}
+tfoot{
+
+  display: table-footer-group;
+  vertical-align: middle; 
+  background: #f5f5f5;
+  text-align: right;
+  text-indent: 0;
+  border: 2px solid  #e5e5e5;
+  border-collapse: collapse;
+} 
+
+tfoot tr td {
+padding-right: 10px;
+border-right: solid 1px #e5e5e5;
+border-radius: 0;
+color: #555;
 font-size: 14px;
-color:#999;
-padding-right: 30px;
-margin-bottom: 15px;
-margin-right: 50px;
-padding-bottom: 20px;
-} */
+font-weight: 700;
+ text-align: right;
+}
 
+td{
+display: table-cell;
+vertical-align: inherit;
+}
+/* meus creditos */
 
 /* Daqui para baixo celular grande ou tablet ou maior*/
 /* 460px para cima */
@@ -433,18 +559,25 @@ section{
   }
 
   .textocirculo{ 
-   
-      width: 50%; 
-      display: flex;
-      /* flex-wrap: wrap; */
-      position: relative;
-          
-       }
+    display: flex;
+    /* margin-bottom: 35px; */
+    margin-top: 18px;
+    width: 100%;
+  }
+  
   footer div.textorodapé{
   padding-top: 19px;
   padding-bottom: 19px;
     }
            
+/* adicionar cartao */
+.foto-cartao{
+        
+   max-width: 85%;
+   max-height:60%;
+   object-fit: contain;
+   padding-left: 75px;
+            } 
 
 }
 /* Daqui para baixo tablet grande ou computador ou maior*/
@@ -494,14 +627,12 @@ section{
 
   .mobile-menu{
       cursor: pointer;
-  
-      display: none;
+        display: none;
           }
 
           h3{
             font-size: 1rem;
-            
-          }
+                      }
 
    ul{
       display: block;
@@ -525,29 +656,92 @@ section{
 
  .textocirculo{ 
    
- width: 70%; 
+ width: 100%; 
    display: flex;
   /* flex-wrap: wrap; */
  position: relative;
                   
                }
-
-  button{
+     /*botao usuario  */
+  .usuario,
+  .endereco{
     display: block;
     float: right;
-
-  
 max-width: 250px;
 min-width: 100px;
 height: 45px;
 margin-right: 10px;
-   
-              
-              
+             
               }
             
- footer div.textorodapé{
-              padding-top: 19px;
-              padding-bottom: 19px;
-                }
-}
+/* adicionar cartao */
+.foto-cartao{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+ flex-wrap: wrap;
+ max-width: 55%;
+ object-fit: contain;
+  padding-left: 75px;
+  
+  margin-left: 15%;
+
+           } 
+           .validademes{
+            display: block;
+            clear: none;
+            float: left;
+            min-height: 90px;
+            width: 50%;
+            /* margin-bottom: 0.5em; */
+            padding-right: 1em;
+        }
+        .validadeano{
+            display: block;
+            clear: none;
+            float: left;
+            min-height: 90px;
+            width: 50%;
+            /* margin-bottom: 0.5em; */
+            padding-right: 1em; 
+        }
+                      
+        select.mes{
+         display: block;
+         padding: 0 15px;
+          font-size: 14px;
+        background-color: #fff;
+        height: 40px;
+         color: #000;
+        border: 2px solid #e1e1e1;
+         text-align: center;
+        /* padding: 0 10px;  */
+          /* margin: 5px 0 25px 0; */
+        width: 100%;
+                       
+                    }
+        
+.botaocartao{
+  display:block;
+  /* justify-content:flex-end; */
+ align-items: center; 
+ float: right;
+max-width: 150px;
+min-width: 100px;
+height: 45px;
+margin-right: 10px;
+         
+           
+           }
+    
+    .cartoes1{
+      display:flex;
+      justify-content: left;
+       align-items: center;
+      text-align: center;
+     max-width: 300px;
+    min-width: 100px;
+    height: 45px;
+                             }  
+                            
+                                  }
