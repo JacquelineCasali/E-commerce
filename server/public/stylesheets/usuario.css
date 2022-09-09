@@ -136,6 +136,16 @@ li{
   
 }
 
+.incones2{
+  object-fit: contain;
+  /* line-height:10px; */
+  width: 15%;
+  position: absolute;
+  right: 3px;
+  margin: 5px;
+  /* margin-top: 25px; */
+}
+
   /*formatando o texto   */
   li a{
       /* alinhamento do texto */
@@ -164,7 +174,7 @@ ul li a:hover{
  section main.main_content{
   width: 100%;
   float:none;
- margin-left: 10px;
+ /* margin-left: 10px; */
   
  
            }
@@ -258,10 +268,42 @@ margin-top: 18px;
     float: left;
     clear: both;
      margin-top: 0;
-     /* padding:32px 15px; 
-     box-sizing: border-box; */
-      
+     /* padding:32px 15px;  */
+     box-sizing: border-box;
+   
+      /* border: 2px solid black; */
   }
+
+  
+
+
+span.imagem2{
+
+  width: 50%;
+  padding-left:75px ;
+
+}
+
+
+#user1
+{
+  background: #fff;
+  width: 100%;
+  display: flex;
+  position: relative;
+  float: center;
+   flex-direction: column;
+  align-items: center;
+ /* justify-content: center; */
+  text-transform: capitalize;
+   margin-bottom: 20px;
+
+} 
+
+
+
+
+
 .instatexto{
 margin-bottom: 15px;
 margin-top: 10px;
@@ -310,16 +352,20 @@ border: 2px solid #dcdcdc;
   background: black;
   border-radius: 5px;
   height: 45px;
-  margin-top:50px ;
+  margin-top:50px;
+  color:#f5f5f5;
+  font-size: 18px;
+  cursor: pointer;
+  transition: 0.3s;
   
   }
-button a{
+ button a{
 color: #f5f5f5;
 font-weight: normal;
 font-size: 18px;
 text-align: center;
 
-}
+} 
 
 /* icone chat */
 img.chat{
@@ -367,10 +413,17 @@ p.rodapé{
 p{
   color: #999;
   font-family: "montserrat", sans-serif;
-  font-size: 16px;
+  font-size: 1.2rem;
   margin-bottom: 25px;
 
 }
+h2{
+  margin-bottom: 5px;
+  font-size: 1rem;
+  border-bottom: 3px solid #e5e5e5;
+}
+
+/* endereco */
 
   /* adicionar endereco */
   .coluna25{
@@ -380,7 +433,24 @@ p{
     margin:5px 0 0 0;
     border: 2px solid #dcdcdc
           }
+  .error-alert {
+    display: flex;
+            font-size: 1.2rem;
+            color: red;
+            width: 100%;
+            /* margin-top: 30px;
+            margin-right: 50px;
+            padding: 30px; */
 
+          }
+ .sucess-alert {
+  font-size: 1.5rem;
+   color: green;
+   width: 100%;
+   margin-top: 50px;
+   margin-right: 50px;
+   padding: 80px;
+          }
 
 /* adicionar cartao */
 .foto-cartao{
@@ -410,14 +480,20 @@ select.mes{
 
 .botaocartao {
 position: relative;
-display:flex;
+/* display:flex; */
 background: black;
 border-radius: 5px;
 height: 45px;
 margin-top:50px ;
 align-items: center;
+color:#f5f5f5;
+font-size: 18px;
+cursor: pointer;
+transition: 0.3s;
 
 }
+
+
 table{
   display: table;
   border-collapse: collapse;
@@ -460,7 +536,7 @@ th{
 /* border: solid 3px blue; */
   /* border: solid 2px #e5e5e5; */
   color: #555;
-  font-size: 12px;
+  font-size: 1.2rem;
   font-weight: 700;
   display: table-cell;
   vertical-align: inherit;
@@ -506,6 +582,162 @@ td{
 display: table-cell;
 vertical-align: inherit;
 }
+
+#user
+{
+  background: #fff;
+  width: 100%;
+  display: flex;
+  position: relative;
+  float: left;
+  margin-right: 2%;
+
+  flex-direction: column;
+  align-items: center;
+  border: 2px solid #e5e5e5;
+  text-transform: capitalize;
+  /* overflow-x: auto; */
+  padding:  20px;
+  margin-bottom: 20px;
+
+}
+
+
+.formatar{
+  display: flex;
+  width: 100%;
+}
+.formatar1{
+  display: flex;
+  width: 100%;
+}
+
+.editar1
+{
+  position: relative;
+  /* display: block; */
+  /* float: right; */
+  background: #93C5AC;
+  border-radius: 5px;
+  margin-top:10px ;
+
+  width: 18%;
+ 
+  }
+  
+  .editarusuario{
+    width: 30%;
+  margin-right: 5px;
+  margin-bottom: 5px;
+  display: block;
+  float: right;
+  background: #93C5AC;
+   text-decoration: none;
+    color: #f5f5f5;
+    font-weight:700;
+    font-size: 1.1rem;
+    text-align: center;
+     padding: 5px;
+    position: relative;
+    border-radius: 5px;
+
+  }
+  
+
+
+  .deletar
+  {
+     position: relative;
+    display: block;
+    float: right; 
+    background: blue;
+     border-radius: 5px; 
+     /* height: 45px;  */
+     margin-top:10px ;
+     width: 18%;
+   
+    }
+  a.editar1  {
+    color: #f5f5f5;
+    font-weight: normal;
+    font-size: 12px;
+    text-align: center;
+    text-decoration: none;
+    padding: 5px;
+    position: absolute;
+    right: 3px;
+    top: 0;
+    }
+
+
+
+.deletarnao{
+  display: flex;
+  position: relative;
+  float: left;
+  justify-content: center;
+  width: 30%;
+  border-radius: 5px; 
+  background: #93C5AC;
+  height: 35px;
+  
+  }
+
+a.deletarnao
+  {
+justify-content: center;
+align-items: center;
+ color: #f5f5f5;
+font-weight:400;
+    font-size: 1.2rem;
+    text-align: center;
+
+    text-decoration: none;
+
+}
+
+.deletarsim{
+  background: blue;
+  color: #f5f5f5;
+  width: 30%;
+  height: 35px;
+  padding: 0 10px;
+  cursor: pointer;
+   border-radius: 5px;
+border: 0;
+font-weight:400;
+    font-size: 1.2rem;
+    margin-right: 10px;
+}
+
+    a.deletar {
+                  color: #f5f5f5;
+      font-weight: normal;
+      font-size: 12px;
+      text-align: center;
+
+      text-decoration: none;
+      padding: 5px;
+
+      position: absolute;
+      right: 3px;
+      top:60px;
+      }
+
+    span{
+     font-size: 11px; 
+     text-transform: capitalize;
+     margin: 5px;
+    }
+
+
+
+
+
+
+
+
+
 /* meus creditos */
 
 /* Daqui para baixo celular grande ou tablet ou maior*/
@@ -579,7 +811,28 @@ section{
    padding-left: 75px;
             } 
 
+
+            span{
+              font-size: 14px; 
+              text-transform: capitalize;
+             }
+.editar1,
+.deletar{
+  width: 20%;
+  margin-right: 10px;
+  margin-top: 25px;
 }
+
+a.editar1,
+a.deletar{
+  font-size: 18px;
+}
+
+        
+
+          }
+      
+      
 /* Daqui para baixo tablet grande ou computador ou maior*/
 @media(min-width:769px){
   section{
@@ -660,8 +913,24 @@ section{
    display: flex;
   /* flex-wrap: wrap; */
  position: relative;
+ 
                   
                }
+                            
+                   .textocirculo1{ 
+                    display: flex;
+                
+                   width: 35%;
+                        
+                       }
+                       .textocirculo label{
+                        padding: 0 5px 0 0;
+                       }
+
+
+
+
+
      /*botao usuario  */
   .usuario,
   .endereco{
@@ -681,10 +950,12 @@ margin-right: 10px;
   justify-content: center;
  flex-wrap: wrap;
  max-width: 55%;
+ max-height: 350px;
  object-fit: contain;
-  padding-left: 75px;
+  padding-left: 65px;
   
-  margin-left: 15%;
+  margin-left: 10%;
+  margin-top: 5px;
 
            } 
            .validademes{
@@ -730,6 +1001,7 @@ max-width: 150px;
 min-width: 100px;
 height: 45px;
 margin-right: 10px;
+
          
            
            }
@@ -742,6 +1014,73 @@ margin-right: 10px;
      max-width: 300px;
     min-width: 100px;
     height: 45px;
+    /* margin: 20px; */
                              }  
-                            
-                                  }
+/* adicionar endereço */
+.listaendereco{
+  width: 48%;
+
+}
+
+
+#user
+{
+  background: #fff;
+  width: 80%;
+  
+}
+
+span{
+  font-size: 1rem; 
+  text-transform: capitalize;
+ }
+
+.editar1
+{
+width: 30%;
+margin-right: 5px;
+margin-top: 25px;
+}
+.deletar{
+  width: 30%;
+margin-right: 5px;
+/* margin-bottom: 15px; */
+margin-top: 25px;
+
+}
+
+.editarusuario{
+  width: 30%;
+margin-right: 5px;
+margin-bottom: 5px;
+display: block;
+float: left;
+position: relative;
+margin-top: 30px;
+/* background: #93C5AC; */
+
+}
+
+
+a.editar1,
+a.deletar
+{
+font-size: 1rem;
+}
+
+span.imagem2{
+
+  width: 50%;
+  padding-left:18% ;
+  /* padding-right: 25px; */
+
+}
+
+}
+
+
+
+
+
+                                
+                 
