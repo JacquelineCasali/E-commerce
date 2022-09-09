@@ -1,132 +1,119 @@
 var users=require("../data/users.json");
-users=users.data;
-const usuarioController={
-// read - ler / listar todos os usuarios pode filtrar eles
-    index:(req,res)=>{
-        // return 
-        const usuarios=[
-            {
-                nome:"Roberto Silva",
-                CPF:"123456879",
-                telefonePrincipal: "",
-                RG:"000000 SSP/PE",
-                celular: "",
-                email:"robertinho123@email.com",
-                novoEmail: "123@email.com",
-                ConfirmaçãoNovoEmail: "123@email.com"
+users=users.usuarios;   
+
+const userController = {
+  index: (req, res) => {
+    return res.render("usuarios", { title: "Lista de usuários", users});
+  },
 
 
-            },
-            
-                ]
-        return res
-    //    .status(200)
-       .render("usuario",{title:"Minha Conta",usuario:usuarios});
-
-    },
-
- 
-
-// CRUD
-// CREATE - Criar 
-// read - ler 
-// update-atualizar
-// delete - deletar
-// read - ler / listar todos os usuarios pode filtrar eles
-
-
-// read - ler apenas um usuario
-show:(req,res)=>{ 
-    const { id }= req.params
-    const result=users.find((user)=>{
-       return user.id === parseInt(id);
-     })
-
-     if(!result){
-        return res
-        // .status(400) mensagem de erro
-        .status(400)
-        .json({message:"Nenhum Usuário Encontrado"})
+  show: (req, res) => {
+    const { id } = req.params;
+    const userResult = users.find((user) => user.id === parseInt(id));
+    if (!userResult) {
+      return res.render("error", {
+        title: "Ops!",
+        message: "Nenhum usuário encontrado",
+      });
     }
-    return res .status(200)
-    .json({data:result, message:"Usuario Encontrado"})
-    
-    
-},
-// CREATE - Criar um usuario
-    store:(req,res)=>{ 
-    const {nomeCompleto, CPF,telefonePrincipal, RG, celular,email,novoEmail,ConfirmaçãoNovoEmail
-    }=req.body;
-    // para validação
-    // ! é negação 
-    //  condicional ou
-    if(!nomeCompleto|| !CPF ||!email ||!novoEmail ||!ConfirmaçãoNovoEmail){
-    return res.status(404)
-    .json({message:"Preencha todos os campos"})
-    }
-    users.push({
-    // length pega a quantidade de usuarios e soma 1
-    id:users.length + 1,
-    nomeCompleto,
-    CPF,
-    telefonePrincipal,
-    RG,
-    celular,
-    email,novoEmail,ConfirmaçãoNovoEmail
-    })
-     res.status(201).json({Messange: "Usúario Criado com Sucesso"});
-},
-// update-atualizar um usuario
-    update:(req,res)=>{
-    const {id}= req.params
-    const {nomeCompleto, CPF,telefonePrincipal, RG, celular,email,novoEmail,ConfirmaçãoNovoEmail
-    }=req.body;
-    const result= users.find((users)=>
-    users.id===parseInt(id));
-    if(!result){
-        return res
-        .status(400)
-        .json({message:"Nenhum usuário encontrado"})
-    }
-const newUser=result;
-if(nomeCompleto) newUser.nomeCompleto=nomeCompleto;
-if(CPF) newUser.CPF=CPF;
-if(telefonePrincipal) newUser.telefonePrincipal=telefonePrincipal;
-if(RG) newUser.RG=RG;
-if(celular) newUser.celular=celular;
-if(email) newUser.email=email;
-if(novoEmail) newUser.novoEmail=novoEmail;
-if(ConfirmaçãoNovoEmail) newUser.ConfirmaçãoNovoEmail=ConfirmaçãoNovoEmail;
-return res.status(200).json({message:"Atualização realizada com sucesso"})
-    
-},
-// delete - deletar um usuario
-delete:(req,res)=>{ 
-    const {id}= req.params;
-    const result= users.findIndex((users)=>
-    users.id===parseInt(id));
-    if(result===-1){
-        return res
-        .status(400)
-        .json({message:"Nenhum usuário encontrado"})
-    }
-users.splice(result,1);
-return res
-.status(200)
-.json({message:"Usuario deletado com sucesso"})
-},
-save:(req,res)=>{
-    const {id,name}= req.params;
-    if(name){
-        res.send(`Save ${id} e ${name}`);
-    } else{
-        res.send(`Save ${id}`);
-    }
-    }
-};
+    return res.render("usuario", { title: "Usuário", user: userResult });
+  },
+}
+//   create: (req, res) => {
+//     return res.render("user-create", { title: "Criar usuário" });
+//   },
+//   store: (req, res) => {
+//     const { nome, sobrenome, idade,email, avatar } = req.body;
 
+//     if (!nome || !sobrenome ||  !idade || !email || !avatar) {
+//       return res.render("user-create", {
+//         title: "Criar usuário",
+//         error: { message: "Preencha todos os campo" },
+//       });
+//     }
 
+//     const newUser={
+//       id: users.length + 1,
+//       nome, 
+//       sobrenome,
+//       idade, 
+//       email, 
+//       avatar:"https://i.pravatar.cc/300?img=${avatar}",
+//   }
+//     users.push(newUser)
+     
+      
+//     return res.render("success", {
+//       title: "Usuário criado",
+//       message: "Usuário criado com sucesso",
+//     });
+//   },
+//   // editar
+//   edit: (req, res) => {
+//     const { id } = req.params;
+//     const userResult = users.find((user) => user.id === parseInt(id));
+//     if (!userResult) {
+//       return res.render("error", {
+//         title: "Ops!",
+//         message: "Nenhum usuário encontrado",
+//       });
+//     }
+//     return res.render("user-edit", {
+//       title: "Editar usuário",
+//       user: userResult,
+//     });
+//   },
+//   // atualizar
+//   update: (req, res) => {
+//     const { id } = req.params;
+//     const { nome, sobrenome, email, idade, avatar } = req.body;
+//     const userResult = users.find((user) => user.id === parseInt(id));
+//     if (!userResult) {
+//       return res.render("error", {
+//         title: "Ops!",
+//         message: "Nenhum usuário encontrado",
+//       });
+//     }
+//     const newUser = userResult;
 
+//     if (nome) newUser.nome = nome;
+//     if (sobrenome) newUser.sobrenome = sobrenome;
+//     if (email) newUser.email = email;
+//     if (idade) newUser.idade = idade;
+//     if (avatar) newUser.avatar = "https://i.pravatar.cc/300?img=" + avatar;
+//     return res.render("success", {
+//       title: "Usuário atualizado",
+//       message: `Usuário ${newUser.nome} atualizado com sucesso`,
+//     });
+//   },
+//   delete: (req, res) => {
+//     const { id } = req.params;
+//     const userResult = users.find((user) => user.id === parseInt(id));
+//     if (!userResult) {
+//       return res.render("error", {
+//         title: "Ops!",
+//         message: "Nenhum usuário encontrado",
+//       });
+//     }
+//     return res.render("user-delete", {
+//       title: "Deletar usuário",
+//       user: userResult,
+//     });
+//   },
+//   destroy: (req, res) => {
+//     const { id } = req.params;
+//     const result = users.findIndex((user) => user.id === parseInt(id));
+//     if (result === -1) {
+//       return res
+//         .status(400)
+//         .json({ message: "Nenhum usuário encontrado", error: true });
+//     }
+//     users.splice(result, 1);
+//     return res.render("success", {
+//       title: "Usuário deletado",
+//       message: `Usuário deletado com sucesso`,
+//     });
+//   },
+// };
 
-
-module.exports=usuarioController;
+module.exports = userController;
