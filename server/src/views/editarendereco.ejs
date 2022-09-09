@@ -1,0 +1,85 @@
+    <!-- section toda a tela entre o cabeçalho e o rodpé -->
+    <!-- menu lateral -->
+    <%- include('./partials/usuariomenu')%>
+   
+    <!-- tela lado direito -->
+        <main class="main_content">
+
+            <div class="codigo">
+               
+                <!-- Tela lateral -->
+          <h3 class="fontebarra" id="titulo-Meus Cartões">Editar Endereços</h3> 
+            </div>            <!--meus dados  -->
+        
+            
+            <% if (locals.error) {%>
+                <h2 class="error-alert"><%= error.message%></h2>
+                    <%}%>       
+           
+            <form action="<%= user.id %>?_method=put" method="post">   
+                <!-- <div class="row"> -->  
+                  
+                    <div class="coluna2">
+                        
+        <label for="nome do destinatário">Nome do Destinatário:</label>
+                        
+        <input type="text" class="coluna22"  id="nome " name="nome" placeholder="Digite o nome do destinatário" value="<%= user.nome%>">
+                        
+                                          
+                    </div>
+                    
+                      <div class="coluna3">
+          <label for="cep">CEP :</label>
+                       <input type="text" class="coluna25"  id="cep" name="cep" placeholder="Digite o cep" value="<%= user.cep%>">
+                        <a href="https://buscacepinter.correios.com.br/app/endereco/index.php">Não sei o CEP</a>
+                    </div>
+                <div class="e">
+                                          
+             <label  for="Rua">Rua :</label>
+                                    
+            <input type="text" class="coluna22" id="rua" name="rua" value="<%= user.rua%>">
+             </div>        
+             <div class="coluna2">
+
+                <label  for="Bairro">Bairro :</label>
+                                    
+                <input type="text" class="coluna22" id="bairro" name="bairro" value="<%= user.bairro%>">
+            
+                <label  for="Numero">Numero :</label>
+                                    
+                <input type="text" class="coluna22" id="numero" name="numero" value="<%= user.numero%>">
+            
+</div>
+<div class="coluna3">
+
+    <label  for="Cidade">Cidade/Estado :</label>
+                                    
+                <input type="text" class="coluna22" id="cidade" name="cidade" value="<%= user.cidade%>"> 
+            
+    <label  for="Complemento">Complemento :</label>
+                        
+    <input type="text" class="coluna22" id="complemento" name="complemento" value="<%= user.complemento%>">
+
+
+</div>
+         
+              
+          
+       
+            <button class="endereco" type="submit" >
+                    SALVAR ENDEREÇO </button>
+               
+               
+                               
+
+        </form>
+        </main>
+    </section>
+    
+
+
+
+    <!-- footer define o rodapé -->
+    <%- include('./partials/footerusuario')%>
+
+

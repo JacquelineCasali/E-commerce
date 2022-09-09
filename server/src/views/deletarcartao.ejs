@@ -1,0 +1,65 @@
+
+    <!-- section toda a tela entre o cabeçalho e o rodpé -->
+    <%- include('./partials/usuariomenu')%>
+
+   <!-- css linha 754 -->
+    <main class="main_content">
+    
+
+        <div class="codigo">
+            <!-- Tela lateral -->
+      <h3 class="fontebarra" id="titulo-Meus Cartões">Deletar Meus Cartões</h3> 
+      <% if(locals.user){ %>
+      <main id="user">
+ 
+<span>Nome:<%= user.nome %></span>
+<span>Numero do Cartão: <%= user.cartao%></span>
+
+<span>Cpf:<%= user.cpf %></span>
+</main>
+<form action="<%= user.id %>?_method=delete" method="post" class="formatar">
+    <!-- <h2 class="error-alert">Deseja deletar esse endereço?</h2> -->
+    <div class="formatar1" >
+      <h2 class="error-alert">Deseja deletar esse endereço?</h2>
+    
+     
+      <button type="submit" class="deletarsim">Sim</button>
+   
+      <a href="/MinhaConta/cartoes/<%=user.id%>
+    "class=deletarnao>Não</a>
+        
+    </div>
+
+
+
+
+<%} else {%>
+ <h2 class="error-alert">
+  <p>
+    Aqui é possível conferir as informações do cartão de crédito.
+</p>
+<p>
+  Cadastre seus cartões e escolha qual irá utilizar na hora de finalizar sua compra.
+            </p>  
+          </h2>         
+            <%} %>          
+
+  
+
+
+
+</main>
+ 
+   
+<%- include('./partials/footerusuario')%>
+
+
+
+
+
+
+
+
+
+
+
