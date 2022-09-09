@@ -1,19 +1,61 @@
 
-    <!-- menu lateral -->
-    <%- include('./partials/usuariomenu')%>
-   
-    <!-- tela lado direito -->
-        <main class="main_content">
+  <%- include('./partials/usuariomenu')%>
+  <!-- <link rel="stylesheet" href="/stylesheets/123.css"> -->
+ <link rel="stylesheet" href="/stylesheets/123.css">
+ <main id="user-list">
 
-            <div class="codigo">
-                <!-- Tela lateral -->
-                <!-- link com angora volta onde quer id -->
-         <h3 class="fontebarra" id="titulo-Meus Créditos">Meus Pedidos</h3> 
-            </div>
-           
-            </section>
+  <div class="codigo">
+      <!-- Tela lateral -->
+      <!-- link com angora volta onde quer id -->
+<h3 class="fontebarra" id="titulo-Meus Créditos">Meus Pedidos</h3> 
+  </div>
    
-            <%- include('./partials/footerusuario')%>
+   <!-- verificação  -->
+   <% if (users.length>0) {%>
+
+    <div class="table-container">
+      <table >
+        <thead>
+            <tr>
+              
+              <th >Pedido</th>
+              <th  >Status</th>
+              <Th >Data</TH>
+                <th >Valor</th> 
+              <th >Ação</th>
+            </tr>
+        </thead>
+        <tbody>
+<!-- variavel no plural no for of vem para o singular -->
+    <% for (let user of users){%>
+            <!--conteudo daqui roda a quantidade de vezes da variavel  -->
+      <!-- trabalhando com for  nao pode ter id  -->
+            <tr>
+         
+  <td><%= user.pedido%> </td>
+  <td><%= user.status %></td>
+  <td><%= user.data %></td>
+ 
+  <td><%= user.valor %> 
+
+                
+                <td class="table-actions">
+                    <a href="./meuspedido/<%= user.id%>" class="table-link-show"> VerDetalhess</a>
+                   
+                </td>
+            </tr>
+            <%}%>
+        </tbody>
+    </table>
+</div>
+<%}else{ %>
+    <h2 class="error-alert">Nenhum Pedido encontrado </h2>
+<%} %>
+
+
+
+</main>
+<%- include('./partials/footerusuario')%>
 
 
 
