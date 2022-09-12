@@ -43,6 +43,7 @@ VALUES
 ("Jaqueta de couro","Jaqueta de Couro Legitimo com costuras coreanas",350.00,"P","Casacos",10,4.5);
 
 
+
 INSERT INTO products (name, description, price,size, inventory,rating)
 VALUES 
 	("Camisa do Flamengo 2022/2023", "Camiseta oficial do Clube Regatas Flamengo",199.99,"M",50,4.99),
@@ -84,3 +85,17 @@ VALUES
     (2, 1),
     (2, 2),
     (3, 2);
+    
+CREATE TABLE department(
+  id INT UNSIGNED PRIMARY KEY AUTO_INCREMENT,
+  name VARCHAR(100) NOT NULL
+);
+
+INSERT INTO department (name)
+VALUES 
+	("Camisetas"),
+    ("Calças"),
+    ("Jaquetas"),
+    ("Acessórios");
+    
+SELECT * FROM  department
