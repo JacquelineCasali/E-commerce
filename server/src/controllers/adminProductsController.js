@@ -55,8 +55,7 @@ const adminProductsController = {
     },
     adminCriar: (req,res) => {
       const { nome, tamanho, categoria, preco, descricao, status } = "";
-      const date = Date.now();
-      const atualDate = new Date (date);
+      const atualDate = new Date (Date.now());
       const alteracao = atualDate.toLocaleDateString();
       return res.render("adminCriar", { title:"Criar Produto", cssCaminho: "/stylesheets/adminCriar.css", text: {
           nome: nome,
