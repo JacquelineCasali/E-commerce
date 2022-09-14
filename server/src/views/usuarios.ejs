@@ -1,0 +1,60 @@
+
+  <link rel="stylesheet" href="/stylesheets/123.css">
+<main id="user-list">
+    <h1>Lista de Usuários</h1>
+   
+   <!-- verificação  -->
+   <% if (users.length>0) {%>
+
+    <div class="table-container">
+      <table >
+        <thead>
+            <tr>
+              <th>Nome</th>
+              <th>CPF</th>
+              <TH>Telefone Principal</TH>
+                <th>Celular</th> 
+                <TH>Sexo</TH>
+              <th>RG</th>
+              <th>E-mail</th>
+                <th>Ação</th>        
+            </tr>
+        </thead>
+        <tbody>
+<!-- variavel no plural no for of vem para o singular -->
+    <% for (let user of users){%>
+            <!--conteudo daqui roda a quantidade de vezes da variavel  -->
+      <!-- trabalhando com for  nao pode ter id  -->
+            <tr>
+         
+                <td><%= user.nome %> </td>
+                <td><%= user.cpf %></td>
+                <td><%= user.telefonePrincipal %></td>
+               
+                <td><%= user.celular %> </td>
+                   <td><%= user.sexo %></td>
+                    <td><%= user.rg %></td>           
+                                 <td><%= user.email %></td>
+                    
+             
+
+                <td class="table-actions">
+                    <a href="/MinhaConta/<%= user.id%>" class="table-link-show"> Visualizar</a>
+                    <a href="/MinhaConta/<%= user.id%>" class="table-link-edit" >Editar</a>
+                    <a href="/MinhaConta/<%= user.id%>" class="table-link-delete" >Excluir</a>
+                </td>
+            </tr>
+            <%}%>
+        </tbody>
+    </table>
+</div>
+<%}else{ %>
+    <h2 class="error-alert">Nenhum usuário encontrado </h2>
+<%} %>
+
+
+
+</main>
+
+
+

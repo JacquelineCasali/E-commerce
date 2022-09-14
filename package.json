@@ -10,13 +10,35 @@
     "cookie-parser": "~1.4.4",
     "crypto": "^1.0.1",
     "debug": "~2.6.9",
+    "dotenv": "^16.0.2",
     "ejs": "^3.1.8",
     "express": "~4.16.1",
     "express-session": "^1.17.3",
     "http-errors": "~1.6.3",
     "method-override": "^3.0.0",
+<<<<<<< HEAD
     "morgan": "~1.9.1",
     "multer": "^1.4.5-lts.1",
+=======
+    "moment": "^2.29.4",
+    "morgan": "~1.9.1",
+    "mysql2": "^2.3.3",
+    "path": "^0.12.7"
+  },
+  "main": "app.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/JacquelineCasali/usuario.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/JacquelineCasali/usuario/issues"
+  },
+  "homepage": "https://github.com/JacquelineCasali/usuario#readme",
+  "description": "",
+  "devDependencies": {
+>>>>>>> 4c0831d1a46e5a31fb4c0a2ab8510a97b0ae79f2
     "nodemon": "^2.0.19"
   }
 }

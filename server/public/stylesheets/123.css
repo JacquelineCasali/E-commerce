@@ -1,0 +1,92 @@
+   
+     main {
+      padding: 0 20px;
+    }
+     #user-list table {
+      width: 100%;
+      font-size: 1.2rem;
+    }
+    #user-list .table-container {
+      overflow-x: auto;
+    }
+    #user-list td,
+    #user-list th {
+      padding: 10px 5px;
+    }
+    #user-list tr {
+      background-color: #9a9da144;
+    }
+    #user-list tr:nth-child(even) {
+      background-color: #2c2e2f44;
+    }
+    
+    /* #user-list tbody tr:hover {
+      background-color: #7abee0ee;
+    } */
+    #user-list .table-actions {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+    }
+    #user-list .table-actions a {
+      padding: 5px 10px;
+      margin: 5px 0;
+      border-radius: 5px;
+      color: #fff;
+      cursor: pointer;
+      text-decoration: none;
+      width: 100%;
+      text-align: center;
+    }
+    #user-list .table-actions a.table-link-show {
+      background-color: #93c5ac;
+     
+    }
+   
+  
+        #user,
+    #user-delete {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    #user div,
+    #user-delete div {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+    }
+    #user span,
+    #user-delete span {
+      font-size: 1.2rem;
+      font-weight: 700;
+    }
+    /* Tablet */
+    @media only screen and (min-width: 600px) {
+      #user-create form,
+      #user-edit form {
+        width: 60%;
+      }
+    }
+    /* Desktop */
+    @media only screen and (min-width: 992px) {
+      #user-list table {
+        /* width: 100%; */
+        font-size: 1.2rem;
+        box-sizing: border-box;
+      }
+    tr  th #pedido{
+        width: 10%;
+      }
+     
+      #user-list .table-actions {
+        width: auto;
+        display: block;
+      }
+      #user-create form,
+      #user-edit form {
+        width: 40%;
+        max-width: 600px;
+      }
+    }
+    

@@ -1,0 +1,61 @@
+<%- include('./partials/usuariomenu')%>
+    
+<main class="main_content">
+
+    <div class="codigo">
+        <!-- Tela lateral -->
+             
+        <h3 class="fontebarra" id="titulo-Alterar E-mail">Alterar Senha:</h3>
+     </div>
+
+    <!--meus dados  -->
+    <% if (locals.error) {%>
+        <h2 class="error-alert"><%= error.message%></h2>
+            <%}%>    
+
+
+<form action="<%= user.id %>?_method=put" method="post">   
+<div class="row">
+
+<div class="e">
+<div class="coluna2">
+<label  for="Senha Atual">Senha Atual:</label>
+<input type="password" class="coluna22" id="Senha Atual" name="password" placeholder="Senha Atual" value="<%= user.senha %>">
+</div>
+</div>
+
+<div class="coluna2">
+
+
+    <label for="Nova Senha">Nova Senha:</label>
+
+    <input type="password" class="coluna22"  id="Nova Senha" name="novapassword" placeholder="Digite sua Nova Senha" required>
+    </div>   
+<div class="coluna3">
+
+    <label for="confirm-password">Confirmação da Nova Senha :</label>
+
+    <input type="password"  class="coluna22" id="Confirmação da Nova Senha" name="confirmpassword"  placeholder="Confirme sua Nova Senha" required>
+    
+    
+</div>
+
+<button class="usuario" type="submit" >SALVAR SENHA </button>
+    </a>  
+
+</form>  
+
+    
+   
+
+         
+ </div>
+
+</main>
+<%- include('./partials/footerusuario')%>
+
+
+
+
+
+

@@ -18,5 +18,16 @@ router.delete("/delete/:id", isGuest, adminProductsController.adminDestroy);
 router.get("/:id", isGuest, adminProductsController.adminShow);
 router.patch("/:id", isGuest, upload.single("produto-img"), adminProductsController.adminUpdate);
 
+<<<<<<< HEAD
+=======
+router.get("/", adminProductsController.adminHome);
+router.get("/criar", adminProductsController.adminCriar);
+router.post("/criar", adminProductsController.adminStore);
+router.get("/delete/:id", adminProductsController.adminDelete);
+router.delete("/delete/:id", adminProductsController.adminDestroy);
+router.get("/:id", adminProductsController.adminShow);
+router.patch("/:id", adminProductsController.adminUpdate);
+
+>>>>>>> 4c0831d1a46e5a31fb4c0a2ab8510a97b0ae79f2
 
 module.exports = router;

@@ -1,0 +1,62 @@
+<%- include('./partials/usuariomenu')%>
+    
+<main class="main_content">
+
+    <div class="codigo">
+        <!-- Tela lateral -->
+             
+        <h3 class="fontebarra" id="titulo-Alterar E-mail">Alterar E-mail:</h3>
+     </div>
+
+    <!--meus dados  -->
+    <% if (locals.error) {%>
+        <h2 class="error-alert"><%= error.message%></h2>
+            <%}%>    
+
+
+<form action="<%= user.id %>?_method=put" method="post">   
+<div class="row">
+
+<div class="e">
+<div class="coluna2">
+
+<label  for="E-mail Atual">E-mail Atual:</label>
+
+<input type="email" class="coluna22" id="email" name="email" placeholder="E-mail Atual" value="<%= user.email %>">
+</div>
+</div>
+
+<div class="coluna2">
+
+
+<label for="Novo E-mail">Novo E-mail:</label>
+
+<input type="email" class="coluna22"  id="Novo E-mail" name="Novo E-mail" placeholder="Digite seu Novo E-mail" required >
+</div>   
+<div class="coluna3">
+
+<label for="Confirmação do Novo E-mail">Confirmação do Novo E-mail:</label>
+
+<input type="email"  class="coluna22" id="Confirmação do Novo E-mail" name="Confirmação do Novo E-mail" placeholder="Confirme seu Novo Email" required >
+
+</div>
+
+<button class="usuario" type="submit" >SALVAR E-MAIL </button>
+    </a>  
+
+</form>  
+
+    
+   
+
+         
+ </div>
+
+</main>
+
+<%- include('./partials/footerusuario')%>
+
+
+
+
+

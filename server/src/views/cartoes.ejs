@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <!DOCTYPE html>
 <html lang="pt-BR">
   <head>
@@ -124,4 +125,65 @@
     </footer>
   </body>
 </html>
+=======
+
+    <!-- section toda a tela entre o cabeçalho e o rodpé -->
+    <%- include('./partials/usuariomenu')%>
+
+   <!-- css linha 754 -->
+    <main class="main_content">
+       <% if (locals.error) {%>
+      <h2 class="error-alert"><%= error.message%></h2>
+          <%}%>
+
+
+        <div class="codigo">
+            <!-- Tela lateral -->
+      <h3 class="fontebarra" id="titulo-Meus Cartões">Meus Cartões</h3> 
+      <% if(locals.user){ %>
+      <main id="user">
+ 
+<span>Nome:<%= user.nome %></span>
+<span>Numero do Cartão: <%= user.cartao%></span>
+
+<span>Cpf:<%= user.cpf %></span>
+
+<a href="./editarcartoes/<%=user.id%>" class="editar1">Editar</a>
+
+<a href="./deletarcartao/<%=user.id%>" class="deletar">Deletar</a>
+
+
+</main>
+<%} else {%>
+  <p>
+    Aqui é possível conferir as informações do cartão de crédito.
+</p>
+<p>
+  Cadastre seus cartões e escolha qual irá utilizar na hora de finalizar sua compra.
+            </p>  
+            
+            <%} %>          
+<button class="cartoes1" type="submit" > <a href="./adicionarcartoes">
+    CADASTRAR NOVO CARTÃO</button>
+  </a>
+
+  
+
+
+
+</main>
+ 
+   
+<%- include('./partials/footerusuario')%>
+
+
+
+
+
+
+
+
+
+
+>>>>>>> 4c0831d1a46e5a31fb4c0a2ab8510a97b0ae79f2
 

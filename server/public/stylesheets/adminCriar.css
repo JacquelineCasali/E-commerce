@@ -1,0 +1,267 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap');
+
+*{
+    box-sizing: border-box;
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+    padding: 0;
+    text-decoration: none;
+    list-style-type: none;
+}
+
+:root {
+    --main-color: #000000;
+    --color-dark: #1D2231;
+    --text-grey: #8390A2;
+}
+
+header{
+    height: 60px;
+}
+
+label.ti-menu-alt{
+    cursor: pointer;
+}
+
+#sidebar-toggle {
+    display: none;
+}
+
+.sidebar {
+    height: 100%;
+    width: 240px;
+    position: fixed;
+    left: 0;
+    top: 0;
+    z-index: 100;
+    background: var(--main-color);
+    color: #fff;
+    overflow-y: auto;
+    transition: width 500ms;
+}
+
+.sidebar-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 60px;
+    padding: 0rem 1rem;
+}
+
+.sidebar-menu {
+    padding: 1rem;
+}
+
+.sidebar li {
+    margin-bottom: 1.5rem;
+}
+
+.sidebar a {
+    color: #fff;
+    font-size: .8rem;
+}
+
+.sidebar a span:last-child {
+    padding-left: .6rem;
+}
+
+#sidebar-toggle:checked ~ .sidebar {
+    width: 60px;
+}
+
+#sidebar-toggle:checked ~ .sidebar .sidebar-header h3 span,
+#sidebar-toggle:checked ~ .sidebar li span:last-child {
+    display: none;
+}
+
+#sidebar-toggle:checked ~ .sidebar .sidebar-header,
+#sidebar-toggle:checked ~ .sidebar li {
+    display: flex;
+    justify-content: center;
+}
+
+#sidebar-toggle:checked ~ .main-content {
+    margin-left: 60px;
+}
+
+#sidebar-toggle:checked ~ .main-content header {
+    left: 60px;
+    width: calc(100% - 60px);
+}
+
+.main-content {
+    position: relative;
+    margin-left: 240px;
+    transition: margin-left 500ms;
+}
+
+
+h1{
+    margin: 35px 0;
+}
+main{
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+form{
+    width: 90%;
+    max-width: 550px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+input, select{
+    width: 100%;
+    max-width: 550px;
+    padding: 10px 10px;
+    font-size: 15px;
+}
+
+input[type="file"]{
+    padding: 0;
+}
+
+input::file-selector-button{
+    margin-top: 5px;
+    padding: 10px 10px;
+    background-color: #000;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+
+.form-buttons{
+    width: 100%;
+    max-width: 550px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.form-buttons button{
+    padding: 10px 15px;
+    text-align: center;
+    border: 1px solid #000;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.back-button{
+    width: 25%;
+}
+.reset-button{
+    width: 100%;
+}
+
+.add-button{
+    width: 70%;
+    color: #fff;
+    background-color: #000;
+}
+
+.error-message{
+    color: red;
+    margin-top: -20px;
+}
+
+@media (max-width: 350px){
+    .back-button{
+        width: 32%;
+    }
+    
+    .add-button{
+        width: 65%;
+    }
+}
+
+@media only screen and (max-width: 1200px) {
+    .sidebar {
+        width: 60px;
+        z-index: 150;
+    }
+
+    .sidebar .sidebar-header h3 span,
+    .sidebar li span:last-child {
+        display: none;
+    }
+
+    .sidebar .sidebar-header,
+    .sidebar li {
+        display: flex;
+        justify-content: center;
+    }
+
+    .main-content {
+        margin-left: 60px;
+    }
+
+    .main-content header {
+        left: 60px;
+        width: calc(100% - 60px);
+    }
+    
+    #sidebar-toggle:checked ~ .sidebar {
+        width: 240px;
+    }
+
+    #sidebar-toggle:checked ~ .sidebar .sidebar-header h3 span,
+    #sidebar-toggle:checked ~ .sidebar li span:last-child {
+        display: inline;
+    }
+
+    #sidebar-toggle:checked ~ .sidebar .sidebar-header {
+        display: flex;
+        justify-content: space-between;
+    }
+    
+    #sidebar-toggle:checked ~ .sidebar li {
+        display: block;
+    }
+
+    #sidebar-toggle:checked ~ .main-content {
+        margin-left: 60px;
+    }
+
+    #sidebar-toggle:checked ~ .main-content header {
+        left: 60px;
+    }
+}
+
+@media only screen and (max-width: 600px){
+    .sidebar {
+        width: auto;
+        height: auto;
+    }
+    .sidebar-menu{
+        display: none;
+    }
+    .main-content{
+        margin-left: 0;
+    }
+    .main-content header{
+        left: 48px;
+        width: calc(100% - 48px);
+    }
+    #sidebar-toggle:checked ~ .sidebar{
+        height: 100%;
+    }
+    #sidebar-toggle:checked ~ .sidebar .sidebar-menu{
+        display: block;
+    }
+    #sidebar-toggle:checked ~ .main-content, #sidebar-toggle:checked ~ .main-content header{
+        margin-left: 0;
+        left: 48px;
+        width: calc(100% - 48px);
+    }
+    header{
+        color: var(--main-color);
+    }
+}

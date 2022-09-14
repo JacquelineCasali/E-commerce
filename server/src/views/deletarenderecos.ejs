@@ -1,0 +1,62 @@
+    <!-- section toda a tela entre o cabeçalho e o rodpé -->
+    <%- include('./partials/usuariomenu')%>
+
+   <!-- css linha 754 -->
+    <main class="main_content">
+
+        <div class="codigo">
+            <!-- Tela lateral -->
+      <h3 class="fontebarra" id="titulo-Meus Cartões">Deletar Endereços</h3> 
+ <% if(locals.user){ %>
+      <main id="user">
+   
+<span><%= user.nome %></span>
+<span>Endereço: <%= user.rua%> , <%= user.numero %>.</span>
+
+<span>Bairro:<%= user.bairro %></span>
+
+<span>Cidade:<%= user.cidade %> - <%= user.complemento %>.</span>
+
+<span>
+
+    CEP:<%= user.cep %>
+</span>
+
+</main>
+<form action="<%= user.id %>?_method=delete" method="post" class="formatar">
+  
+    <div class="formatar1" >
+          <h2 class="error-alert">Deseja deletar esse endereço?</h2>
+        <button type="submit" class="deletarsim">Sim</button>
+    <a href="/MinhaConta/enderecos/<%=user.id%>
+    "class=deletarnao>Não</a>
+       
+    </div> 
+  
+</form>
+
+
+  <%} else {%>
+
+    <h2 class="error-alert">
+
+<p>
+    Aqui é possível conferir as informações do seu endereço.
+</p>
+<p>
+    Cadastre seus Endereços.
+</p> 
+</h2>   
+<%} %>  
+
+
+
+
+</main>
+ 
+   
+<%- include('./partials/footerusuario')%>
+
+
+
+
