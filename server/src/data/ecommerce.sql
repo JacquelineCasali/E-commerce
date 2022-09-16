@@ -99,3 +99,14 @@ VALUES
     ("Acessórios");
     
 SELECT * FROM  department
+
+CREATE TABLE admins(
+  id INT UNSIGNED PRIMARY KEY AUTO_INCREMENT,
+  username VARCHAR(100) NOT NULL,
+  senha VARCHAR(80) NOT NULL
+)
+
+INSERT INTO admins(username, senha) 
+VALUES
+  ("Admin01", "$2b$10$XOuWjgOKpyRIqrXr5kbjieR1k4CmAwgl.QWsPBOYIGVCImWTjltdu"),
+  ("Admin02", "$2b$10$YWBXTTON11wyDkVqTVfPa.rQUnfdlC/l4BP4ph4h.j9PcOxWwBhnm");
