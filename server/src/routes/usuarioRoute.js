@@ -1,18 +1,6 @@
 var express = require('express');
 var router = express.Router();
 var usuarioController=require("../controllers/usuarioController")
-<<<<<<< HEAD
-
-/* GET home page. */
-router.get('/', function(req, res, next) {
-  res.render('usuario', { title: 'Express' });
-});
-
-router.get( "/usuario",usuarioController.usuario)
-router.get("/finalizacao",usuarioController.finalizacao)
-router.get("/sucesso",usuarioController.sucesso)
-router.get("/home",usuarioController.home)
-=======
 var meuscreditosController=require("../controllers/meuscreditosController")
 var enderecoController=require("../controllers/enderecoController")
 var cartoesController=require("../controllers/cartoesController")
@@ -92,6 +80,5 @@ router.delete("/enderecos/deletarenderecos/:id",enderecoController.destroy);
 
 
 
->>>>>>> 4c0831d1a46e5a31fb4c0a2ab8510a97b0ae79f2
 
 module.exports = router;

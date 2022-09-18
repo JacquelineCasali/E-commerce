@@ -5,27 +5,20 @@ var port=3000;
 var methodOverride=require("method-override");
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
-const methodOverride = require("method-override");
 const session = require("express-session");
 
 var indexRouter = require('./server/src/routes/indexRoute');
-<<<<<<< HEAD
 var usersRouter = require('./server/src/routes/userRoute');
-=======
->>>>>>> 4c0831d1a46e5a31fb4c0a2ab8510a97b0ae79f2
 var loginRouter = require('./server/src/routes/loginRoute');
 var adminProductRouter = require('./server/src/routes/adminProductsRoute');
 var usuarioRoute = require('./server/src/routes/usuarioRoute');
 var paymentRouter = require('./server/src/routes/paymentRoute');
-<<<<<<< HEAD
 var meuscartoesRoute=require('./server/src/routes/meuscartoesRoute');
 var adicionarcartoesRoute=require('./server/src/routes/adicionarcartoesRoute');
 var meusenderecosRouter=require('./server/src/routes/meusenderecosRouter')
-=======
 var cadastroRoute= require('./server/src/routes/cadastroRoute');
 var produtoRouter= require('./server/src/routes/produtoRoute');
 var departmentRouter= require('./server/src/routes/deparment');
->>>>>>> 4c0831d1a46e5a31fb4c0a2ab8510a97b0ae79f2
 
 var app = express();
 
@@ -40,25 +33,16 @@ app.use(methodOverride("_method"));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
-<<<<<<< HEAD
 app.use(session({ secret: "LoginAdmin", cookie: {maxAge: new Date(Date.now() + 72000000) } }));
 app.use(express.static(path.join(__dirname, 'server/src/public')));
 
-app.use('/', indexRouter);
-app.use('/users', usersRouter);
-app.use('/login', loginRouter);
-app.use('/admin-produtos', adminProductRouter);
-app.use('/usuario', usuarioRoute);
-app.use('/finalizacao',paymentRouter);
-app.use('/cartoes',meuscartoesRoute);
-app.use('/adicionarcartoes',adicionarcartoesRoute);
+
 app.use('/meusenderecos',meusenderecosRouter);
-=======
-app.use(express.static(path.join(__dirname, 'server/public')));
-
-
-
-
+app.use('/adicionarcartoes',adicionarcartoesRoute);
+app.use('/cartoes',meuscartoesRoute);
+app.use('/finalizacao',paymentRouter);
+app.use('/usuario', usuarioRoute);
+app.use('/users', usersRouter);
 app.use('/', indexRouter);
 app.use('/login', loginRouter);
 app.use('/admin-produtos', adminProductRouter);
@@ -67,7 +51,6 @@ app.use('/finalizacao',paymentRouter);
 app.use('/cadastro',cadastroRoute);
 app.use('/produto/:slug',produtoRouter);
 app.use('/departments',departmentRouter)
->>>>>>> 4c0831d1a46e5a31fb4c0a2ab8510a97b0ae79f2
 
 
 // catch 404 and forward to error handler

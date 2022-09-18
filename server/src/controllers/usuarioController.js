@@ -1,31 +1,3 @@
-<<<<<<< HEAD
-const usuarioController={
-    usuario:(req,res)=>{
-       return res.render("usuario");
-        
-},
-
-finalizacao:(req,res)=>{
-    return res.render("finalizacao");
-},
-
-sucesso:(req,res)=>{
-    return res.render("sucesso");
-},
-
-home:(req,res)=>{
-    return res.render("home");
-},
-
-// deletarUsuario:(req,res)=>{
-//     const {id} = req.params;
-//     res.send("Deletando Usuario com id: " +id)
-// }
-
-}
-
-module.exports=usuarioController;
-=======
 var users=require("../data/users.json");
 users=users.usuarios;   
 
@@ -145,4 +117,3 @@ const userController = {
 // };
 
 module.exports = userController;
->>>>>>> 4c0831d1a46e5a31fb4c0a2ab8510a97b0ae79f2

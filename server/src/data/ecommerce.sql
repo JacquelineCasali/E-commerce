@@ -37,12 +37,6 @@ inventory INT UNSIGNED DEFAULT 0,
 rating DECIMAL(10,2) UNSIGNED
 );
 
-INSERT INTO users (name, description, price, size, department, inventory,rating)
-VALUES 
-("Camisa do Flamengo 2022/2023","Camiseta oficial do Clube Regatas Flamengo",199.90,"M","Camisetas",100,5.0),
-("Jaqueta de couro","Jaqueta de Couro Legitimo com costuras coreanas",350.00,"P","Casacos",10,4.5);
-
-
 
 INSERT INTO products (name, description, price,size, inventory,rating)
 VALUES 
@@ -98,13 +92,13 @@ VALUES
     ("Jaquetas"),
     ("Acessórios");
     
-SELECT * FROM  department
+SELECT * FROM  department;
 
 CREATE TABLE admins(
   id INT UNSIGNED PRIMARY KEY AUTO_INCREMENT,
   username VARCHAR(100) NOT NULL,
   senha VARCHAR(80) NOT NULL
-)
+);
 
 INSERT INTO admins(username, senha) 
 VALUES

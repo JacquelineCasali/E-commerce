@@ -8,26 +8,26 @@ const isAuth = require("../middlewares/adminAuth");
 const adminProductsController=require("../controllers/adminProductsController");
 const adminAuthController = require("../controllers/adminAuthController");
 
-router.get("/", isGuest, adminProductsController.adminHome);
-router.get("/login", isAuth, adminAuthController.adminLogin);
-router.post("/login", isAuth, adminAuthController.adminAuth);
-router.get("/criar", isGuest, adminProductsController.adminCriar);
-router.post("/criar", isGuest, upload.single("produto-img"), adminProductsValidator.storeValidator, adminProductsController.adminStore);
-router.get("/delete/:id", isGuest, adminProductsController.adminDelete);
-router.delete("/delete/:id", isGuest, adminProductsController.adminDestroy);
-router.get("/:id", isGuest, adminProductsController.adminShow);
-router.patch("/:id", isGuest, upload.single("produto-img"), adminProductsController.adminUpdate);
+// router.get("/", isGuest, adminProductsController.adminHome);
+// router.get("/login", isAuth, adminAuthController.adminLogin);
+// router.post("/login", isAuth, adminAuthController.adminAuth);
+// router.get("/criar", isGuest, adminProductsController.adminCriar);
+// router.post("/criar", isGuest, upload.single("produto-img"), adminProductsValidator.storeValidator, adminProductsController.adminStore);
+// router.get("/delete/:id", isGuest, adminProductsController.adminDelete);
+// router.delete("/delete/:id", isGuest, adminProductsController.adminDestroy);
+// router.get("/:id", isGuest, adminProductsController.adminShow);
+// router.patch("/:id", isGuest, upload.single("produto-img"), adminProductsController.adminUpdate);
 
-<<<<<<< HEAD
-=======
-router.get("/", adminProductsController.adminHome);
-router.get("/criar", adminProductsController.adminCriar);
-router.post("/criar", adminProductsController.adminStore);
-router.get("/delete/:id", adminProductsController.adminDelete);
-router.delete("/delete/:id", adminProductsController.adminDestroy);
-router.get("/:id", adminProductsController.adminShow);
-router.patch("/:id", adminProductsController.adminUpdate);
+// <<<<<<< HEAD
+// =======
+// router.get("/", adminProductsController.adminHome);
+// router.get("/criar", adminProductsController.adminCriar);
+// router.post("/criar", adminProductsController.adminStore);
+// router.get("/delete/:id", adminProductsController.adminDelete);
+// router.delete("/delete/:id", adminProductsController.adminDestroy);
+// router.get("/:id", adminProductsController.adminShow);
+// router.patch("/:id", adminProductsController.adminUpdate);
 
->>>>>>> 4c0831d1a46e5a31fb4c0a2ab8510a97b0ae79f2
+// >>>>>>> 4c0831d1a46e5a31fb4c0a2ab8510a97b0ae79f2
 
 module.exports = router;
