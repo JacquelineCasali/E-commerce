@@ -102,5 +102,5 @@ CREATE TABLE admins(
 
 INSERT INTO admins(username, senha) 
 VALUES
-  ("Admin01", "$2b$10$XOuWjgOKpyRIqrXr5kbjieR1k4CmAwgl.QWsPBOYIGVCImWTjltdu"),
+  ("Admin01", "$2b$10$W4Dv1O3xySxcZ7Zhvj9DPOqkydd0S34zBjQhsRyKS3PwjZ4f6sybG"),
   ("Admin02", "$2b$10$YWBXTTON11wyDkVqTVfPa.rQUnfdlC/l4BP4ph4h.j9PcOxWwBhnm");
