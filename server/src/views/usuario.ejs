@@ -1,5 +1,34 @@
-<%- include('./partials/usuariomenu')%>
-    
+
+<%- include('./partials/headerusuariomenu')%>
+
+<% if (locals.error) {%>
+    <h2 class="error-alert"><%= error.message%></h2>
+           <%}%>
+
+<form action="<%= user.id %>?_method=put" method="post" enctype="multipart/form-data">   
+
+   <!-- <div class="foto-usuario"> -->
+    <% if(locals.user){ %>
+
+        <img class="foto-perfil" src="<%= user.avatar %>" alt="Imagem de perfil">
+
+  <input type="file" name="avatar" class="btn btn-success" accept="image/png, image/jpeg" />
+  </div>
+
+  <%} else {%>
+  
+<!-- <img class="foto-perfil"src="https://i.pravatar.cc/300?img=70" alt="Imagem de perfil"> -->
+
+    <!-- <input type="file" name="avatar" class="btn btn-success" accept="image/png, image/jpeg" /> -->
+</div>
+
+    <%} %> 
+
+
+    <%- include('./partials/usuariomenu 1')%>
+
+
+   
 <main class="main_content">
 
     <div class="codigo">
@@ -8,79 +37,8 @@
 <h3 class="fontebarra" id="titulo-Meus Dados">Meus Dados</h3> 
      </div>
 
-<<<<<<< HEAD
-    <li><img class="incones" src="/images/icones/senha.png" alt="Imagen não encontrada">
-        <a href="#titulo-Alterar Senha" class="sel">Alterar Senha</a></li>
-    
-    <li><img class="incones" src="/images/icones/dados.png" alt="Imagen não encontrada">
-        <a href="#titulo-Meus Dados"class="sel">Meus Dados</a></li>
-    
-    <li><img class="incones" src="/images/icones/endereço.png" alt="Imagen não encontrada">
-        <a href="meusenderecos"class="sel">Meus Endereços</a></li>
-    
-    <li><img class="incones" src="/images/icones/cartão.png" alt="Imagen não encontrada">
-        <a href="./cartoes"class="sel">Meus Cartões</a></li>
-    
-    <li><img class="incones" src="/images/icones/sair.png" alt="Imagen não encontrada">
-        <a href="./home"class="sel">Sair</a></li>
-    
-</ul>
-            </nav>
-          </aside>
-   
-    <!-- tela lado direito -->
-        <main class="main_content">
-
-            <div class="codigo">
-                <!-- Tela lateral -->
-                <!-- link com angora volta onde quer id -->
-             <!-- <h3 class="fontebarra" id="titulo-MeusPedidos">Meus Pedidos</h3>  -->
-           <!-- <h3 class="fontebarra" id="titulo-Meus Créditos">Meus Créditos</h3>  -->
-             <!-- <h3 class="fontebarra" id="titulo-Alterar E-mail">Alterar E-mail</h3>
-            <h3 class="fontebarra" id="titulo-Alterar Senha">Alterar Senha</h3> -->
-                <h3 class="fontebarra" id="titulo-Meus Dados">Meus Dados</h3> 
-                 <!-- <h3 id="titulo-Meus Endereços">Meus Endereços</h3>  -->
-                <!-- <h3 id="titulo-Meus Cartões">Meus Cartões</h3>  -->
-            </div>
-          <!-- MEUS CREDITOS -->
-            <!-- <div class="conteudodomenu">
-                <h3 id="titulo-Meus Créditos">Meus Créditos</h3>  -->
-                <!-- table tabela -->
-                 <!-- <table>  -->
-             <!-- tr-linha da tabela --> 
-                <!-- <tr> -->
-                <!-- th-cabeçalho da tabela -->
-                 <!-- <th>DATA</th>
-        <th>HISTÓRICO</th>
-        <th>TIPO DE LANÇAMENTO</th> 
-        <th>VALOR</th>     
-    </tr> 
-        <tr>  -->
-                <!-- td - dados da tabela -->
-                 <!-- <td>ted</td>
-                <td>22</td>
-                <td>estudante</td>
-                <td></td>
-
-                </tr>
-                <tr> 
-                     td - dados da tabela
-                      <td>SALDO</td>
-            <td></td> 
-                </tr>
-                </table> -->
-            
-
-
-
-            
-           
-            <!--meus dados  -->
-   <form action="/registro" method="get">   
-=======
     <!--meus dados  -->
-<form action="" method="post">   
->>>>>>> 4c0831d1a46e5a31fb4c0a2ab8510a97b0ae79f2
+<!-- <form action="<%= user.id %>?_method=put" method="post" enctype="multipart/form-data">    -->
 <div class="row">
 <div class="coluna2">
                  
@@ -97,7 +55,7 @@
 
 <label for="Data">Data de nascimento :</label>
                 
-<input type="date" class="coluna22" id="Data" name="Data" required >                          
+<input type="date" class="coluna22" id="Data" name="Data" value="<%= user.nascimento %>" >                          
 </div>
 
 <div class="coluna3">
@@ -150,16 +108,15 @@
    
         checked
          <%}%>
-    
-    
-    
-    <label for="Receber">Não</label>
+        <label for="Receber">Sim</label>
+
+
     <input type="radio" id="Não" name="Receber" value="Receber" required
     <% if (user.receber=="Não"){%>
    
         checked
          <%}%>
-    >
+   
        
     <label for="Receber">Não</label>
 </div>
@@ -186,8 +143,8 @@
 <div class="coluna2">
 
 <label  for="Senha Atual">Senha Atual:</label>
-<input type="password" class="coluna22" id="Senha Atual" name="password" placeholder="Senha Atual"
-value="<%= user.senha %>">
+<input type="password" class="coluna22" id="Senha Atual" name="password" placeholder="Preencha Sua Senha Atual Aqui"
+>
     
 </div>   
 <div class="coluna3">
@@ -204,9 +161,8 @@ value="<%= user.senha %>">
         
 <input type="text" class="instabarra" id="Instagram" name="Instagram">
 
-<button class="usuario" type="submit" > <a href="/">
-    SALVAR DADOS </button>
-    </a>  
+<button class="usuario" type="submit" >  SALVAR DADOS </button>
+    
 
 </form>  
 
@@ -221,31 +177,6 @@ value="<%= user.senha %>">
 <%- include('./partials/footerusuario')%>
 
 
-<<<<<<< HEAD
-    <!-- footer define o rodapé -->
-    <footer>
-       
-=======
->>>>>>> 4c0831d1a46e5a31fb4c0a2ab8510a97b0ae79f2
 
 
-<<<<<<< HEAD
-     <p class="rodapé">
-          © 2021 Approve Street Wear Comercial LTDA / CNPJ: 18.391.981/0001-00 - Todos os direitos reservados.
-
-            </p>
-
-          
-           <img  class="cadeado"src="images/lock.png"  alt="Imagen não encontrada" >AMBIENTE 100% SEGURO</li>
-            
-<!--    
-            AMBIENTE 100% SEGURO -->
-
-       
-
-    </footer>
-  </body>
-</html>
-=======
->>>>>>> 4c0831d1a46e5a31fb4c0a2ab8510a97b0ae79f2
 

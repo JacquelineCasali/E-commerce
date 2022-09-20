@@ -14,7 +14,8 @@
             <%}%>    
 
 
-<form action="<%= user.id %>?_method=put" method="post">   
+<form action="<%= user.id %>?_method=put"
+    method="post" enctype="multipart/form-data">   
 <div class="row">
 
 <div class="e">
@@ -42,7 +43,7 @@
 </div>
 
 <button class="usuario" type="submit" >SALVAR E-MAIL </button>
-    </a>  
+    
 
 </form>  
 

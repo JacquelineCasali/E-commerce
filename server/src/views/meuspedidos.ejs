@@ -1,5 +1,4 @@
-
-  <%- include('./partials/usuariomenu')%>
+ <%- include('./partials/usuariomenu')%>
   <!-- <link rel="stylesheet" href="/stylesheets/123.css"> -->
  <link rel="stylesheet" href="/stylesheets/123.css">
  <main id="user-list">
@@ -11,7 +10,7 @@
   </div>
    
    <!-- verificação  -->
-   <% if (users.length>0) {%>
+ 
 
     <div class="table-container">
       <table >
@@ -27,7 +26,7 @@
         </thead>
         <tbody>
 <!-- variavel no plural no for of vem para o singular -->
-    <% for (let user of users){%>
+   
             <!--conteudo daqui roda a quantidade de vezes da variavel  -->
       <!-- trabalhando com for  nao pode ter id  -->
             <tr>
@@ -40,17 +39,17 @@
 
                 
                 <td class="table-actions">
-                    <a href="./meuspedido/<%= user.id%>" class="table-link-show"> VerDetalhess</a>
+                    <a href="./pedidos/<%= user.id%>" class="table-link-show"> VerDetalhess</a>
                    
                 </td>
             </tr>
-            <%}%>
+           
         </tbody>
     </table>
 </div>
-<%}else{ %>
-    <h2 class="error-alert">Nenhum Pedido encontrado </h2>
-<%} %>
+
+    <!-- <h2 class="error-alert">Nenhum Pedido encontrado </h2> -->
+
 
 
 

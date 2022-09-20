@@ -14,13 +14,13 @@
             <%}%>    
 
 
-<form action="<%= user.id %>?_method=put" method="post">   
+<form action="<%= user.id %>?_method=put" method="post" enctype="multipart/form-data">   
 <div class="row">
 
 <div class="e">
 <div class="coluna2">
 <label  for="Senha Atual">Senha Atual:</label>
-<input type="password" class="coluna22" id="Senha Atual" name="password" placeholder="Senha Atual" value="<%= user.senha %>">
+<input type="password" class="coluna22" id="Senha Atual" name="password" placeholder="Senha Atual" required>
 </div>
 </div>
 
@@ -29,13 +29,13 @@
 
     <label for="Nova Senha">Nova Senha:</label>
 
-    <input type="password" class="coluna22"  id="Nova Senha" name="novapassword" placeholder="Digite sua Nova Senha" required>
+    <input type="password" class="coluna22" name="nova_senha" placeholder="Digite sua Nova Senha" required>
     </div>   
 <div class="coluna3">
 
     <label for="confirm-password">Confirmação da Nova Senha :</label>
 
-    <input type="password"  class="coluna22" id="Confirmação da Nova Senha" name="confirmpassword"  placeholder="Confirme sua Nova Senha" required>
+    <input type="password"  class="coluna22" name="confirmar_senha"  placeholder="Confirme sua Nova Senha" required>
     
     
 </div>

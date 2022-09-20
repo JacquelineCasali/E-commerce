@@ -1,79 +1,96 @@
-var users=require("../data/users.json");
-users=users.usuarios;
+const fs=require("fs");
+const path=require("path")
+const files=require("../helpers/files")
+const uploads = require("../config/uploads");
+
+// var users=require("../data/users.json");
+// users=users.usuarios;
+
+const userJson=fs.readFileSync(
+
+  path.join(__dirname,"..","data","users.json"),
+  "utf-8"
+)
+const users=JSON.parse(userJson);
 
 
 const enderecoController={
     endereco:(req,res)=>{
-        return res.render("enderecos",{title:"Endereço",users});
-    },
+          
+        return res.render("enderecos",
+        {title:"Endereço"});
+      },
     
-    index:(req,res)=>{
+      adicionarendereco:(req,res)=>{
         return res
-        .status(200)
         .render("adicionarendereco",{title:"Adicionar Endereço",users});
         
-},
+      },
 
 // read - ler apenas um usuario
 show:(req,res)=>{ 
-    const { id }= req.params
+  
+  const { id }= req.params
     const userResult=users.find((user)=>{
        return user.id === parseInt(id);
      })
 
      if(!userResult){
-        return res 
-        .send("Endereço não entcontrado")
-             
-    }
+        return res.render("enderecos", {
+            title: "Ops!",
+            message: "Nenhum Endereço encontrado",
+          });
+        }
+        const user ={
+  ...userResult,
+   avatar:files.base64Encode(uploads.path + userResult.avatar),
+          }
+
     return res 
     .status(400)
     .render("enderecos",{title:"Visualizar Endereço",
-    user:userResult} )
+    user} )
     
-
-},
-
-create:(req,res)=>{
-
-return res.render("adicionarendereco",{title:"Cadastrar Endereço"})
-
 },
 
 
 
 // CREATE - Criar um endereço
-    store:(req,res)=>{ 
-    const {nome, cep,rua, bairro, cidade,numero,complemento}=req.body;
-    // para validação
-    // ! é negação 
-    //  condicional ou
-    if(!nome|| !cep|| !rua|| !bairro|| ! cidade|| !numero|| complemento ){
-        return res.render ("adicionarendereco",{
-            title:"Cadastrar Endereço",
-            error:{
-            message:"Preencha todos os campos!",}
+   
+create:(req,res)=>{ 
+   const {nome, cep,rua, bairro, cidade,numero,complemento}=req.body;
+  
+  const newUser={
+      nome, 
+      cep,
+      rua, 
+      bairro, 
+      cidade,
+      numero,
+      complemento,
+      // avatar:filename,
     
-        })
-    }
-    const newUser={
-        id:users.length + 1,
-        nome, cep,rua, bairro, cidade,numero,complemento
-    }
-    users.push({
-        nome, 
-        cep,
-        rua, 
-        bairro, 
-        cidade,
-        numero,
-        complemento,
+  }
 
-    });
-           return res.render("Success",{
-            title:"Endereço criado",
-            message:"Endereço Criado com Sucesso",
-        })   
+  const newId=users[users.length -1].id +1;
+  newUser.criadoEm=new Date(),
+  newUser.modificadoEm=new Date(),
+  newUser.admin=false;
+  newUser.id=newId
+  users.push(newUser)
+
+  // atualizar o arquivo 
+// caminho do arquivo
+  fs.writeFileSync(
+    path.join(__dirname,"..","data","users.json"),
+JSON.stringify(users)
+  )
+         return res.render("Success",{
+          title:"Endereço criado",
+          message:"Endereço Criado com Sucesso",
+      })   
+
+     
 },
 edit:(req,res)=>{
 const {id} = req.params;
@@ -83,11 +100,16 @@ if (!userResult){
         title: "Ops!",
         message: "Nenhum Endereço encontrado",
       });
-        
-}
+    }
+      const user ={
+        ...userResult,
+        avatar:files.base64Encode(uploads.path + userResult.avatar),
+      }  
+
+
 return res.render("editarendereco", {
     title: "Editar Endereço",
-    user: userResult,
+    user
   });
 },
 
@@ -96,25 +118,46 @@ return res.render("editarendereco", {
     update:(req,res)=>{
     const {id}= req.params
     const {nome, cep,rua, bairro, cidade,numero,complemento}=req.body;
-    const userResult= users.find((users)=>
-    users.id===parseInt(id));
+    const userResult= users.find((user)=>
+    user.id===parseInt(id));
+
+    let filename;
+    if(req.file){
+      filename=req.file.filename;
+    }
     if (!userResult){
         return res.render("error", {
             title: "Ops!",
             message: "Nenhum Endereço encontrado",
           });
         }
-const newUser=userResult;
-if(nome) newUser.nome=nome;
-if(cep) newUser.cep=cep;
-if(rua) newUser.rua=rua;
-if(bairro) newUser.bairro=bairro;
-if(cidade) newUser.cidade=cidade;
-if(numero) newUser.numero=numero;
-if(complemento) newUser.complemento=complemento;
+
+        
+const updateUser=userResult;
+if(nome) updateUser.nome=nome;
+if(cep) updateUser.cep=cep;
+if(rua) updateUser.rua=rua;
+if(bairro) updateUser.bairro=bairro;
+if(cidade) updateUser.cidade=cidade;
+if(numero) updateUser.numero=numero;
+if(complemento) updateUser.complemento=complemento;
+if(filename)
+{
+  let avatarTmp = updateUser.avatar;
+  fs.unlinkSync(uploads.path +  avatarTmp);
+    updateUser.avatar=filename;
+}
+
+fs.writeFileSync(
+  path.join(__dirname,"..","data","users.json"),
+  // conteudo que sera salvo no arquivo
+  JSON.stringify(users)
+  );
+
+
 return res.render("success", {
     title: "Endereço atualizado",
-    message: `Endereço do usuáro ${newUser.nome} atualizado com sucesso`,
+    message: `Endereço do usuário ${updateUser.nome} atualizado com sucesso`,
   });
 },
 // delete - deletar um usuario
@@ -128,9 +171,13 @@ delete:(req,res)=>{
               });
                 
         }
+        const user ={
+            ...userResult,
+            avatar:files.base64Encode(uploads.path+ userResult.avatar),
+          }
         return res.render("deletarenderecos", {
             title: "Deletar Endereço",
-            user: userResult,
+            user
           });
         },
          
@@ -144,22 +191,18 @@ if(userResult === -1){
         message: "Nenhum Endereço Cadastrado",
       });
 }  
+
+
+
+
 users.splice(userResult,1)
 return res.render("success",{
-    title:"Usuário deletado",
+    title:"Endereço deletado",
     message: "Endereço deletado com sucesso!"
   })
 
 },
-save:(req,res)=>{
-    const {id,name}= req.params;
-    if(name){
-        res.send(`Save ${id} e ${name}`);
-    } else{
-        res.send(`Save ${id}`);
-    }
-    }
-};
+}
 
 
 
@@ -169,9 +212,3 @@ save:(req,res)=>{
 
 
 module.exports=enderecoController;
-
-
-
-
-
-

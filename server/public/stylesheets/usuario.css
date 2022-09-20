@@ -192,7 +192,7 @@ padding-top: 5px;
 
 } 
 h3.fontebarra{
-margin-top: 10px;
+margin-top: 30px;
 /* padding: 0 5px 10px 5px; */
 margin-bottom: 23px;
 padding: 0;
@@ -216,7 +216,7 @@ float:inline-start;
 display: block;
 position: relative;
 padding: 10px 5px 0 5px;
-min-height: 50%;
+/* min-height: 50%; */
 margin-bottom: 8px;
 padding: 10px 5px 0 5px;
 
@@ -447,9 +447,9 @@ h2{
   font-size: 1.5rem;
    color: green;
    width: 100%;
-   margin-top: 50px;
+   margin-top: 10px;
    margin-right: 50px;
-   padding: 80px;
+   padding: 20px;
           }
 
 /* adicionar cartao */

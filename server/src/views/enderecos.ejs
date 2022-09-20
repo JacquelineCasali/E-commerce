@@ -6,7 +6,7 @@
 
       
         <% if (locals.error) {%>
-        <h2 class="error-alert"><%= error.message%></h2>
+ <h2 class="error-alert"><%= error.message%></h2>
             <%}%>
 
         <div class="codigo">
@@ -15,7 +15,7 @@
  <% if(locals.user){ %>
 
     <main id="user">
-   
+<!-- <img src="<%= user.avatar %>" alt="avatar">    -->
 <span><%= user.nome %></span>
 <span>Endereço: <%= user.rua%> , <%= user.numero %>.</span>
 
@@ -41,10 +41,11 @@
 <!-- <h2 class="error-alert">Usuários não encontrado por motivos do alem</h2> -->
 
 <p>
-    Aqui é possível conferir as informações do seu endereço.
+    Nenhum Endereço Cadastrado Nesse Usuário.
+        
 </p>
 <p>
-    Cadastre seus Endereços.
+    Click no Botão e Cadastre Seu Endereço
 </p> 
 
 <%} %>  

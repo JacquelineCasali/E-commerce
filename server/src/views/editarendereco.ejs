@@ -2,6 +2,8 @@
     <!-- menu lateral -->
     <%- include('./partials/usuariomenu')%>
    
+
+    
     <!-- tela lado direito -->
         <main class="main_content">
 
@@ -16,7 +18,7 @@
                 <h2 class="error-alert"><%= error.message%></h2>
                     <%}%>       
            
-            <form action="<%= user.id %>?_method=put" method="post">   
+            <form action="<%= user.id %>?_method=put" method="post" enctype="multipart/form-data">   
                 <!-- <div class="row"> -->  
                   
                     <div class="coluna2">

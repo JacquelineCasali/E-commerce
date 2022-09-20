@@ -1,0 +1,72 @@
+<%- include('./partials/usuariomenu')%>
+    
+
+<main class="main_content">
+
+    <div class="codigo">
+        <!-- Tela lateral -->
+<a href="../<%= user.id %>"> <-Voltar Para Meus Pedidos</a>
+             
+<h3 class="fontebarra" id="titulo-Meus Dados">Detalhe do pedido <%=user.pedido%></h3> 
+     </div>
+
+     <div class="row">
+        <div class="coluna2">
+
+            <!-- <main class="main_content"> -->
+                <!-- <div class="codigo"> -->
+                    <!-- Tela lateral -->
+                          <main id="user">
+        <h2 class="end" >Endereço</h2>   
+        <span>Endereço de entrega</span>
+          
+        <span>Nome:<%= user.nome %></span>
+        <span>Endereço: <%= user.rua%> , <%= user.numero %>.</span>
+        
+        <span>Bairro:<%= user.bairro %></span>
+        
+        <span>Cidade:<%= user.cidade %> <%= user.complemento %></span>
+       
+                <span>
+                    CEP:<%= user.cep %>
+        </span>
+        
+        
+        </main>
+
+    </div>
+        <div class="coluna3">
+
+            <main id="user">
+ <h2 class="end">Forma de Pagamento</h2>
+
+ <img class="incones2" src="/images/icones/tipo de cartao.png" alt="Imagen não encontrada">
+ <!-- <img class="incones2" src="<%= user.imagempagamento%>" alt="Imagen não encontrada"> -->
+
+
+                <span><%= user.formaPagamento %></span>
+                <span><%= user.valor%></span>
+                                
+                </main>
+        </div>
+       
+    </div>
+  
+  <div class="e">
+  
+    <h2 class="end" >RESUMO DO PEDIDO</h2> 
+    <div id="user1">
+        <img src="/images/icones/Moleton.png" class="foto-cartao">
+        
+        <span class="imagem2">Moleton</span>
+        <span class="imagem2">Tamanho: G</span>
+        <span class="imagem2">Quantidade: 2</span>
+        <span class="imagem2">Valor:<%= user.valor%></span>
+ </div>
+
+  </div> 
+</main>  
+    <%- include('./partials/footerusuario')%>
+
+
+    

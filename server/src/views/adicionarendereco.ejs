@@ -1,5 +1,6 @@
-    <!-- section toda a tela entre o cabeçalho e o rodpé -->
+    <!-- section toda a tela entre o cabeçalho e o rodapé -->
     <!-- menu lateral -->
+   
     <%- include('./partials/usuariomenu')%>
    
     <!-- tela lado direito -->
@@ -16,14 +17,13 @@
                 <h2 class="error-alert"><%= error.message%></h2>
                     <%}%>       
            
-            <form action="" method="post">   
-                <!-- <div class="row"> -->  
-                  
-                    <div class="coluna2">
+    <form action="./adicionarendereco" method="post" enctype="multipart/form-data">                <!-- <div class="row"> -->  
+               
+    <div class="coluna2">
                         
         <label for="nome do destinatário">Nome do Destinatário:</label>
                         
-        <input type="text" class="coluna22"  id="nome " name="nome" placeholder="Digite o nome do destinatário" required>
+        <input type="text" class="coluna22"  id="nome " name="nome" placeholder="Digite o nome do destinatário" required >
                         
                                           
                     </div>
