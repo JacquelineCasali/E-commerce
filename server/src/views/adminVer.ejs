@@ -54,18 +54,18 @@
         <p>Última alteração: <%= produto.ultimaAlteracao %></p>
         <br />
         <form action="/admin-produtos/<%= produto.id %>?_method=patch" method="post" enctype="multipart/form-data">
-          <img src="<%= produto.imagem %>" alt="<%= produto.nome %>">
+          <img src="<%= produto.image %>" alt="<%= produto.name %>">
           <br />
           <label for="nome"></label>
-          <input type="text" name="nome" placeholder="Nome do produto" value="<%= produto.nome %>" />
+          <input type="text" name="nome" placeholder="Nome do produto" value="<%= produto.name %>" />
           <br />
-          <input type="text" name="tamanho" placeholder="Tamanho" value="<%= produto.tamanho %>"/>
+          <input type="text" name="tamanho" placeholder="Tamanho" value="<%= produto.size %>"/>
           <br />
-          <input type="text" name="categoria" placeholder="Categoria" value="<%= produto.categoria %>"/>
+          <input type="text" name="categoria" placeholder="Categoria" value="<%= produto.department %>"/>
           <br />
-          <input type="number" name="preco" placeholder="Preço" pattern="[0-9]+([,\.][0-9]+)?" min="0" step="any" value="<%= parseFloat(produto.preco) %>"/>
+          <input type="number" name="preco" placeholder="Preço" pattern="[0-9]+([,\.][0-9]+)?" min="0" step="any" value="<%= parseFloat(produto.price) %>"/>
           <br />
-          <input type="text" name="descricao" placeholder="Descrição" value="<%= produto.descricao %>" />
+          <input type="text" name="descricao" placeholder="Descrição" value="<%= produto.description %>" />
           <br />
           <select name="status">
             <% if (produto.status === "Ativo") { %>

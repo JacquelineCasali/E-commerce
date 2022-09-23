@@ -1,57 +1,66 @@
 const files = require("../helpers/files");
 const fs = require("fs");
 const upload = require("../config/upload");
+const Product = require("../models/Product");
 
-var produtos = [
-    {   
-        id: 1,
-        nome: "Camiseta X",
-        tamanho: "G",
-        categoria: "camiseta",
-        preco: 49.99,
-        descricao: "Descrição do produto",
-        status: "Ativo",
-        ultimaAlteracao: "05/08/2022",
-        imagem: "Moleton.png"
-    },
-    {   
-        id: 2,
-        nome: "Camiseta Y",
-        tamanho: "M",
-        categoria: "camiseta",
-        preco: 39.99,
-        descricao: "Descrição do produto",
-        status: "Ativo",
-        ultimaAlteracao: "09/07/2022",
-        imagem: "Moleton.png"
-    },
-    {   
-        id: 3,
-        nome: "Camiseta Z",
-        tamanho: "G",
-        categoria: "camiseta",
-        preco: 59.99,
-        descricao: "Descrição do produto", 
-        status: "Inativo",
-        ultimaAlteracao: "15/08/2021",
-        imagem: "camisa-flamengo1.jpg"
-    },
-    {   
-        id: 4,
-        nome: "Moletom Z",
-        tamanho: "P",
-        categoria: "moletom",
-        preco: 89.99,
-        descricao: "Descrição do produto",
-        status: "Inativo",
-        ultimaAlteracao: "15/08/2021",
-        imagem: "camisa-flamengo1.jpg"
-    }
-] 
+// var produtos = [
+//     {   
+//         id: 1,
+//         nome: "Camiseta X",
+//         tamanho: "G",
+//         categoria: "camiseta",
+//         preco: 49.99,
+//         descricao: "Descrição do produto",
+//         status: "Ativo",
+//         ultimaAlteracao: "05/08/2022",
+//         imagem: "Moleton.png"
+//     },
+//     {   
+//         id: 2,
+//         nome: "Camiseta Y",
+//         tamanho: "M",
+//         categoria: "camiseta",
+//         preco: 39.99,
+//         descricao: "Descrição do produto",
+//         status: "Ativo",
+//         ultimaAlteracao: "09/07/2022",
+//         imagem: "Moleton.png"
+//     },
+//     {   
+//         id: 3,
+//         nome: "Camiseta Z",
+//         tamanho: "G",
+//         categoria: "camiseta",
+//         preco: 59.99,
+//         descricao: "Descrição do produto", 
+//         status: "Inativo",
+//         ultimaAlteracao: "15/08/2021",
+//         imagem: "camisa-flamengo1.jpg"
+//     },
+//     {   
+//         id: 4,
+//         nome: "Moletom Z",
+//         tamanho: "P",
+//         categoria: "moletom",
+//         preco: 89.99,
+//         descricao: "Descrição do produto",
+//         status: "Inativo",
+//         ultimaAlteracao: "15/08/2021",
+//         imagem: "camisa-flamengo1.jpg"
+//     }
+// ] 
 
 const adminProductsController = {
-    adminHome: (req,res) => {
-        return res.render("adminProdutos", { produtos });
+    adminHome: async (req,res) => {
+        try {
+          const produtos = await Product.findAll();
+
+          console.log(produtos[0])
+          return res.render("adminProdutos", { produtos });
+        } catch (error) {
+          res.json({message: "Erro ao encontrar produtos"})
+        }
+        
     },
     adminCriar: (req,res) => {
       const { nome, tamanho, categoria, preco, descricao, status } = "";
@@ -130,18 +139,30 @@ const adminProductsController = {
         }
         return res.render("adminDeletar", { title:"Deletar Produto", cssCaminho: "/stylesheets/adminDeletar.css", produto: product })
       },
-    adminShow: (req, res) => {
+    adminShow: async (req, res) => {
         const { id } = req.params;
-        const productResult = produtos.find((produto) => produto.id === parseInt(id));
+        // const productResult = produtos.find((produto) => produto.id === parseInt(id));
 
-        if (!productResult) {
-          return res.status(400).json({ message: "Nenhum usuário encontrado" });
+        // if (!productResult) {
+        //   return res.status(400).json({ message: "Nenhum usuário encontrado" });
+        // }
+        // const product = {
+        //   ...productResult,
+        //   imagem: files.base64Encode( upload.imagePath + productResult.imagem),
+        // }
+        try{
+          // const productResult = Product.findByPk(id)
+          const productResult = Product.findOne({
+            where: {
+              id,
+            }
+          })
+          console.log(productResult)
+          return res.render("adminVer", { title: "Produto | " + productResult.name, cssCaminho: "/stylesheets/adminVer.css", produto: productResult})
+        } catch (error) {
+          res.json({message: "Erro ao encontrar produto"})
         }
-        const product = {
-          ...productResult,
-          imagem: files.base64Encode( upload.imagePath + productResult.imagem),
-        }
-        return res.render("adminVer", { title: "Produto | " + productResult.nome, cssCaminho: "/stylesheets/adminVer.css", produto: product})
+        
       },
     adminUpdate: (req, res) => {
         const { id } = req.params;
