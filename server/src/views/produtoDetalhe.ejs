@@ -14,14 +14,13 @@
 <body>
 <%- include('./partials/header') %>
     <main class="produto-container">
-        <% produto.forEach(item => { %>
             <section class="conteudo">
-                <img class="imagem-detalhe"  src="<%= item.imagem %>">
+                <img class="imagem-detalhe"  src="<%= product['image'] %>" width="700px">
                 <section class="detalhe-container">
-                    <h1 class="produto-detalhe"><%= item.nome %></h1>
-                    <p class="preco-produto"><%= item.preco %></p>
+                    <h1 class="produto-detalhe"><%= product['name'] %></h1>
+                    <p class="preco-produto">R$<%= product['price'] %></p>
                     <section class="modelo">
-                    <h3 class="tamanho"><%= item.tamanho %></h3>
+                    <h3 class="tamanho"><%= product['size'] %></h3>
                     <div class="botoes">
                      <div class="btn-size">P</div>
                      <div class="btn-size">M</div>
@@ -34,10 +33,9 @@
                         <button class="btn-comprar"><a class="link-1" href="#">COMPRAR</a></button>
                         </section>
                     <h2 class="sub-titulo">Detalhe do Produto</h2>
-                    <p  class="detalhe-texto"><%= item.detalhe %></p>
+                    <p  class="detalhe-texto"><%= product['description'] %></p>
                 </section>
                 </section>
-            <% }) %>
     
 
 </main>

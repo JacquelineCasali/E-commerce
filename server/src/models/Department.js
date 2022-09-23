@@ -1,22 +1,21 @@
-const db = require("../config/sequelize");
-const Sequelize = require("sequelize");
-
-const Department = db.define(
-  "Department",
-  {
-    id: {
-      type: Sequelize.DataTypes.INTEGER.UNSIGNED,
-      autoIncrement: true,
-      primaryKey: true,
+module.exports = (sequelize, DataTypes) => {
+  const Department = sequelize.define(
+    "Department",
+    {
+      id: {
+        type: DataTypes.INTEGER.UNSIGNED,
+        autoIncrement: true,
+        primaryKey: true,
+      },
+      name: {
+        type: DataTypes.STRING(100),
+        allowNull: false,
+      },
     },
-    name: {
-      type: Sequelize.DataTypes.STRING(100),
-      allowNull: false,
-    },
-  },
-  {
-    timestamps: false,
-  }
-);
-
-module.exports = Department;
+    {
+      tablename: "departament",
+      timestamps: false,
+    }
+  );
+  return Department;
+};
