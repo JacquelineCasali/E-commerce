@@ -155,11 +155,17 @@ inventory INT UNSIGNED DEFAULT 0,
 rating DECIMAL(10,2) UNSIGNED
 );
 
+INSERT INTO `products` (`id`, `name`, `description`, `image`, `price`, `size`, `department`, `inventory`, `rating`, `status`, `lastChange`) VALUES
+(1, 'camisa oversized black', 'Camisa oversized com gola careca e manga 7/8. Silk frontal e traseiro.', '/images/camisas/camisa-1.webp', '199.99', 'M', NULL, 50, '4.99', 0, 0),
+(2, 'camisa oversized green', 'Camisa lynes verde', '/images/camisas/camisa-2.webp', '199.99', 'M', NULL, 50, '4.99', 0, 0),
+(3, 'camisa oversized black', 'camisa oversized com estampa approve', '/images/camisas/camisa-3.webp', '179.99', 'G', NULL, 40, '6.99', 0, 0),
+(4, 'camisa oversized dark blue', 'camisa oversized com estampa approva azul escuro', '/images/camisas/camisa-4.webp', '189.00', 'M', NULL, 50, '3.99', 0, 0),
+(5, 'camisa oversized planet green', 'camisa oversized com estampa colorida', '/images/camisas/camisa-5.webp', '188.88', 'G', NULL, 50, '3.99', 0, 0),
+(6, 'camisa oversized approve beyond lines chumbo', 'camisa oversized com estampa branca', '/images/camisas/camisa-6.webp', '199.99', 'M', NULL, 50, '6.99', 0, 0),
+(7, 'camisa bold approve campping', 'camisa campping preta ', '/images/camisas/camisa-7.webp', '199.99', 'M', NULL, 50, '6.99', 0, 0),
+(8, 'camisa oversized approve campping II off white', 'camisa campping branca', '/images/camisas/camisa-8.webp', '199.99', 'G', NULL, 40, '6.99', 0, 0);
 
-INSERT INTO products (name, description, price,size, inventory,rating)
-VALUES 
-	("Camisa do Flamengo 2022/2023", "Camiseta oficial do Clube Regatas Flamengo",199.99,"M",50,4.99),
-	("Camisa do Flamengo 2022/2023", "Camiseta oficial do Clube Regatas Flamengo",199.99,"M",50,4.99);
+--
 
 CREATE TABLE department(
   id INT UNSIGNED PRIMARY KEY AUTO_INCREMENT,

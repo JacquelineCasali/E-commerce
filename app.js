@@ -14,7 +14,7 @@ var adminProductRouter = require('./server/src/routes/adminProductsRoute');
 var usuarioRoute = require('./server/src/routes/usuarioRoute');
 var paymentRouter = require('./server/src/routes/paymentRoute');
 var cadastroRoute= require('./server/src/routes/cadastroRoute');
-var produtoRouter= require('./server/src/routes/produtoRoute');
+var produtosRouter=require('./server/src/routes/produtosRoute')
 var departmentRouter= require('./server/src/routes/deparment');
 
 var app = express();
@@ -47,7 +47,7 @@ app.use('/admin-produtos', adminProductRouter);
 app.use('/MinhaConta', usuarioRoute);
 app.use('/finalizacao',paymentRouter);
 app.use('/cadastro',cadastroRoute);
-app.use('/produto/',produtoRouter);
+app.use('/',produtosRouter)
 app.use('/department',departmentRouter)
 
 

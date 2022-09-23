@@ -1,49 +1,51 @@
-const db=require("../config/sequelize");
-const Sequelize = require("sequelize");
 
-const Usuario=db.define("Usuario",{
-    
-        id:{
-            type:DataTypes.INTEGER.UNSIGNED,
-            autoIncrement:true,
-            primaryKey:true,
-        },
-    
-        name:{
-            type:DataTypes.STRING(100).NOT.NULL,
+module.exports = (sequelize, DataTypes) => {
+    const User = sequelize.define(
+      "User",
+      {
+            id:{
+                type:DataTypes.INTEGER.UNSIGNED,
+                autoIncrement:true,
+                primaryKey:true,
             },
         
-        cpf:{
-            type:DataTypes.STRING(100).NOT.NULL,
+            name:{
+                type:DataTypes.STRING(100),
+                allowNull:false,
+                },
+            
+            cpf:{
+                type:DataTypes.STRING(100),
+                allowNull: false,
+            },
+        celular:{
+            type:DataTypes.STRING(100),
             allowNull: false,
         },
-    celular:{
-        type:DataTypes.STRING(100).NOT.NULL,
-        allowNull: false,
+        birthdate:{
+            type:DataTypes.DATE
+        },
+        email:{
+            type:DataTypes.STRING(100),
+            allowNull: false,
+        },
+        
+        is_admin:{
+            type:DataTypes.BOOLEAN
+        },
+        createdAt:{
+            type:DataTypes.DATE
+        },
+        modifiedAt:{
+            type:DataTypes.DATE
+        }
     },
-    birthdate:{
-        type:DataTypes.DATE
-    },
-    email:{
-        type:DataTypes.STRING(100).NOT.NULL,
-        allowNull: false,
-    },
+        {
+            tableName:"users",
+            timestamps: false,
     
-    is_admin:{
-        type:DataTypes.DEFAULT
-    },
-    createdAt:{
-        type:DataTypes.DATE
-    },
-    modifiedAt:{
-        type:DataTypes.DATE
-    }
-},
-    {
-        tableName:"usuarios_db",
-        timestamps: false,
-
-    });
-
-
-module.exports=Usuario;
+        })
+  
+    return User;
+  };
+  
