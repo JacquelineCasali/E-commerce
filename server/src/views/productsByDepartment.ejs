@@ -1,0 +1,33 @@
+<head>
+  <title>Produtos</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="/stylesheets/produtos.css" />
+  <link rel="stylesheet" href="/stylesheets/global.css" />
+</head>
+<body>
+  <%- include('./partials/header') %>
+  <div class="container">
+    <h1 class="titulo-produtos"><%=name %></h1>
+    <section class="produtos-container">
+      <section class="produtos">
+        <% products.forEach(product=> { %>
+        <div class="card">
+          <a class="link" href="/produto/<%= product.id%>">
+            <img
+              class="camisa-imagem"
+              src="<%= product.image%>"
+              width="300px"
+            />
+          </a>
+          <div class="info-produto">
+            <p class="nome-camisa"><%= product.name %></p>
+            <span class="preco-camisas"> R$ <%= product.price%> </span>
+          </div>
+        </div>
+        <% }) %>
+      </section>
+    </section>
+  </div>
+  <%- include('./partials/footer') %>
+</body>
