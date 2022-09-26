@@ -14,14 +14,15 @@ CREATE TABLE users (
     email VARCHAR(100) NOT NULL,
     confirm_email VARCHAR(100),
     new_email VARCHAR(100),
-    birthdate DATE
+    birthdate DATE,
+    password VARCHAR(100)NOT NULL
 );
 
-INSERT INTO users (name, cpf, rg, phone, email, confirm_email,new_email,birthdate)
+INSERT INTO users (name, cpf, rg, phone, email, confirm_email,new_email,birthdate,password)
 VALUES 
-	("Roberto Silva", "11122233344","","5531988554431","roberto@email.com","roberto@email.com","roberto2@email.com","1958-11-15"),
-  ("Andre Carlos", "11122233344","","5531988554431","andre@email.com","andre@email.com","dede@email.com","1993-01-15"),
-	("Julio Mesquita", "11122233344","","5531988554431","jj@email.com","jj@email.com","jlm@email.com","1990-12-15");
+	("Roberto Silva", "11122233344","","5531988554431","roberto@email.com","roberto@email.com","roberto2@email.com","1958-11-15","$2b$10$uZ55gOlX4D.O4/baKYnT.eFbxxmUSHbtw.tVV.zSvRojG2cpKgF3q"),
+  ("Andre Carlos", "11122233344","","5531988554431","andre@email.com","andre@email.com","dede@email.com","1993-01-15","$2b$10$uZ55gOlX4D.O4/baKYnT.eFbxxmUSHbtw.tVV.zSvRojG2cpKgF3q"),
+	("Julio Mesquita", "11122233344","","5531988554431","jj@email.com","jj@email.com","jlm@email.com","1990-12-15","$2b$10$uZ55gOlX4D.O4/baKYnT.eFbxxmUSHbtw.tVV.zSvRojG2cpKgF3q");
 
 
 -- Tabela para produtos

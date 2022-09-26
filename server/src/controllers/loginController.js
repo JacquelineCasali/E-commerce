@@ -1,8 +1,10 @@
-const loginController={
-    login:(req,res)=>{
-    }, 
-    logout:(req,res)=>{  
-    }, 
-}
+const loginController = {
+    login:(req, res) => {
 
+  
+        return res.render("login", {
+            title: "Login"
+        })
+    },
+}
 module.exports = loginController;
