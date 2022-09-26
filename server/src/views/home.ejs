@@ -9,38 +9,38 @@
     <title>Prove&Aprove</title>
     <link rel="stylesheet" href="./stylesheets/global.css">
     <link rel="stylesheet" href="./stylesheets/home.css">
+    <link rel="stylesheet" href="/stylesheets/produtos.css" />
 </head>
 <body>
     <header>
         <!-- Declaração do botão de menu e do menu oculto -->
         <div class="menu-header">
             <input type="checkbox" id="check">
-            <label id="icon" for="check"><img class="img-menuicon" src="./images/menu-icon.svg"> </label>
-            <img class="img-search-icon" src="./images/search-icon.svg">
+            <label id="icon" for="check"><img class="img-menuicon" src="../../images/menu-icon.svg"> </label>
+            <img class="img-search-icon" src="../../images/search-icon.svg">
             <div class="nav-bar">
-                <a href="./produtos.html" class="section-link">HOMEM</a>
-                <a href="./produtos.html" class="section-link">MULHER</a>
-                <a href="./produtos.html" class="section-link">MARCAS</a>
-                <a href="./produtos.html" class="section-link">NOVO</a>
+                <% department.forEach(department=> { %>
+                <a class="section-link" href="/categoria/<%= department.name%>"><%=department.name%></a>
+                <% }) %>
             </div>
         </div>
-
+    
         <a href="" class="logo-hearder">
-            <img class="img-logo" src="./images/logo.svg">
+            <img class="img-logo" src="../../images/logo.svg">
         </a>
         <div class="icons-header">
             <!-- Usado para conseguir ajustar em telas maiores. Na versão mobile está como ocultado -->
-            <img class="img-search-icon2" src="./images/search-icon.svg">
-
+            <img class="img-search-icon2" src="../../images/search-icon.svg">
+    
            <div class="user">
-                <a href="./minhaconta/1"><img class="img-person" src="./images/person-circle.svg"></a>
+                <img class="img-person" src="../../images/person-circle.svg">
                 <div class="user-link">
-                    <a href="./login.html">Login</a>
-                    <a href="./cadastro.html">Cadastro</a>
+                    <a class="buttons-user" href="./login.html">Login</a>
+                    <a class="buttons-user" href="./cadastro.html">Cadastro</a>
                 </div>
            </div>
-            <a href="./carrinho.html"><img class="img-bag" src="./images/bag.svg"></a>
-
+        <a href="./carrinho.html"><img class="img-bag" src="../../images/bag.svg"></a>
+    
     </header>
     <main>
         <div class=banner>
@@ -53,66 +53,29 @@
                 <img src="/images/campain-diadosnamorados-pc.jpg" class="img-destaques">
             </a>
         </div>
-        <h1 class="title-section">OFERTAS</h1>
         <section class="vitrine">
-         
-            <div class="produtos">
-                <div class="tag-desconto">-50%</div>
-                <a href="./produtos.html">
-                <img src="./images/camisa-flamengo.jpg" class="img-products">
-                <div>Camisa do Flamengo 22/23</div>
-                <div>R$ 299,00</div>
-                </a>
-            </div>
-            <div class="produtos">
-                <div class="tag-desconto">-50%</div>
-                <a href="./produtos.html">
-                <img src="../images/camisa-flamengo.jpg" class="img-products">
-                <div>Camisa do Flamengo 22/23</div>
-                <div>R$ 299,00</div>
-                </a>
-            </div>
-            <div class="produtos">
-                <div class="tag-desconto">-50%</div>
-                <a href="./produtos.html">
-                <img src="../images/camisa-flamengo.jpg" class="img-products">
-                <div>Camisa do Flamengo 22/23</div>
-                <div>R$ 299,00</div>
-                </a>
-            </div>
-
-
-
-        </section>
-        <h1 class="title-section">NOVIDADES</h1>
-        <section class="vitrine">
-         
-            <div class="produtos">
-                <div class="tag-new">NEW!</div>
-                <a href="./produtos.html">
-                <img src="../images/camisa-flamengo.jpg" class="img-products">
-                <div>Camisa do Flamengo 22/23</div>
-                <div>R$ 299,00</div>
-                </a>
-            </div>
-
-            <div class="produtos">
-                <div class="tag-new">NEW!</div>
-                <a href="./produtos.html">
-                <img src="../images/camisa-flamengo.jpg" class="img-products">
-                <div>Camisa do Flamengo 22/23</div>
-                <div>R$ 299,00</div>
-                </a>
-            </div>
-            <div class="produtos">
-                <div class="tag-new">NEW!</div>
-                <a href="./produtos.html">
-                <img src="../images/camisa-flamengo.jpg" class="img-products">
-                <div>Camisa do Flamengo 22/23</div>
-                <div>R$ 299,00</div>
-                </a>
-            </div>
-
+            <div class="container">
+                <h1 class="titulo-produtos">DESTAQUES</h1>
+                <section class="produtos-container">
+                  <section class="produtos">
+                    <% products.forEach(product=> { %>
+                    <div class="card">
+                      <a class="link" href="/produto/<%= product.id%>">
+                        <img
+                          class="camisa-imagem"
+                          src="<%= product.image%>"
+                          width="300px"
+                        />
+                      </a>
+                      <div class="info-produto">
+                        <p class="nome-camisa"><%= product.name %></p>
+                        <span class="preco-camisas"> R$ <%= product.price%> </span>
+                      </div>
+                    </div>
+                    <% }) %>
+                  </section>
+                </section>
+              </div>
 
         </section>
     </main>
@@ -148,4 +111,8 @@
         </div>
     </footer>
 </body>
+<script src="./js/scripts.js"></script>
+
+</script>
+
 </html>
