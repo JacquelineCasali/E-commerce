@@ -1,209 +1,208 @@
-const fs=require("fs");
-const path=require("path")
-const files=require("../helpers/files")
-const uploads = require("../config/uploads");
+const Sequelize= require("sequelize");
+const configDB=require("../config/database");
+const db=new Sequelize(configDB)
+const Enderecos= require("../models/Endereços")
+// const fs=require("fs");
+// const path=require("path")
+// const files=require("../helpers/files")
+// const upload = require("../config/upload");
+// const database=require("../config/database")
 
-// var users=require("../data/users.json");
-// users=users.usuarios;
 
-const userJson=fs.readFileSync(
-
-  path.join(__dirname,"..","data","users.json"),
-  "utf-8"
-)
-const users=JSON.parse(userJson);
 
 
 const enderecoController={
-    endereco:(req,res)=>{
-          
-        return res.render("enderecos",
-        {title:"Endereço"});
-      },
     
-      adicionarendereco:(req,res)=>{
+      adicionarendereco: async (req,res)=>{
         return res
-        .render("adicionarendereco",{title:"Adicionar Endereço",users});
+        .render("adicionarendereco",{title:"Adicionar Endereço"});
         
       },
 
 // read - ler apenas um usuario
-show:(req,res)=>{ 
-  
-  const { id }= req.params
-    const userResult=users.find((user)=>{
-       return user.id === parseInt(id);
-     })
 
-     if(!userResult){
-        return res.render("enderecos", {
-            title: "Ops!",
-            message: "Nenhum Endereço encontrado",
-          });
-        }
-        const user ={
-  ...userResult,
-   avatar:files.base64Encode(uploads.path + userResult.avatar),
-          }
-
-    return res 
-    .status(400)
-    .render("enderecos",{title:"Visualizar Endereço",
-    user} )
+show: async (req,res)=>{ 
+    const { id }= req.params
+    try{
+      const userResult= await db.query("SELECT * FROM  enderecos WHERE id= :id",{
+      replacements:{
+        id:id
+      },
+      type:Sequelize.QueryTypes.SELECT,
+    })
     
+    console.log(userResult)
+    if(userResult.length===0){
+      throw Error ("Nenhum endereços encontrado")
+    }
+    return res.render("enderecos", { title: "Endereços", user:userResult[0] });
+      }catch(error){
+        console.log(error);
+            res.render("error",{title:"Ops!",message: "Nenhum endereços encontrado",
+    
+        })
+        
+      }
+
+
 },
 
 
 
 // CREATE - Criar um endereço
-   
-create:(req,res)=>{ 
-   const {nome, cep,rua, bairro, cidade,numero,complemento}=req.body;
-  
-  const newUser={
-      nome, 
-      cep,
-      rua, 
-      bairro, 
-      cidade,
-      numero,
-      complemento,
-      // avatar:filename,
-    
-  }
+ 
+create: async(req,res)=>{
+  const {rua, bairro, numero,cidade,cep,complemento}=req.body;
+  try{
+  //criando usuario 
+    const userResult= await db.query("INSERT INTO enderecos(rua, bairro, numero,cidade,cep,complemento) VALUES (:rua, :bairro, :numero,:cidade,:cep,:complemento)",
+    {
+      // replacements substitui as variáveis 
+      replacements:{
+        rua, bairro, numero,cidade,cep,complemento
+      },
+      type:Sequelize.QueryTypes.INSERT,
+    },
+       
+    ) 
+console.log(userResult)
 
-  const newId=users[users.length -1].id +1;
-  newUser.criadoEm=new Date(),
-  newUser.modificadoEm=new Date(),
-  newUser.admin=false;
-  newUser.id=newId
-  users.push(newUser)
-
-  // atualizar o arquivo 
-// caminho do arquivo
-  fs.writeFileSync(
-    path.join(__dirname,"..","data","users.json"),
-JSON.stringify(users)
-  )
-         return res.render("Success",{
-          title:"Endereço criado",
-          message:"Endereço Criado com Sucesso",
-      })   
-
-     
-},
-edit:(req,res)=>{
-const {id} = req.params;
-const userResult = users.find((user) => user.id === parseInt(id))
-if (!userResult){
-    return res.render("error", {
-        title: "Ops!",
-        message: "Nenhum Endereço encontrado",
-      });
-    }
-      const user ={
-        ...userResult,
-        avatar:files.base64Encode(uploads.path + userResult.avatar),
-      }  
-
-
-return res.render("editarendereco", {
-    title: "Editar Endereço",
-    user
-  });
-},
-
-
-// update-atualizar um endereco
-    update:(req,res)=>{
-    const {id}= req.params
-    const {nome, cep,rua, bairro, cidade,numero,complemento}=req.body;
-    const userResult= users.find((user)=>
-    user.id===parseInt(id));
-
-    let filename;
-    if(req.file){
-      filename=req.file.filename;
-    }
-    if (!userResult){
-        return res.render("error", {
-            title: "Ops!",
-            message: "Nenhum Endereço encontrado",
-          });
-        }
-
-        
-const updateUser=userResult;
-if(nome) updateUser.nome=nome;
-if(cep) updateUser.cep=cep;
-if(rua) updateUser.rua=rua;
-if(bairro) updateUser.bairro=bairro;
-if(cidade) updateUser.cidade=cidade;
-if(numero) updateUser.numero=numero;
-if(complemento) updateUser.complemento=complemento;
-if(filename)
-{
-  let avatarTmp = updateUser.avatar;
-  fs.unlinkSync(uploads.path +  avatarTmp);
-    updateUser.avatar=filename;
-}
-
-fs.writeFileSync(
-  path.join(__dirname,"..","data","users.json"),
-  // conteudo que sera salvo no arquivo
-  JSON.stringify(users)
-  );
-
-
-return res.render("success", {
+  return res.render("success", {
     title: "Endereço atualizado",
-    message: `Endereço do usuário ${updateUser.nome} atualizado com sucesso`,
+    message: "Endereço cadastrado com sucesso",
   });
+  }catch (error){
+    console.log(error);
+    return res.render("error",
+    {title:"Ops!",message: "Error ao criar Endereço",
+   
+     }
+)}
 },
-// delete - deletar um usuario
-delete:(req,res)=>{ 
-        const {id} = req.params;
-        const userResult = users.find((user) => user.id === parseInt(id))
-        if (!userResult){
-            return res.render("error", {
-                title: "Ops!",
-                message: "Nenhum Endereço encontrado",
-              });
-                
-        }
-        const user ={
-            ...userResult,
-            avatar:files.base64Encode(uploads.path+ userResult.avatar),
+  
+  // update-atualizar um endereco
+edit:async(req,res)=>{
+  // const {rua, bairro, numero,cidade,cep,complemento}=req.body;
+  const {id}= req.params;
+  try{
+    
+// const userResult= await db.query(" SELECT * FROM enderecos INNER JOIN users ON enderecos.id =enderecos.user_id",{
+   const userResult= await db.query("SELECT * FROM  enderecos WHERE id= :id",{
+      replacements:{
+        id:id
+      },
+      type:Sequelize.QueryTypes.SELECT,
+    })
+
+     console.log(userResult)
+      return res.render("editarendereco", {
+        title: "Editar Endereço",
+        user:userResult[0]
+              })
+    } catch(error){
+      console.log(error);
+      return res.render("error",
+      {title:"Ops!",message: "Nenhum Endereço encontrado",
+     
+       })
+    }
+   
+    },
+   
+
+  update :async (req,res)=>{
+        const {id}= req.params;
+        const {rua, bairro, numero,cidade,cep,complemento}=req.body;
+          
+      try{
+
+    if(!rua && !bairro && !numero &&!cidade &&!cep && complemento)  {
+      throw Error ("Nenhum dado para atualizar");
           }
-        return res.render("deletarenderecos", {
-            title: "Deletar Endereço",
-            user
-          });
-        },
+          
+const users = await Enderecos.update(
+  {rua, bairro, numero,cidade,cep,complemento},
+  {
+    WHERE:{ id },
+  });
+ // foto
+  // let filename;
+  // if(req.file){
+  //   filename=req.file.filename;
+  // }
+console.log(users);
+//res.send();
+
+ res.render("success", {
+        title: "Endereço atualizado",
+       message: "Endereço atualizado com sucesso",
+     });
+
+      }catch (error){
+    console.log(error);
+    return res.render("error",
+    {title:"Ops!",message: "Error ao editar Endereço",
+   
+     }
+)}
+      
+  },
+  // delete - deletar um usuario
+  delete:async (req,res)=>{ 
+          const {id} = req.params;
+          try{
+    const userResult= await db.query("SELECT * FROM  enderecos WHERE id= :id",{
+  replacements:{
+    id:id
+            },
+            type:Sequelize.QueryTypes.SELECT,
+          })
+      
+            
+            console.log(userResult)
+            return res.render("deletarenderecos", {
+              title: "Deletar Endereço",
+              user:userResult[0]
+                    })
+          } catch(error){
+            console.log(error);
+            return res.render("error",
+            {title:"Ops!",message: "Nenhum Endereço encontrado",
+           
+             })
+          }
+         
+          },
          
 
-        destroy:(req,res)=>{
-const {id}=req.params;
-const userResult =users.findIndex((user)=>user.id===parseInt(id))
-if(userResult === -1){
-    return res.render("error", {
-        title: "Ops!",
-        message: "Nenhum Endereço Cadastrado",
-      });
-}  
 
+  
+          destroy: async(req,res)=>{
+  const {id}=req.params;
 
-
-
-users.splice(userResult,1)
-return res.render("success",{
-    title:"Endereço deletado",
-    message: "Endereço deletado com sucesso!"
-  })
-
-},
-}
-
+  try{
+    const users = await Enderecos.destroy({where: {id}})
+    console.log(users)
+    return res.render("success",{
+      title:"Endereço deletado",
+      message: "Endereço deletado com sucesso!"
+    })
+  } catch(error){
+    console.log(error);
+    return res.render("error",
+    {title:"Ops!",message: "Error ao deletar Endereço",
+   
+     })
+  }
+   
+  },
+  }
+  
+  
+  
+  
+  
+  
 
 
 

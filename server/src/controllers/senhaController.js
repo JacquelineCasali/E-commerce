@@ -1,41 +1,46 @@
+const Sequelize= require("sequelize");
+const configDB=require("../config/database");
+const db=new Sequelize(configDB)
+// const Enderecos= require("../models/Endereços")
+
 const fs=require("fs");
 const path=require("path")
 const files=require("../helpers/files")
 const bcrypt=require("../helpers/bcrypt")
 
 
-const userJson=fs.readFileSync(
-
-  path.join(__dirname,"..","data","users.json"),
-  "utf-8"
-)
-const users=JSON.parse(userJson);
 
 const senhaController={
 
 
-edit:(req,res)=>{
-    const {id} = req.params;
-    const userResult = users.find((user) => user.id === parseInt(id))
-    if (!userResult){
-        return res.render("error", {
-            title: "Ops!",
-            message: "Nenhuma Senha Cadastrada",
-          });
-            
-    }
 
-    const user ={
-      ...userResult,
-      avatar:files.base64Encode(__dirname + "/../../uploads/" + userResult.avatar),
-    }
-    return res.render("editarsenha", {
-        title: "Alterar Senha",
-        user
-      });
-    },
-    
-    
+   
+  edit:async(req,res)=>{
+       const {id}= req.params;
+    try{
+  
+     const userResult= await db.query("SELECT * FROM  users WHERE id= :id",{
+        replacements:{
+          id:id
+        },
+        type:Sequelize.QueryTypes.SELECT,
+      })
+  
+       console.log(userResult)
+        return res.render("editarsenha", {
+          title: "Editar Senha",
+          user:userResult[0]
+                })
+      } catch(error){
+        console.log(error);
+        return res.render("error",
+        {title:"Ops!",message: "Nenhuma Senha Cadastrada",
+       
+         })
+      }
+     
+      },
+     
     // update-atualizar um endereco
         update:(req,res)=>{
         const {id}= req.params

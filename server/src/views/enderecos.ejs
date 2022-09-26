@@ -33,7 +33,31 @@
 
 <a href="./deletarenderecos/<%=user.id%>" class="deletar">Deletar</a>
 
+
 </main>
+
+<main id="user">
+<span><%= user.nome %></span>
+<span>Endereço: <%= user.rua%> , <%= user.numero %>.</span>
+
+<span>Bairro:<%= user.bairro %></span>
+
+<span>Cidade:<%= user.cidade %></span>
+<span>Complemento:<%= user.complemento %>.</span>
+
+<span>
+
+    CEP:<%= user.cep %>
+</span>
+
+<a href="./editarendereco/<%=user.id%>" class="editar1">Editar</a>
+
+<a href="./deletarenderecos/<%=user.id%>" class="deletar">Deletar</a>
+
+</main>
+
+
+
 
   <%} else {%>
 

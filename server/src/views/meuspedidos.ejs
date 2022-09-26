@@ -18,28 +18,28 @@
             <tr>
               
               <th >Pedido</th>
-              <th  >Status</th>
+              <th>Status</th>
               <Th >Data</TH>
                 <th >Valor</th> 
               <th >Ação</th>
             </tr>
         </thead>
         <tbody>
-<!-- variavel no plural no for of vem para o singular -->
+<!-- variável no plural no for of vem para o singular -->
    
-            <!--conteudo daqui roda a quantidade de vezes da variavel  -->
+            <!--conteudo daqui roda a quantidade de vezes da variável  -->
       <!-- trabalhando com for  nao pode ter id  -->
             <tr>
          
-  <td><%= user.pedido%> </td>
+  <td><%= user.codigo%> </td>
   <td><%= user.status %></td>
   <td><%= user.data %></td>
  
-  <td><%= user.valor %> 
+  <td><%= user.preco %> 
 
                 
                 <td class="table-actions">
-                    <a href="./pedidos/<%= user.id%>" class="table-link-show"> VerDetalhess</a>
+                    <a href="./pedidos/<%= user.id%>" class="table-link-show"> Ver Detalhes</a>
                    
                 </td>
             </tr>

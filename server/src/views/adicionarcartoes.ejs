@@ -14,25 +14,21 @@
      <h2 class="error-alert"><%= error.message%></h2>
             <%}%>
 
-      <form action="./adicionarcartoes" method="post" enctype="multipart/form-data" >   
+      <form action="" method="post" enctype="multipart/form-data" >   
           <div class="row" >
-      
-   <input type="file" name="avatar" class="btn btn-success" />
-             
-
        <div class="coluna2">
              
          <label for="Numero do Cartão">Numero do Cartão :</label>
                       
-        <input type="text" class="coluna22" id=" cartao" name="cartao" placeholder="Digite seu Numero do Cartão" required>
+        <input type="text" class="coluna22" id=" cartoes" name="numero" placeholder="Digite seu Numero do Cartão" >
                   
                   <label for="nome do titular">Nome do Titular:</label>
                   
-                  <input type="text" class="coluna22"  id="nome" name="nome" placeholder="Digite o nome do titular do cartão" required>
+                  <input type="text" class="coluna22"  id="nome" name="nome" placeholder="Digite o nome do titular do cartão" >
                   
                   <label for="cpf">CPF :</label>
   
-                  <input type="text" class="coluna22"  id="cpf" name="cpf" placeholder="Digite seu cpf" required>
+                  <input type="text" class="coluna22"  id="cpf" name="cpf" placeholder="Digite seu cpf" >
                                     
               </div>
               
@@ -75,7 +71,7 @@
           
           <label for="telefone">Telefone:</label>
 
-          <input type="tel"  class="coluna22" id="telefonePrincipal" name="telefonePrincipal" placeholder="Digite seu Telefone">
+          <input type="tel"  class="coluna22" id="telefone" name="telefone" placeholder="Digite seu Telefone">
      
          
        </div>

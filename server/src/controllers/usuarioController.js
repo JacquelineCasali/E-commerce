@@ -1,146 +1,139 @@
-const fs=require("fs")
-const path=require("path")
-
-const files=require("../helpers/files")
-const uploads = require("../config/uploads");
-
-// var users=require("../data/users.json");
-// users=users.usuarios;   
-const userJson=fs.readFileSync(
-
-  path.join(__dirname,"..","data","users.json"),
-  "utf-8"
-)
-const users=JSON.parse(userJson);
+const Sequelize= require("sequelize");
+const configDB=require("../config/database");
+const db=new Sequelize(configDB)
+const User=require("../models/User")
+// const db = require("../config/sequelize");
 
 const userController = {
-  index: (req, res) => {
-    return res.render("usuarios", { title: "Lista de usuários", users});
+  index: async (req, res) => {
+    try{
+    let query = "SELECT * FROM users"
+    const users =await db.query(query,{
+      type:Sequelize.QueryTypes.SELECT,
+         });
+        // console.log(users);
+        return res.render("usuarios", { title: "Lista de usuários", users});
+         //res.status(200).json({data:users,message:"Busca realizada com sucesso"})
+        } catch(error){
+          console.log(error);
+         res.status(400).json({message:"Erro na busca de usuários"});
+         
+        }
+      },
+ show: async (req,res)=>{
+  const {id}=req.params;
+    try{
+// const users= await db.query(`SELECT * FROM  users WHERE id= %{id}`,{
+//   type:Sequelize.QueryTypes.SELECT,
+// })
+
+
+
+const userResult= await db.query("SELECT * FROM  users WHERE id= :id",{
+  replacements:{
+    id:id
   },
+  type:Sequelize.QueryTypes.SELECT,
+})
 
-
-  show: (req, res) => {
-    const { id } = req.params;
-    const userResult = users.find((user) => user.id === parseInt(id));
-    if (!userResult) {
-      return res.render("error", {
-        title: "Ops!",
-        message: "Nenhum usuário encontrado",
-      });
-    }
-const user ={
-  ...userResult,
-  avatar:files.base64Encode(uploads.path + userResult.avatar),
+console.log(userResult)
+if(userResult.length===0){
+  throw Error ("Nenhum usuário encontrado")
 }
+return res.render("usuario", { title: "Usuário", user:userResult[0] });
+  }catch(error){
+    console.log(error);
+        res.render("error",{title:"Ops!",message: "Nenhum usuário encontrado",
 
-
-return res.render("usuario", { title: "Usuário", user });
+    })
+    
+  }
+        
   },
+ 
+update: async(req,res)=>{
+    const {id}= req.params;
+     const {nome,cpf,celular,nascimento,email, is_admin,sexo,rg,telefone,receber,instagram}=req.body;
+     try {
 
-  edit:(req,res)=>{
-   
-    const {id} = req.params;
-    const userResult = users.find((user) => user.id === parseInt(id))
-    if (!userResult){
-        return res.render("error", {
-            title: "Ops!",
-            message: "Nenhum Usuário encontrado",
-          });
-        }
-        const user ={
-          ...userResult,
-          avatar:files.base64Encode(uploads.path + userResult.avatar),
-        }  
-
-   
-    return res.render("usuario", {
-        title: "Editar Usuário",
-        user
-      });
-    },
+if(!nome &&  !cpf && !celular  && ! nascimento  && ! email  && !is_admin && !sexo && !rg && !telefone && !receber && !instagram ){
+        throw Error ("Nenhum dado para atualizar");
+      }
+      //atualizar usuario de forma dinâmica 
+  let query= "UPDATE users SET ";
     
-    
-    // update-atualizar um endereco
-        update:(req,res)=>{
-          res.clearCookie("user")
-          const {id}= req.params
-        const {nome, cpf,telefonePrincipal,rg ,celular, sexo, nascimento,instagram,receber }=req.body;
-        const userResult= users.find((user)=>
-        user.id===parseInt(id));
+  if(nome) query += "nome = :nome";
+  if(cpf) {
+    if(nome) query += ", ";
+    query += "cpf = :cpf";
+  }
+  if(celular) {
+    if(nome || cpf ) query += ", ";
+    query += "celular=:celular";
+  }
+  if(nascimento){
+    if(nome || cpf || celular) query += ", ";
 
-        let filename;
-        if(req.file){
-          filename=req.file.filename;
-        }
-          if (!userResult){
-            return res.render("error", {
-                title: "Ops!",
-                message: "Nenhum Usuário encontrado",
-              });
-            }
-    const updateUser=userResult;
-    if(nome) updateUser.nome=nome;
-    if(cpf) updateUser.cpf=cpf;
-    if(telefonePrincipal) updateUser.telefonePrincipal=telefonePrincipal;
-    if(rg) updateUser.rg=rg;
-    if(celular) updateUser.celular=celular;
-    if(sexo) updateUser.sexo=sexo;
-    if(nascimento) updateUser.nascimento=nascimento;
-    if(instagram) updateUser.instagram=instagram;
-    if(receber) updateUser.receber=receber;
-    if(filename) 
-    {
-      let avatarTmp = updateUser.avatar;
-      fs.unlinkSync(upload.path +  avatarTmp);
-        updateUser.avatar=filename;
-    }
-    fs.writeFileSync(
-      path.join(__dirname,"..","data","users.json"),
-      // conteudo que sera salvo no arquivo
-      JSON.stringify(users)
-      );
+    query += "nascimento = :nascimento";
+  } 
+  if(email){
+    if(nome || cpf  || celular|| nascimento ) query += ", ";
+    query += "email = :email";
+  } 
 
+  if(is_admin){
+    if(nome || cpf || celular|| nascimento || email ) query += ", ";
+    query += "is_admin = :is_admin";
 
-      const user=JSON.parse(
-        JSON.stringify(updateUser,[
-         "id",
-          "nome",
-          "telefonePrincipal", 
-          "cartao" ,
-          "email",
-          "cidade",
-          "bairro",
-          "pedido",
-          "sexo",
-          "celular",
-          "numero",
-          "status"
-          
-        ])
-      )
-     
-      res.cookie("user",user)
-      
-    
-      
+  }
 
+  if(sexo){
+    if(nome || cpf ||celular || nascimento || email || is_admin ) query += ", ";
+    query += "sexo = :sexo";
 
-    return res.render("success", {
+  }
+  
+  if(rg){
+    if(nome || cpf  ||celular || nascimento || email || is_admin ||sexo) query += ", ";
+    query += "rg = :rg";
+  }
+  if(telefone){
+    if(nome || cpf ||celular ||nascimento || email || is_admin ||sexo || rg) query += ", ";
+    query += "telefone = :telefone";
+  }
+
+  if(receber){
+    if(nome || cpf  ||celular || nascimento || email || is_admin ||sexo || rg ||telefone ) query += ", ";
+    query += "receber = :receber";
+  }
+  
+  if(instagram){
+    if(nome || cpf  ||celular || nascimento || email || is_admin ||sexo || rg ||telefone || receber  ) query += ", ";
+    query += "instagram = :instagram";
+  }
+  query += " WHERE id= :id";
+
+  const users= await db.query(query,
+ {
+  replacements:{
+    nome,cpf,celular,nascimento,email,is_admin,sexo,rg,telefone,receber,instagram,id,
+  },
+  type:Sequelize.QueryTypes.UPDATE,
+ } );
+console.log(users);
+//res.send();
+
+ res.render("success", {
         title: "Usuário atualizado",
-        message: `Usuário ${updateUser.nome} atualizado com sucesso`,
-      });
-    },
-    
-
-
-
-
-
-
-
-}
-
-
+       message: `Usuário atualizado com sucesso`,
+     });
+}catch(error){
+      console.log(error);
+      res.render("error",{title:"Ops!",message: "Error ao atualizar usuário"})
+   
+     }
+},
+  }
 
 
 module.exports = userController;

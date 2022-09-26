@@ -16,6 +16,7 @@ var paymentRouter = require('./server/src/routes/paymentRoute');
 var cadastroRoute= require('./server/src/routes/cadastroRoute');
 var produtosRouter=require('./server/src/routes/produtosRoute')
 var departmentRouter= require('./server/src/routes/deparment');
+var imageRoute=require("./server/src/routes/imageRoute")
 
 var app = express();
 
@@ -48,7 +49,7 @@ app.use('/finalizacao',paymentRouter);
 app.use('/cadastro',cadastroRoute);
 app.use('/',produtosRouter)
 app.use('/department',departmentRouter)
-
+app.use("/images",imageRoute)
 
 
 

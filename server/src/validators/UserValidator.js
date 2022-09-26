@@ -27,14 +27,16 @@ const userValidator={
     
       
     cartaoValidator:(req,res,next)=>{
-  const {nome, cpf,telefonePrincipal, cvc,cartao}=req.body;
-   
-  if(!nome||
-    !cpf || 
-    telefonePrincipal ||
-    !cvc||
-    !cartao
-    ){
+      const {nome,numero, cvc,data, cpf,telefone}=req.body;
+       
+      if(!nome||
+        !numero||
+        !cvc||
+        data||
+        !cpf || 
+        telefone
+         
+        ){
      return res.render ("adicionarcartoes",{
          title:"Cadastrar Cartões",
          error:{

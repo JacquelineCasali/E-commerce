@@ -1,53 +1,50 @@
-const fs=require("fs")
-const path=require("path")
-const files=require("../helpers/files")
-const uploads = require("../config/uploads");
+const Sequelize= require("sequelize");
+const configDB=require("../config/database");
+const db=new Sequelize(configDB)
 
-const userJson=fs.readFileSync(
+// const fs=require("fs")
+// const path=require("path")
+// const files=require("../helpers/files")
+// const upload = require("../config/upload");
 
-path.join(__dirname,"..","data","users.json"),
-   "utf-8"
- )
- const users=JSON.parse(userJson);
+// const userJson=fs.readFileSync(
+
+// path.join(__dirname,"..","data","users.json"),
+//    "utf-8"
+//  )
+//  const users=JSON.parse(userJson);
 
 
 // var users=require("../data/users.json");
 // users=users.usuarios;
 const meuscreditosController={
 
-    index:(req,res)=>{
-    return res.render("meuscreditos",{title:"Meus Créditos"});
-         
-    },
-
-show:(req,res)=>{
+show: async(req,res)=>{
     const { id }= req.params
-    const userResult=users.find((user)=>{
-       return user.id === parseInt(id);
-     })
 
-     if(!userResult){
-        return res 
-        .send("Meus Créditos não encontrado")
-     }
-
-     const user ={
-        ...userResult,
-        avatar:files.base64Encode(uploads.path + userResult.avatar),
+  try{
+    const userResult= await db.query("SELECT * FROM  creditos WHERE id= :id",{
+      replacements:{
+        id:id
+      },
+      type:Sequelize.QueryTypes.SELECT,
+    })
+    
+    console.log(userResult)
+    if(userResult.length===0){
+      throw Error ("Nenhum créditos encontrado")
+    }
+    return res.render("meuscreditos", { title: "Créditos", user:userResult[0] });
+      }catch(error){
+        console.log(error);
+            res.render("error",{title:"Ops!",message: "Nenhum Crédito Encontrado",
+    
+        })
+        
       }
 
-
-     
-        return res 
-        .render("meuscreditos",{title:"Visualizar Pedidos",
-        user} )
-},
-
-
-}
+    },
     
-  
+}
 
  module.exports=meuscreditosController;
- 
-
