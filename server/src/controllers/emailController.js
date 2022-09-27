@@ -1,82 +1,77 @@
+const Sequelize= require("sequelize");
+const configDB=require("../config/database");
+const db=new Sequelize(configDB)
+const Emailsenha= require("../models/Emailsenha")
 const fs=require("fs");
 const path=require("path")
 const files=require("../helpers/files")
 const uploads = require("../config/uploads");
 
 
-// var users=require("../data/users.json");
-// users=users.usuarios;
-const userJson=fs.readFileSync(
-
-  path.join(__dirname,"..","data","users.json"),
-  "utf-8"
-)
-const users=JSON.parse(userJson);
-
 
 const emailController={
 
-edit:(req,res)=>{
+edit:async (req,res)=>{
   // console.log(req.session.email)
-    const {id} = req.params;
-    const userResult = users.find((user) => user.id === parseInt(id))
-    if (!userResult){
-        return res.render("error", {
-            title: "Ops!",
-            message: "Nenhum Email encontrado",
-          });
-        }
-        const user ={
-          ...userResult,
-          avatar:files.base64Encode(uploads.path + userResult.avatar),
-        }  
+  const {id}= req.params;
+  try{ 
+  const userResult= await db.query("SELECT * FROM  emailsenha WHERE id= :id",{
+    replacements:{
+      id:id
+    },
+    type:Sequelize.QueryTypes.SELECT,
+  })
 
-   
+   console.log(userResult)
     return res.render("editaremail", {
-        title: "Editar Email",
-        user
-      });
-    },
-    
-    
+      title: "Editar Email",
+      user:userResult[0]
+            })
+  } catch(error){
+    console.log(error);
+    return res.render("error",
+    {title:"Ops!",message: " Email não encontrado",
+   
+     })
+  }
+ 
+  },
+     
     // update-atualizar um endereco
-        update:(req,res)=>{
+        update: async (req,res)=>{
         const {id}= req.params
-        const {email, novoEmail,confirmaçãoEmail}=req.body;
-        const userResult= users.find((user)=>
-        user.id===parseInt(id));
-        if (!userResult){
-            return res.render("error", {
-                title: "Ops!",
-                message: "Nenhum E-mail encontrado",
-              });
-            }
-
-         
+        const {novoemail,confirmeemail}=req.body;
+        try{
+       
+          const users = await Emailsenha.update(
+            {
+              novoemail,confirmeemail
+              
+              },
+            {
+              where:{ user_id:id },
+            });
+                              
+           console.log(users);
+            //res.send();
             
-    const updateUser=userResult;
-    if(email) updateUser.email=email;
-    if(novoEmail) updateUser.confirmaçãoEmail=novoEmail;
-    if(confirmaçãoEmail) updateUser.confirmaçãoEmail=confirmaçãoEmail;
-    fs.writeFileSync(
-      path.join(__dirname,"..","data","users.json"),
-      // conteudo do novo arquivo convertendo o array em string
-      JSON.stringify(users)
-      );
+            res.render("success", {
+              title: "Email atualizado",
+        message: `Email do usuário  atualizado com sucesso`,
+               });
+            
+                }catch (error){
+              console.log(error);
+              return res.render("error",{
+              title: "Ops!",
+              message: "Nenhum E-mail encontrado",
+             
+               }
+            )}
+                
+            },
+             
     
-    // req.session.email=updateUser.email
-    return res.render("success", {
-        title: "Email atualizado",
-        message: `Email do usuário ${updateUser.nome} atualizado com sucesso`,
-      });
-    },
-    
-
-
-
-
-
-
 }
     
   

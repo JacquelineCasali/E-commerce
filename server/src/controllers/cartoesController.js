@@ -1,112 +1,84 @@
+const Sequelize= require("sequelize");
+const configDB=require("../config/database");
+const db=new Sequelize(configDB);
+const cartoes=require("../models/cartoes");
+
+
 const fs=require("fs")
 const path=require("path")
-const files=require("../helpers/files");
-const uploads = require("../config/uploads");
+// const files=require("../helpers/files");
+// const uploads = require("../config/uploads");
 const bcrypt=require("../helpers/bcrypt");
-
-const userJson=fs.readFileSync(
-
-  path.join(__dirname,"..","data","users.json"),
-  "utf-8"
-)
-const users=JSON.parse(userJson);
 
 
 const cartoesController={
-    cartoes:(req,res)=>{
-    return res.render("cartoes",{title:"Meus Cartões"});
-         
- },
+ show:async (req,res)=>{ 
+  const { id }= req.params
+  try{
+      const userResult= await db.query("SELECT * FROM  cartoes WHERE id= :id",{
+    replacements:{
+      id:id
+    },
+    type:Sequelize.QueryTypes.SELECT,
+  })
+  
+  console.log(userResult)
+  if(userResult.length===0){
+    throw Error ("Nenhum Cartão encontrado")
+  }
+  return res.render("cartoes", { title: "Cartões", user:userResult[0] });
+    }catch(error){
+      console.log(error);
+          res.render("error",{title:"Ops!",message: "Nenhum cartão encontrado",
+  
+      })
+      
+    }
 
-show:(req,res)=>{ 
-   const { id }= req.params
-  const userResult=users.find((user)=>{
-  return user.id === parseInt(id);
-     })
 
-if(!userResult){
-return res 
- .render("cartoes",{
-    title: "Ops!",
-    message: "Nenhum Cartão encontrado",
-  });
- 
-     }
-     const user ={
-        ...userResult,
-        avatar:files.base64Encode(uploads.path + userResult.avatar),
-      }
-
-     return res 
-    .render("cartoes",{title:"Visualizar Cartões",
-     user} )
-     
-       
 },
+    
+
 
 adicionarcartoes:(req,res)=>{
   return res.render("adicionarcartoes",{title:"Adicionar Cartoes"});
    
 },
 
-create:(req,res)=>{
-  const userJson=fs.readFileSync(
-
-    path.join(__dirname,"..","data","users.json"),
-    "utf-8"
-  )
-  const users=JSON.parse(userJson);
- 
-  const {nome, cpf,telefonePrincipal, cvc,cartao}=req.body;
-  
-  if(!nome|| 
-    !cpf||
-    telefonePrincipal|| 
-    !cvc||
-    !cartao
-  
-  ){
-    return res.render("adicionarcartoes",{
-      title:"Adicionar Cartão",
-      error:{
-          message:"Preencha todos os Campos"
-      },
-  });
-  }
-
-  const newId=users[users.length -1].id +1;
-    const newUser = {
-id:newId,
+create: async(req,res)=>{
+   const {nome,numero, cvc, data, cpf, telefone}=req.body;
+  try{
+    
+    const users= await cartoes.create({
       nome,
-      cpf, 
-      telefonePrincipal, 
-       cvc:bcrypt.generateHash(cvc),
-      cartao ,
-      criadoEm:new Date(),
-  modificadoEm:new Date(),
-  admin:false,
-  }
+      numero, 
+      cvc:bcrypt.generateHash(cvc), 
+      data,
+      cpf,
+     telefone,
+    });
+    console.log(users)
+      //res.status(201).json({message:"Cartão Cadastrado com Sucesso"})
+     
+      return res.render("success", {
+        title: "Cartão atualizado",
+        message: "Cartão cadastrado com sucesso",
+      });
+
+    }catch(error){
+      console.log(error);
+     return res.render("error",
+    {title:"Ops!",message: "Error ao criar Cartão",
+       })
+   }
+        },
+
   
-
-  users.push(newUser)
-
-  fs.writeFileSync(
- path.join(__dirname,"..","data","users.json"),
-JSON.stringify(users)
-  )
-  // length pega a quantidade de usuarios e soma 1
-  
-     return res.render("Success",{
-      title:"Cartão Cadastrado",
-      message:"Cartão Cadastrado com Sucesso",
-  })
-
-  },
 
 
   auth:(req,res)=>{
     const usersJson=fs.readFileSync(
-      path.join(__dirname,"..","data","users.json"),
+      path.join(__dirname,"..","data","ecommerce.sql"),
       "utf-8"
   );
   
@@ -131,131 +103,119 @@ if(!userAuth){
   },
 
 // editar
-edit:(req,res)=>{
-const {id}=req.params;
-const userResult=users.find((user)=>user.id===parseInt(id));
-if(!userResult){
-    return res.render ("error",{
-        title:"Ops!",
-        message:"Nenhum Cartão encontrado",
-    });
-}
-const user ={
-  ...userResult,
-  avatar:files.base64Encode(uploads.path + userResult.avatar),
-}  
+edit:async(req,res)=>{
+  // const {rua, bairro, numero,cidade,cep,complemento}=req.body;
+  const {id}= req.params;
+  try{
+    
+// const userResult= await db.query(" SELECT * FROM enderecos INNER JOIN users ON enderecos.id =enderecos.user_id",{
+   const userResult= await db.query("SELECT * FROM  cartoes WHERE id= :id",{
+      replacements:{
+        id:id
+      },
+      type:Sequelize.QueryTypes.SELECT,
+    })
 
-
-return res.render("editarcartoes",{
-    title: "Editar Cartão",
-    user,
-})
-},
-
-
-// update-atualizar um usuario
-    update:(req,res)=>{
+     console.log(userResult)
+      return res.render("editarcartoes", {
+        title: "Editar Cartão",
+        user:userResult[0]
+              })
+    } catch(error){
+      console.log(error);
+      return res.render("error",
+      {title:"Ops!",message: "Nenhum Cartão Cadastrado",
      
-     
-      const {id}= req.params
-    const {nome, cpf,telefonePrincipal, cvc,cartao
-    }=req.body;
-    const userResult= users.find((user)=>
-    user.id===parseInt(id));
-    let filename;
-    if(req.file){
-      filename=req.file.filename;
+       })
     }
-    if(!userResult){
-    return res.render ("error",{
-     title:"Ops!",
-     message:"Nenhum Cartão encontrado",
-        });
-
-    }
-const updateUser=userResult;
-if(nome) updateUser.nome=nome;
-if(cpf) updateUser.cpf=cpf;
-if(telefonePrincipal) updateUser.telefonePrincipal=telefonePrincipal;
-// if(cvc) updateUser.cvc=cvc.bcrypt.generateHash(cvc);
-
-if(cartao) updateUser.cartao=cartao;
-if(filename) 
-{
-  let avatarTmp = updateUser.avatar;
-  fs.unlinkSync(uploads.path +  avatarTmp);
-    updateUser.avatar=filename;
-}
-
-fs.writeFileSync(
-  path.join(__dirname,"..","data","users.json"),
-  // conteudo que sera salvo no arquivo
-  JSON.stringify(users)
-  );
-  
-  
-return res.render("success", {
-    title: "Cartão atualizado",
-    message: `Cartão ${updateUser.nome} atualizado com sucesso`,
-  });
-},
-// delete - deletar um cartão
-
-// delete - deletar um usuario
-delete:(req,res)=>{ 
-    const {id} = req.params;
-    const userResult = users.find((user) => user.id === parseInt(id))
-    if (!userResult){
-        return res.render("error", {
-            title: "Ops!",
-            message: "Nenhum Cartão encontrado",
-          });
-            
-    }
-
-    const user={
-      ...userResult,
-      avatar:files.base64Encode(uploads.path + userResult.avatar),
-    }
-    return res.render("deletarcartao", {
-        title: "Deletar Cartão",
-        user
-      });
+   
     },
-     
+   
 
-    destroy:(req,res)=>{
-    const { id } = req.params;
-    const result =users.findIndex((user)=>user.id===parseInt(id))
-if(result === -1){
-  
+    update :async (req,res)=>{
+      const {id}= req.params;
+      const {nome, cpf,telefone, cvc,cartao }=req.body;
+        
+    try{
 
-    return res.render("cartão", {
-        title: "Ops!",
-        message: "Nenhum Cartão Cadastrado",
-      });
-}
+  // if(!rua && !bairro && !numero &&!cidade &&!cep && complemento)  {
+  //   throw Error ("Nenhum dado para atualizar");
+  //       }
+        
+const users = await cartoes.update(
+{nome,
+   cpf,
+   telefone,
+   cvc:bcrypt.generateHash(cvc),
+    cartao},
+{
+  where:{ id },
+});
+console.log(users);
 
-// fs.unlinkSync(upload.path + users[result].avatar);
 
-users.splice(result,1)
+res.render("success", {
+      title: "Cartão atualizado",
+     message: "Cartão atualizado com sucesso",
+   });
 
-return res.render("success",{
-  title:"Usuário deletado",
-  message: "Cartão deletado com sucesso!"
-})
+    }catch (error){
+  console.log(error);
+  return res.render("error",
+  {title:"Ops!",message: "Error ao atualizar o cartão",
+ 
+   }
+)}
+    
 },
 
-// salvarCadastro:(req,res)=>{
-//     if(!req.file)
-//     console.log(req.file);
-//     return res.send("deu certo")
-//   }
+
+delete:async (req,res)=>{ 
+  const {id} = req.params;
+  try{
+const userResult= await db.query("SELECT * FROM  cartoes WHERE id= :id",{
+replacements:{
+id:id
+    },
+    type:Sequelize.QueryTypes.SELECT,
+  })
+
+    
+    console.log(userResult)
+    return res.render("deletarcartao", {
+      title: "Deletar Cartão",
+      user:userResult[0]
+            })
+  } catch(error){
+    console.log(error);
+    return res.render("error",
+    {title:"Ops!",message: "Nenhum Cartão encontrado",
+   
+     })
+  }
+ 
+  },
+ 
+  destroy: async(req,res)=>{
+    const {id}=req.params;
+  
+    try{
+      const users = await cartoes.destroy({where: {id}})
+      console.log(users)
+      return res.render("success",{
+        title:"Cartão deletado",
+       message: "Cartão deletado com sucesso!"
+      })
+    } catch(error){
+      console.log(error);
+      return res.render("error",
+      {title:"Ops!",message: "Nenhum Cartão Cadastrado",
+     
+       })
     }
-
-
-
-
-
+     
+    },
+    }
+    
 
 module.exports=cartoesController;

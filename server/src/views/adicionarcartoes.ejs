@@ -1,96 +1,92 @@
 
       <%- include('./partials/usuariomenu')%>
 
-        <!-- tela lado direito -->
-    <main class="main_content">
+      <!-- tela lado direito -->
+  <main class="main_content">
 
-      <div class="codigo">
-         
-          <!-- Tela lateral -->
-    <h3 class="fontebarra" id="titulo-Meus Cartões">Adicionar Cartão de Crédito</h3> 
-      </div>                
-        
-      <% if (locals.error) {%>
-     <h2 class="error-alert"><%= error.message%></h2>
-            <%}%>
-
-      <form action="./adicionarcartoes" method="post" enctype="multipart/form-data" >   
-          <div class="row" >
+    <div class="codigo">
+       
+        <!-- Tela lateral -->
+  <h3 class="fontebarra" id="titulo-Meus Cartões">Adicionar Cartão de Crédito</h3> 
+    </div>                
       
-   <input type="file" name="avatar" class="btn btn-success" />
-             
+    <% if (locals.error) {%>
+   <h2 class="error-alert"><%= error.message%></h2>
+          <%}%>
 
-       <div class="coluna2">
-             
-         <label for="Numero do Cartão">Numero do Cartão :</label>
-                      
-        <input type="text" class="coluna22" id=" cartao" name="cartao" placeholder="Digite seu Numero do Cartão" required>
-                  
-                  <label for="nome do titular">Nome do Titular:</label>
-                  
-                  <input type="text" class="coluna22"  id="nome" name="nome" placeholder="Digite o nome do titular do cartão" required>
-                  
-                  <label for="cpf">CPF :</label>
-  
-                  <input type="text" class="coluna22"  id="cpf" name="cpf" placeholder="Digite seu cpf" required>
-                                    
-              </div>
-              
-                <div class="coluna3">  
-                  <div class="validademes">         
-              <label for="validademes">Validade (Mês):</label>
-              <select class="mes" name="Mes" >
-              <option value="1">01</option>
-              <option value="2">02</option>
-              <option value="3">03</option>
-              <option value="4">04</option>
-              <option value="5">05</option>
-              <option value="6">06</option>
-              <option value="7">07</option>
-              <option value="8">08</option>
-              <option value="9">09</option>
-              <option value="10">10</option>
-              <option value="11">11</option>
-              <option value="12">12</option>
-          </select>
+    <form action="" method="post" enctype="multipart/form-data" >   
+        <div class="row" >
+     <div class="coluna2">
+           
+       <label for="Numero do Cartão">Numero do Cartão :</label>
+                    
+      <input type="text" class="coluna22" id=" cartoes" name="numero" placeholder="Digite seu Numero do Cartão" >
+                
+                <label for="nome do titular">Nome do Titular:</label>
+                
+                <input type="text" class="coluna22"  id="nome" name="nome" placeholder="Digite o nome do titular do cartão" >
+                
+                <label for="cpf">CPF :</label>
 
-              </div> 
-              <div class="validadeano"> 
-              <label for="validadeano">Validade (ano):</label>
-              <select  class="mes" name="Mes">
-              <option value="1">2023</option>
-              <option value="2">2024</option>
-              <option value="3">2025</option>
-              <option value="4">2026</option>
-              <option value="5">2027</option>
-              <option value="6">2028</option>
-              <option value="7">2029</option>
-              <option value="8">2030</option>
-              </select>
-          </div>
-          <div>
-          <label for="Código de Segurança (CVC)">Código de Segurança (CVC) :</label>
-  
-          <input type="text" class="coluna22"  id="cvc" name="cvc" placeholder="Digite seu Código de Segurança"  size="3" maxlength="3" required>
-          
-          <label for="telefone">Telefone:</label>
+                <input type="text" class="coluna22"  id="cpf" name="cpf" placeholder="Digite seu cpf" >
+                                  
+            </div>
+            
+              <div class="coluna3">  
+                <div class="validademes">         
+            <label for="validademes">Validade (Mês):</label>
+            <select class="mes" name="Mes" >
+            <option value="1">01</option>
+            <option value="2">02</option>
+            <option value="3">03</option>
+            <option value="4">04</option>
+            <option value="5">05</option>
+            <option value="6">06</option>
+            <option value="7">07</option>
+            <option value="8">08</option>
+            <option value="9">09</option>
+            <option value="10">10</option>
+            <option value="11">11</option>
+            <option value="12">12</option>
+        </select>
 
-          <input type="tel"  class="coluna22" id="telefonePrincipal" name="telefonePrincipal" placeholder="Digite seu Telefone">
-     
-         
-       </div>
+            </div> 
+            <div class="validadeano"> 
+            <label for="validadeano">Validade (ano):</label>
+            <select  class="mes" name="Mes">
+            <option value="1">2023</option>
+            <option value="2">2024</option>
+            <option value="3">2025</option>
+            <option value="4">2026</option>
+            <option value="5">2027</option>
+            <option value="6">2028</option>
+            <option value="7">2029</option>
+            <option value="8">2030</option>
+            </select>
+        </div>
+        <div>
+        <label for="Código de Segurança (CVC)">Código de Segurança (CVC) :</label>
 
+        <input type="text" class="coluna22"  id="cvc" name="cvc" placeholder="Digite seu Código de Segurança"  size="3" maxlength="3" required>
+        
+        <label for="telefone">Telefone:</label>
+
+        <input type="tel"  class="coluna22" id="telefone" name="telefone" placeholder="Digite seu Telefone">
+   
+       
+     </div>
+
+ 
+
+
+ <button class="botaocartao" type="submit" > SALVAR </button>
+
+ </form>        
    
 
-
-   <button class="botaocartao" type="submit" > SALVAR </button>
-
-   </form>        
      
 
-       
- 
-  </main>
+</main>
 </section>
 
 
@@ -98,5 +94,5 @@
 <%- include('./partials/footerusuario')%>
 
 
- 
+
 

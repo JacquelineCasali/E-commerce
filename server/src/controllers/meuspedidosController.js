@@ -1,46 +1,44 @@
-const fs=require("fs")
-const path=require("path")
-const files=require("../helpers/files")
-const uploads = require("../config/uploads");
-
-// var users=require("../data/users.json");
-// users=users.usuarios;   
-const userJson=fs.readFileSync(
-
-  path.join(__dirname,"..","data","users.json"),
-  "utf-8"
-)
-const users=JSON.parse(userJson);
-
-
+const Sequelize= require("sequelize");
+const configDB=require("../config/database");
+const db=new Sequelize(configDB)
 
 
 const meuspedidos = {
-    index: (req, res) => {
-
-      
-    return res.render("meuspedidos", { title: "Lista de usuários"});
   
-  },
+  show: async (req,res)=>{
+    const {id}=req.params;
+      try{
+    const userResult= await db.query("SELECT * FROM  orders WHERE id= :id",{
+    replacements:{
+      id:id
+    },
+    type:Sequelize.QueryTypes.SELECT,
+  })
+  
+  console.log(userResult)
+  if(userResult.length===0){
+    throw Error ("Nenhum Pedido Encontrado")
+  }
+  let data= new Date(userResult.data)
+       let dia=data.getDate()
+       let mes=data.getMonth()+1
+       let ano=data.getFullYear()
+        data=`${ano}-${mes}-${dia}`
 
-
-  show: (req, res) => {
-    const { id } = req.params;
-    const userResult = users.find((user) => user.id === parseInt(id));
-    if (!userResult) {
-      return res.render("error", {
-        title: "Ops!",
-        message: "Nenhum pedido encontrado",
-      });
+  return res.render("meuspedidos", { title: "Pedidos", user:userResult[0] });
+    }catch(error){
+      console.log(error);
+          res.render("error",{title:"Ops!",message: "Nenhum Pedido encontrado",
+  
+      })
+      
     }
-const user ={
-  ...userResult,
-  avatar:files.base64Encode(uploads.path	 + userResult.avatar),
-}
+          
+    },
 
 
-    return res.render("meuspedidos", { title: "Meus Pedidos", user });
-  },
+
 }
+
 
 module.exports = meuspedidos;

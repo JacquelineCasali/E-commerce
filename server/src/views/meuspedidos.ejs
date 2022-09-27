@@ -1,54 +1,54 @@
- <%- include('./partials/usuariomenu')%>
-  <!-- <link rel="stylesheet" href="/stylesheets/123.css"> -->
- <link rel="stylesheet" href="/stylesheets/123.css">
- <main id="user-list">
+<%- include('./partials/usuariomenu')%>
+<!-- <link rel="stylesheet" href="/stylesheets/123.css"> -->
+<link rel="stylesheet" href="/stylesheets/123.css">
+<main id="user-list">
 
-  <div class="codigo">
-      <!-- Tela lateral -->
-      <!-- link com angora volta onde quer id -->
+<div class="codigo">
+    <!-- Tela lateral -->
+    <!-- link com angora volta onde quer id -->
 <h3 class="fontebarra" id="titulo-Meus Créditos">Meus Pedidos</h3> 
-  </div>
-   
-   <!-- verificação  -->
+</div>
  
+ <!-- verificação  -->
 
-    <div class="table-container">
-      <table >
-        <thead>
-            <tr>
+
+  <div class="table-container">
+    <table >
+      <thead>
+          <tr>
+            
+            <th >Pedido</th>
+            <th>Status</th>
+            <Th >Data</TH>
+              <th >Valor</th> 
+            <th >Ação</th>
+          </tr>
+      </thead>
+      <tbody>
+<!-- variável no plural no for of vem para o singular -->
+ 
+          <!--conteudo daqui roda a quantidade de vezes da variável  -->
+    <!-- trabalhando com for  nao pode ter id  -->
+          <tr>
+       
+<td><%= user.codigo%> </td>
+<td><%= user.status %></td>
+<td><%= user.data %></td>
+
+<td><%= user.preco %> 
+
               
-              <th >Pedido</th>
-              <th  >Status</th>
-              <Th >Data</TH>
-                <th >Valor</th> 
-              <th >Ação</th>
-            </tr>
-        </thead>
-        <tbody>
-<!-- variavel no plural no for of vem para o singular -->
-   
-            <!--conteudo daqui roda a quantidade de vezes da variavel  -->
-      <!-- trabalhando com for  nao pode ter id  -->
-            <tr>
+              <td class="table-actions">
+                  <a href="./pedidos/<%= user.id%>" class="table-link-show"> Ver Detalhes</a>
+                 
+              </td>
+          </tr>
          
-  <td><%= user.pedido%> </td>
-  <td><%= user.status %></td>
-  <td><%= user.data %></td>
- 
-  <td><%= user.valor %> 
-
-                
-                <td class="table-actions">
-                    <a href="./pedidos/<%= user.id%>" class="table-link-show"> VerDetalhess</a>
-                   
-                </td>
-            </tr>
-           
-        </tbody>
-    </table>
+      </tbody>
+  </table>
 </div>
 
-    <!-- <h2 class="error-alert">Nenhum Pedido encontrado </h2> -->
+  <!-- <h2 class="error-alert">Nenhum Pedido encontrado </h2> -->
 
 
 
