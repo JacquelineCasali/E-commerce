@@ -2,18 +2,16 @@
     <main>
         <h1>Deletar Produto</h1>
         <div>
-<<<<<<< HEAD
-            <img src="<%= produto.imagem %>" alt="<%= produto.nome %>">
-=======
-            <img src="" alt="">
->>>>>>> 4c0831d1a46e5a31fb4c0a2ab8510a97b0ae79f2
-            <p><span>Nome: </span><%= produto.nome %></p>
-            <p><span>Tamanho: </span><%= produto.tamanho %></p>
-            <p><span>Categoria: </span><%= produto.categoria %></p>
-            <p><span>Preço: </span><%= produto.preco %></p>
-            <p><span>Descrição: </span><%= produto.descricao %></p>
+            <img src="<%= produto.image %>" alt="<%= produto.name %>">
+            <p><span>Nome: </span><%= produto.name %></p>
+            <p><span>Tamanho: </span><%= produto.size %></p>
+            <p><span>Categoria: </span><%= produto.department %></p>
+            <p><span>Preço: </span><%= produto.price %></p>
+            <p><span>Descrição: </span><%= produto.description %></p>
             <p><span>Status: </span><%= produto.status %></p>
-            <p><span>Última Alteração: </span><%= produto.ultimaAlteracao %></p>
+            <p><span>Status: </span><%= produto.inventory %></p>
+            <p><span>Status: </span><%= produto.rating %></p>
+            <p><span>Última Alteração: </span><%= produto.lastChange %></p>
         </div>
         <form action="/admin-produtos/delete/<%= produto.id %>?_method=delete" method="post">
             <a href="/admin-produtos"><button type="button">Não, voltar!</button></a>
