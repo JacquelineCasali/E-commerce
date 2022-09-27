@@ -1,87 +1,51 @@
-const Sequelize= require("sequelize");
-const configDB=require("../config/database");
-const db=new Sequelize(configDB)
 
-// const db=require("../config/sequelize");
-
-
-
-
-const User=db.define("users",{
-    
-        id:{
-            type:Sequelize.DataTypes.INTEGER.UNSIGNED,
-            autoIncrement:true,
-            primaryKey:true,
-        },
-    
-        nome:{
-            type:Sequelize.DataTypes.STRING(100),
-            // nao permite valor nulo allowNull:false,
-            allowNull:false,
+module.exports = (sequelize, DataTypes) => {
+    const User = sequelize.define(
+      "User",
+      {
+            id:{
+                type:DataTypes.INTEGER.UNSIGNED,
+                autoIncrement:true,
+                primaryKey:true,
             },
         
-        cpf:{
-            type:Sequelize.DataTypes.STRING(50),
+            name:{
+                type:DataTypes.STRING(100),
+                allowNull:false,
+                },
+            
+            cpf:{
+                type:DataTypes.STRING(100),
+                allowNull: false,
+            },
+        celular:{
+            type:DataTypes.STRING(100),
             allowNull: false,
         },
-    celular:{
-        type:Sequelize.DataTypes.STRING(50),
-        allowNull: false,
-    },
-    nascimento:{
-        type:Sequelize.DataTypes.DATE
+        birthdate:{
+            type:DataTypes.DATE
+        },
+        email:{
+            type:DataTypes.STRING(100),
+            allowNull: false,
+        },
         
+        is_admin:{
+            type:DataTypes.BOOLEAN
+        },
+        createdAt:{
+            type:DataTypes.DATE
+        },
+        modifiedAt:{
+            type:DataTypes.DATE
+        }
     },
-    email:{
-        type:Sequelize.DataTypes.STRING(100),
-        allowNull: false,
-    },
-
-senha:{
-    type:Sequelize.DataTypes.STRING(200),
-    // allowNull: false,
-},
+        {
+            tableName:"users",
+            timestamps: false,
     
-    is_admin:{
-        type:Sequelize.DataTypes.BOOLEAN
-    },
-sexo:{
-    type:Sequelize.DataTypes.STRING(3),
-},
-
-rg:{
-    type:Sequelize.DataTypes.STRING(50)
-},
-telefone:{
-    type:Sequelize.DataTypes.STRING(50)
-},
-
-receber:{
-    type:Sequelize.DataTypes.STRING(3)
-},
-instagram:{
-    type:Sequelize.DataTypes.STRING(100)
-},
-    createdAt:{
-        type:Sequelize.DataTypes.DATE
-    },
-    modifiedAt:{
-        type:Sequelize.DataTypes.DATE
-    }
-},
-    {
-        tableName:"users",
-    //    desativa a data de criação 
-        // timestamps: false,
-
-    });
-
-
+        })
   
-   
-    
-
-
-
-module.exports=User;
+    return User;
+  };
+  
