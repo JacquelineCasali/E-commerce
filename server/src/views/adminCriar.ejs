@@ -52,36 +52,49 @@
             <br />
             <% } %>
         <form action="/admin-produtos/criar" method="post" enctype="multipart/form-data">
-          <input type="text" name="nome" placeholder="Nome do produto" 
-            <% if (locals.text.nome) { %>
-                value="<%= text.nome %>"
+          <input type="text" name="name" placeholder="Nome do produto" 
+            <% if (locals.text.name) { %>
+                value="<%= text.name %>"
             <% } %>
           />
           <br />
-          <input type="text" name="tamanho" placeholder="Tamanho" 
-            <% if (locals.text.tamanho) { %>
-                value="<%= text.tamanho %>"
+          <input type="text" name="size" placeholder="Tamanho" 
+            <% if (locals.text.size) { %>
+                value="<%= text.size %>"
             <% } %>
           />
           <br />
-          <input type="text" name="categoria" placeholder="Categoria" 
-            <% if (locals.text.categoria) { %>
-                value="<%= text.categoria %>"
+          <input type="text" name="department" placeholder="Categoria" 
+            <% if (locals.text.department) { %>
+                value="<%= text.department %>"
             <% } %>
           />
           <br />
-          <input type="number" name="preco" placeholder="Preço" pattern="[0-9]+([,\.][0-9]+)?" min="0" step="any" 
-            <% if (locals.text.preco) { %>
-                value="<%= text.preco %>"
+          <input type="number" name="price" placeholder="Preço" pattern="[0-9]+([,\.][0-9]+)?" min="0" step="any" 
+            <% if (locals.text.price) { %>
+                value="<%= text.price %>"
             <% } %>
           />
           <br />
-          <input type="text" name="descricao" placeholder="Descrição" 
-            <% if (locals.text.descricao) { %>
-                value="<%= text.descricao %>"
+          <input type="text" name="description" placeholder="Descrição" 
+            <% if (locals.text.description) { %>
+                value="<%= text.description %>"
             <% } %>
           />
           <br />
+          <input type="number" name="inventory" placeholder="Inventário" pattern="[0-9]+([,\.][0-9]+)?" min="0" step="any" 
+            <% if (locals.text.inventory) { %>
+                value="<%= text.inventory %>"
+            <% } %>
+          />
+          <br />
+          <input type="number" name="rating" placeholder="Classificação" pattern="[0-9]+([,\.][0-9]+)?" min="0" step="any" 
+            <% if (locals.text.rating) { %>
+                value="<%= text.rating %>"
+            <% } %>
+          />
+          <br />
+          
           <select name="status">
             <% if (locals.text.status === "Ativo") { %>
                 <option value="" ></option>

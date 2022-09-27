@@ -14,6 +14,8 @@ const adminAuthController = {
     adminAuth: async (req, res) => {
         const { username, senha } = req.body;
 
+        console.log(bcrypt.generateHash(senha))
+
         // senha = bcrypt.generateHash(senha)
         console.log(bcrypt.generateHash(senha))
 

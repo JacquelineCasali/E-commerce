@@ -67,6 +67,10 @@
           <br />
           <input type="text" name="descricao" placeholder="Descrição" value="<%= produto.description %>" />
           <br />
+          <input type="text" name="inventory" placeholder="Inventário" value="<%= produto.inventory %>" />
+          <br />
+          <input type="text" name="rating" placeholder="Classificação" value="<%= produto.rating %>" />
+          <br />
           <select name="status">
             <% if (produto.status === "Ativo") { %>
                 <option value="Ativo" selected>Ativo</option>
