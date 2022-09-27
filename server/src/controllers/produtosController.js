@@ -1,4 +1,7 @@
-const { Product } = require("../models");
+const Sequelize= require("sequelize");
+const configDB=require("../config/database");
+const db=new Sequelize(configDB)
+const Product  = require("../models/Product");
 
 const produtosController = {
   index: async (req, res) => {

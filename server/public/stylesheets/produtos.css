@@ -62,6 +62,21 @@
   font-size: 30px;
 }
 
+.btn-comprar-produtos {
+  width: 100%;
+  background-color: rgb(24, 24, 18);
+  height:30px;
+  border: none;
+  color: white;
+  margin-top: 20px;
+  transition: all 0.3s ease-in-out;
+  cursor: pointer;
+
+}
+
+.btn-comprar-produtos:hover {
+  background-color: #00cb00;
+}
 
 @media (max-width: 375px) {
 
