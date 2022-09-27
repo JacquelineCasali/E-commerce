@@ -1,6 +1,6 @@
 const db = require("../config/sequelize");
-const { Department } = require("../models");
-const { Product } = require("../models");
+const Department  = require ("../models/Department");
+const  Product  = require("../models/Product");
 
 const indexController ={
     home:async (req, res) => {

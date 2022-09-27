@@ -21,11 +21,11 @@
                     <p class="preco-produto">R$<%= product['price'] %></p>
                     <section class="modelo">
                     <h3 class="tamanho"><%= product['size'] %></h3>
-                    <div class="botoes">
-                     <div class="btn-size">P</div>
-                     <div class="btn-size">M</div>
-                     <div class="btn-size">G</div>
-                     <div class="btn-size">GG</div>
+                    <div id='botoes' class="botoes">
+                     <div id="btn-size" class="btn-size">P</div>
+                     <div id="btn-size" class="btn-size">M</div>
+                     <div id="btn-size" class="btn-size">G</div>
+                     <div id="btn-size" class="btn-size">GG</div>
                     </div>
                     </section>
                     <section class="texto-produto" >
@@ -40,6 +40,5 @@
 
 </main>
 <%- include('./partials/footer') %>
-<script src="/js/index.js"></script>
 </body>
 </html>

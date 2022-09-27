@@ -1,11 +1,13 @@
-const db = require("../config/sequelize");
+const Sequelize= require("sequelize");
+const configDB=require("../config/database");
+const db=new Sequelize(configDB)
 const Department = require("../models/Department");
 const departmentController = {
   index: async (req, res) => {
     const { search } = req.query;
     try {
 
-      const department = await Department.findAll();
+      const department = await Department.findAll({});
       console.log(department);
       res
         .status(200)

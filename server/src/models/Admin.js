@@ -1,30 +1,28 @@
+const Sequelize = require("sequelize");
+const configDB = require("../config/database");
+const db = new Sequelize(configDB);
+const Admin = db.define(
+  "Admin",
+  {
+    id: {
+      type: Sequelize.DataTypes.INTEGER.UNSIGNED,
+      autoIncrement: true,
+      primaryKey: true,
+    },
+    username: {
+      type: Sequelize.DataTypes.STRING(100),
+      allowNull: false,
+    },
+    senha: {
+      type: Sequelize.DataTypes.STRING(80),
+      allowNull: false,
+    },
+  },
 
-module.exports = (sequelize, DataTypes) => {
-    const Admin = sequelize.define(
-      "Admin",
-      {
-        
-        id: {
-            type: DataTypes.INTEGER.UNSIGNED,
-            autoIncrement: true,
-            primaryKey: true,
-        },
-        username: {
-            type: DataTypes.STRING(100),
-            allowNull: false,
-        },
-        senha: {
-            type: DataTypes.STRING(80),
-            allowNull: false,
-        }
-      },
-  
-      {
-        timestamps: false,
-        tablename: "admins"
-      }
-    );
-  
-    return Admin;
-  };
-  
+  {
+    timestamps: false,
+    tablename: "admins",
+  }
+);
+
+module.exports = Admin;
