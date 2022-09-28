@@ -12,39 +12,11 @@
     <link rel="stylesheet" href="/stylesheets/produtos.css" />
 </head>
 <body>
-    <header>
-        <!-- Declaração do botão de menu e do menu oculto -->
-        <div class="menu-header">
-            <input type="checkbox" id="check">
-            <label id="icon" for="check"><img class="img-menuicon" src="../../images/menu-icon.svg"> </label>
-            <img class="img-search-icon" src="../../images/search-icon.svg">
-            <div class="nav-bar">
-                <% department.forEach(department=> { %>
-                <a class="section-link" href="/department/<%= department.name%>"><%=department.name%></a>
-                <% }) %>
-            </div>
-        </div>
-    
-        <a href="" class="logo-hearder">
-            <img class="img-logo" src="../../images/logo.svg">
-        </a>
-        <div class="icons-header">
-            <!-- Usado para conseguir ajustar em telas maiores. Na versão mobile está como ocultado -->
-            <img class="img-search-icon2" src="../../images/search-icon.svg">
-    
-           <div class="user">
-                <img class="img-person" src="../../images/person-circle.svg">
-                <div class="user-link">
-                    <a class="buttons-user" href="./login.html">Login</a>
-                    <a class="buttons-user" href="./cadastro.html">Cadastro</a>
-                </div>
-           </div>
-        <a href="./carrinho.html"><img class="img-bag" src="../../images/bag.svg"></a>
-    
-    </header>
+
+    <%- include('./partials/header') %>
     <main>
         <div class=banner>
-            <a href="./produtos.html">
+            <a href="/produtos">
                 <img src="/images/campain-diadosnamorados.jpg" class="img-destaques">
             </a>
         </div>
@@ -70,7 +42,7 @@
                       <div class="info-produto">
                         <p class="nome-camisa"><%= product.name %></p>
                         <span class="preco-camisas"> R$ <%= product.price%> </span>
-            b           <button class="btn-comprar-produtos">Comprar</button>
+                  <button class="btn-comprar-produtos">Comprar</button>
                       </div>
                     </div>
                     <% }) %>
@@ -80,36 +52,7 @@
 
         </section>
     </main>
-    <footer>
-        <div class="gap"></div>
-
-        <ul class="dados-empresa" type="none">
-            <li><a href="">Sobre Nós</a></li>
-            <li><a href="">Nossa Politica</a></li>
-            <li><a href="">Entre em contato</a></li>
-            <li><a href="">Trabalhe Conosco</a></li>
-        </ul>
-        
-        <ul class="redes-sociais" type="none">
-            <li><a href="https://www.facebook.com/JustApprove/" target="_blank">
-                <img src="./images/facebook.svg" class="icon-socialnetworks" id="facebook-icon">
-                </a>
-            </li>
-            <li><a href="https://www.instagram.com/Approve/" target="_blank">
-                <img src="./images/instagram.svg"class="icon-socialnetworks" target="_blank">
-            </a></li>
-            <li><a href="https://twitter.com/JustApprove" target="_blank">
-                <img src="./images/twitter.svg" class="icon-socialnetworks">
-            </a></li>
-            <li><a href="https://www.youtube.com/channel/UCAaoWXcbM-aoW4ZY7NAc5gg" target="_blank">
-                <img src="./images/youtube.svg"class="icon-socialnetworks">
-                </a>
-            </li>
-        </ul>
-
-        <div class="devellopers">
-            <span>Desenvolvido por Grupo 7</span>
-        </div>
+    <%- include('./partials/footer') %>
     </footer>
 </body>
 <script src="./js/scripts.js"></script>

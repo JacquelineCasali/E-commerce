@@ -8,7 +8,7 @@ const indexController ={
           const department = await Department.findAll({});
           const products = await Product.findAll({limit:8});
         
-          res.render("home", { department: department,products: products});
+          res.render("home", { department: department,products: products,user: req.cookies.user});
         } catch (error) {
           console.log(error);
         }

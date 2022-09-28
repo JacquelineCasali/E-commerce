@@ -5,10 +5,9 @@
         <label id="icon" for="check"><img class="img-menuicon" src="../../images/menu-icon.svg"> </label>
         <img class="img-search-icon" src="../../images/search-icon.svg">
         <div class="nav-bar">
-            <a href="./produtos.html" class="section-link">HOMEM</a>
-            <a href="./produtos.html" class="section-link">MULHER</a>
-            <a href="./produtos.html" class="section-link">MARCAS</a>
-            <a href="./produtos.html" class="section-link">NOVO</a>
+            <% locals.departments.forEach(department=> { %>
+            <a class="section-link" href="/department/<%= department.name%>"><%=department.name%></a>
+            <% }) %>
         </div>
     </div>
 
@@ -17,15 +16,40 @@
     </a>
     <div class="icons-header">
         <!-- Usado para conseguir ajustar em telas maiores. Na versão mobile está como ocultado -->
-        <img class="img-search-icon2" src="../../images/search-icon.svg">
+        <% if(locals.user) {%>
+             <div class="msg-user">
+            Olá,<%=user.nome%>
+            </div>
+            <div class="user">
+        
+            <img class="img-person" src="../../images/person-circle.svg">
+                <div class="user-link">
+                    <a href="/MinhaConta/<%=user.id%>">
+                        <input class="buttons-user" type="button" value="Minha Conta">
+                    </a>
+                    <form action="/logout" method="post">
+                    <button class="buttons-user" type="submit">Logout</button>
+                </form>
+                </div>
+
+            </div> 
+        <% }else{%>
+        
 
        <div class="user">
-            <a href="./painel-usuario.html"><img class="img-person" src="../../images/person-circle.svg"></a>
+        
+            <img class="img-person" src="../../images/person-circle.svg">
             <div class="user-link">
-                <a href="./login.html">Login</a>
-                <a href="./cadastro.html">Cadastro</a>
+                <a  href="/login">
+                    <input class="buttons-user" type="button" value="Login">
+                </a>
+                <a  href="/cadastro">
+                    <input class="buttons-user" type="button" value="Cadastro">
+                </a>
             </div>
        </div>
-        <a href="./carrinho.html"><img class="img-bag" src="../../images/bag.svg"></a>
+        <% }%>
+    <a href="/carrinho"><img class="img-bag" src="../../images/bag.svg"></a>
+
 
 </header>

@@ -5,8 +5,6 @@ const db=new Sequelize(configDB)
 // const db=require("../config/sequelize");
 
 
-
-
 const User=db.define("users",{
     
         id:{
@@ -63,10 +61,10 @@ receber:{
 instagram:{
     type:Sequelize.DataTypes.STRING(100)
 },
-    createdAt:{
+createdAt:{
         type:Sequelize.DataTypes.DATE
     },
-    modifiedAt:{
+updatedAt:{
         type:Sequelize.DataTypes.DATE
     }
 },

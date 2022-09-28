@@ -20,13 +20,13 @@ rg VARCHAR(50),
 telefone VARCHAR(50),
 receber VARCHAR(3),
 instagram VARCHAR (100),
-created_at DATETIME,
-modified_at DATETIME
+createdAt DATETIME,
+updateAt DATETIME
 );
 
 INSERT INTO users (nome,cpf,celular,nascimento,email,senha,sexo,rg ,telefone,receber,instagram,created_at,modified_at)
 VALUES
-("Paulo Oliveira","546.546.546-54","45 99978-4585", "1999-12-20","robertinho123@email.com","123", "M","123456-SSP/RJ", "78 9999-85454","s","rb","2022-09-12","2022-09-12"),
+("Paulo Oliveira","546.546.546-54","45 99978-4585", "1999-12-20","robertinho123@email.com","$2b$10$kXAFKVa2W1uE0zK9PaHGtuFNTntJqfqUfetPTK72mUZfVlAs3EVMu", "M","123456-SSP/RJ", "78 9999-85454","s","rb","2022-09-12","2022-09-12"),
 ("Ana Couto","123.456.456-45","71 9999-85454","1999-11-10","aninha123@email.com","123","F","123456-SSP/RJ","71 9999-85454","s","aninha123","2022-09-12","2022-09-12" ),
 ("Juliana Rios","123.456.879-56","54 99985-4525","1978-05-05","ju123@email.com","123","F","123456-SSP/SP","54 99985-4525","n",NULL, "2022-09-12","2022-09-12"),
 ("João Oliveira","123.456.879-85","54 99985-4500","1974-02-05","joaozinho123@email.com","123", "M","123456-SSP/MS","54 99985-4500","sim","joao123", "2022-09-12","2022-09-12"),
@@ -230,12 +230,13 @@ SELECT * FROM  department;
 CREATE TABLE admins(
   id INT UNSIGNED PRIMARY KEY AUTO_INCREMENT,
   username VARCHAR(100) NOT NULL,
-  senha VARCHAR(80) NOT NULL
+  senha VARCHAR(80) NOT NULL,
+  lastchange TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
 );
 
 INSERT INTO admins(username, senha) 
 VALUES
-  ("Admin01", "$2b$10$XOuWjgOKpyRIqrXr5kbjieR1k4CmAwgl.QWsPBOYIGVCImWTjltdu"),
+  ("Admin01", "$2b$10$UWWIa/ThDWp/allafT5b3exONlhIqNNYuXxCoalrEXS21KE/GKp4i"),
   ("Admin02", "$2b$10$YWBXTTON11wyDkVqTVfPa.rQUnfdlC/l4BP4ph4h.j9PcOxWwBhnm");
   
 

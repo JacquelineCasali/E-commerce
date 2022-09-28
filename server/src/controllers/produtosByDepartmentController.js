@@ -10,7 +10,7 @@ const produtosByDepartmentController = {
       const products = await Product.findAll({
         Where:{department:name}
       })
-      res.render("productsByDepartment", { products: products,name:name});
+      res.render("productsByDepartment", { products: products,name:name,});
     } catch (error) {
       console.log(error);
     }
