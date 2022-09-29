@@ -7,6 +7,6 @@ const isGuest = require("../middlewares/userGuest")
 router.get("/login",isGuest,loginController.login)
 router.post("/login",isGuest,loginController.auth)
 router.get("/login/:id",isGuest,loginController.show)
-router.post("/logout", isAuth, loginController.logout); 
+router.get("/logout", isAuth, loginController.logout); 
 
 module.exports = router;

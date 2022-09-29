@@ -1,3 +1,4 @@
+
 const fs = require("fs");
 const path = require("path");
 const bcrypt = require("../helpers/bcrypt");
@@ -33,6 +34,7 @@ const loginController = {
                 }
             });
             
+            res.redirect('/')
             
             if(!userAuth){
                 throw Error("USER_NOT_FOUND");

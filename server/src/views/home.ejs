@@ -42,7 +42,19 @@
                       <div class="info-produto">
                         <p class="nome-camisa"><%= product.name %></p>
                         <span class="preco-camisas"> R$ <%= product.price%> </span>
-                  <button class="btn-comprar-produtos">Comprar</button>
+                        <button
+                        class="btn-comprar-produtos"
+                        onclick="adicionar({
+                        id: '<%= product.id  %>',
+                         name: '<%= product.name %>',
+                         price: '<%= product.price %>',
+                         quantity:1,
+                         size: '<%= product.size %>',
+                         image:'<%= product.image %>',
+                 })"
+                      >
+                        Comprar
+                      </button>
                       </div>
                     </div>
                     <% }) %>
@@ -54,6 +66,7 @@
     </main>
     <%- include('./partials/footer') %>
     </footer>
+    <%- include('./partials/carrinho') %>
 </body>
 
 </html>

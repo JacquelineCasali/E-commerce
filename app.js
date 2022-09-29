@@ -16,7 +16,9 @@ var paymentRouter = require('./server/src/routes/paymentRoute');
 var cadastroRoute= require('./server/src/routes/cadastroRoute');
 var produtosRouter=require('./server/src/routes/produtosRoute')
 var departmentRouter= require('./server/src/routes/deparment');
-var preloadDepartment = require("./server/src/helpers/preloadDepartment")
+var preloadDepartment = require("./server/src/helpers/preloadDepartment");
+var carrinhoRouter = require('./server/src/routes/carrinho');
+var carrinhoCompra = require('./server/src/routes/carrinhoCompra');
 
 var app = express();
 
@@ -49,6 +51,8 @@ app.use('/finalizacao',paymentRouter);
 app.use('/cadastro',cadastroRoute);
 app.use('/',produtosRouter)
 app.use('/department',departmentRouter)
+app.use('/',carrinhoRouter)
+app.use('/',carrinhoCompra)
 
 
 

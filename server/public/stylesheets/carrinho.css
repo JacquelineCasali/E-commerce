@@ -1,144 +1,154 @@
-*{
-    box-sizing: border-box;
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap');
+
+* {
+  font-family: 'Montserrat',sans-serif;
 }
 
-@font-face {
-    font-family:'Raleway' ;
-    src: url('../fonts/Raleway-VariableFont_wght.ttf') format('truetype');
-    font-weight:normal;
-    font-style:normal;
+body {
+  font-size: 1.6rem;
 }
 
-main{
-    position: relative;
+main {
+  margin-left: 50px;
+}
+
+
+.carrinho-container{
+  display: flex;
+  justify-content: center;
+}
+
+.carrinho-titulo {
+  display: none;
+}
+
+.carrinho1 {
+  font-size: 45px;
+}
+
+.carrinho,
+.carrinho1 {
+  margin-left: 50px;
+  margin: 50px;
+}
+
+.text {
+  margin-left: 50px;
+  font-size: 20px;
+}
+
+.botao-r {
+  margin-left: 50px;
+  height: 50px;
+  margin-top: 10px;
+  border: none;
+  width: 200px;
+  font-size: 20px;
+  border-radius: 10px;
+  background-color: rgb(24, 24, 18);
+  color: white;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+}
+
+
+#container-fechamento {
+  display:none
+}
+
+.link-fechamento {
+  text-decoration: none;
+}
+
+
+.btn-finaliza-compra {
+  height:40px;
+  width:200px;
+  padding:10px;
+  font-size: 18px;
+  color:white;
+  transition: all 0.3s ease-in-out;
+  background-color:rgb(24, 24, 18) ;
+  border: none;
+  font-family: 'Montserrat',sans-serif;
+  cursor: pointer;
+  margin-top: 30px;
+  /* margin-left: 200px; */
+}
+
+.carrinho-container {
+  margin-left:20px ;
+  display: none;
+}
+
+.carrinho-titulo {
+  color:rgb(24, 24, 18);
+  display:flex;
+  justify-content: center;
+}
+
+table {
+  border: 1px solid black;
+  width:400px;
+  text-align: center;
+  font-weight: 600;
+  margin-top: 10px;
+}
+
+th {
+  border-bottom:1px solid black ;
+  padding: 20px;
+  margin-top: 10px;
+
+}
+
+.nome-produto {
+  font-weight: 600;
+}
+
+tr {
+  font-weight: 500;
+}
+
+.img-fluid {
+  width:150px;
+  margin-top:10px ;
+}
+
+.btn-remover,.btn-add {
+  width:30px;
+  color:white;
+  background-color: rgb(24, 24, 18);
+  cursor: pointer;
+  font-size: 22px;
+}
+
+
+.botao-r:hover,.btn-finaliza-compra:hover {
+  background: #00cb00;
+
+}
+
+.link-carrinho {
+  text-decoration: none;
+  color: white;
+}
+
+.produto {
+  display: flex;
+}
+
+@media (max-width: 375px) {
+  .text {
     display: flex;
-    flex-wrap: nowrap;
-    color: #303030;
+  }
+/*   
+  table {
+    display: block;
+  }
+
+  .produto,tr,th {
+    display: block;
+  } */
+ 
 }
-
-.lista{
-    width: 60vw;
-  
-}
-
-.produtos{
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: flex-end;
-    border-bottom: 1px solid #dcdcdc;
-    margin-right: 0;
-    margin-left: 0;
-    padding-top: 24px;
-    padding-bottom: 16px;
-}
-
-.img-produto{
-    margin:0 30px;
-    width: 80px;
-}
-
-
-.descriçao{
-    display: flex;
-    flex-direction: column;
-    text-transform: uppercase;
-}
-
-.descriçao a{
-    text-decoration: none;  
-    flex-grow: 1;
-}
-
-.select{
-    display: flex;
-    flex-direction: column;
-    font-size: 10px;
-  
-}
-
-.quantidade{
-    display: flex;
-    height: 20px;
-    margin-top: 20px;
-}
-
-
-#quant{
-    background-color: black;
-    color: white;
-    padding:0 15px;
-}
-
-#valor{
-    border: black  solid 0.5px;
-    padding:0 15px;
-}
-
-.buy{
-    padding-top: 24px;
-    padding-left: 10px;
-}
-
-.subtotal{
-    display: flex;
-    justify-content: space-between;
-    border-bottom: 1px solid #dcdcdc;
-}
-
-.endereco{
-    font-weight: bold;
-    border-bottom: 1px solid #dcdcdc;
-    padding-bottom: 15px;
-    margin-bottom: 15px;
-}
-
-#check-cep{
-    background-color: oldlace;
-}
-
-.esqueceu-cep{
-    font-size: 10px;
-    color: blue;
-}
-
-.cupom{
-    border-bottom: 1px solid #dcdcdc;
-    padding-bottom: 15px;
-    margin-bottom: 15px;
-
-}
-
-.valor-total{
-    display: flex;
-    justify-content: space-between;
-    font-weight: bold;
-    border-bottom: 1px solid #dcdcdc;
-    padding-bottom: 15px;
-    margin-bottom: 15px;
-}
-
-#bt-comprar{
-    width: 100%;
-    height: 50px;
-    background-color: greenyellow;
-    border: greenyellow;
-    border-radius: 2px;
-}
-
-footer{
-    width: 100vw;
-    bottom: 0px;
-    font-family: 'Raleway';
-    font-size:8px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    text-decoration: none;
-    color:#303030;
-    background-color: #f2f2f2;
-    border-top: 1px solid #d2d2d2;
-    border-bottom: 1px solid #d2d2d2;
-}
-
