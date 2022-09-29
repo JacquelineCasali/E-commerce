@@ -1,16 +1,16 @@
 
-<%- include('./partials/headerusuariomenu')%>
+<!-- <%- include('./partials/headerusuariomenu')%> -->
 
 <% if (locals.error) {%>
     <h2 class="error-alert"><%= error.message%></h2>
            <%}%>
  
-<!-- <form action="/images/<%= user.id %>?_method=put" method="post" enctype="multipart/form-data">   
+<!-- <form action="/images/<%=user.id %>?_method=put" method="post" enctype="multipart/form-data">   
 
    <div class="foto-usuario">
      <% if(locals.users){ %>
 
-        <img class="foto-perfil" src="<%= users.avatar %>" alt="Imagem de perfil">
+        <img class="foto-perfil" src="<%=users.avatar %>" alt="Imagem de perfil">
 
   <input type="file" name="avatar" class="btn btn-success" accept="image/png, image/jpeg" />
 <button type="submit">Salvar</button>  
@@ -39,24 +39,24 @@
      </div>
 
     <!--meus dados  -->
-<form action="<%= user.id %>?_method=put" method="post" enctype="multipart/form-data">   
+<form action="<%=user.id %>?_method=put" method="post" enctype="multipart/form-data">   
 <div class="row">
 <div class="coluna2">
                  
 <label for="nome">Nome Completo :</label>
-<input type="text" class="coluna22" id="name" name="nome" placeholder="Digite seu nome" required value="<%= user.nome %>">
+<input type="text" class="coluna22" id="name" name="nome" placeholder="Digite seu nome" required value="<%=user.nome %>">
     
 <label for="cpf"> CPF :</label>
 
-<input type="text" class="coluna22"  id="cpf" name="cpf" minlength="11" maxlength="14" placeholder="Digite seu cpf" required value="<%= user.cpf %>">
+<input type="text" class="coluna22"  id="cpf" name="cpf" minlength="11" maxlength="14" placeholder="Digite seu cpf" required value="<%=user.cpf %>">
                                 
 <label for="telefone">Telefone Principal :</label>
 
-<input type="tel"  class="coluna22" id="telefone" name="telefone" value="<%= user.telefone %>">
+<input type="tel"  class="coluna22" id="telefone" name="telefone" value="<%=user.telefone %>">
 
 <label for="Data">Data de nascimento :</label>
                 
-<input type="date" class="coluna22" id="nascimento" name="nascimento" value="<%= user.nascimento %>" >                          
+<input type="date" class="coluna22" id="nascimento" name="nascimento" value="<%=user.nascimento %>" >                          
 </div>
 
 <div class="coluna3">

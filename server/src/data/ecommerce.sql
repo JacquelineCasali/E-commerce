@@ -45,6 +45,7 @@ confirmeemail VARCHAR(100) NOT NULL,
 novasenha VARCHAR(200) ,
 confirmesenha VARCHAR(200),
 created_at DATETIME,
+update_at DATETIME
 modified_at DATETIME,
 user_id INT UNSIGNED
 );
@@ -162,7 +163,9 @@ price DECIMAL(10,2) UNSIGNED NOT NULL,
 size VARCHAR(100),
 department VARCHAR(100),
 inventory INT UNSIGNED DEFAULT 0,
-rating DECIMAL(10,2) UNSIGNED
+rating DECIMAL(10,2) UNSIGNED,
+quantity INT
+
 );
 
 INSERT INTO products (`name`, `description`, `image`, `price`, `size`, `department`, `inventory`, `rating`)
@@ -180,7 +183,7 @@ INSERT INTO products (`name`, `description`, `image`, `price`, `size`, `departme
 -- Tabela para pedidos
 CREATE TABLE orders(
   id INT UNSIGNED PRIMARY KEY AUTO_INCREMENT,
-  create_at DATETIME NOT NULL,
+  create_at DATETIME ,
   status ENUM("processando", "a caminho", "entregue") DEFAULT "processando",
   user_id INT UNSIGNED,
   FOREIGN KEY (user_id) REFERENCES users(id)
@@ -192,6 +195,7 @@ CREATE TABLE orders_products(
   id INT UNSIGNED PRIMARY KEY AUTO_INCREMENT,
   order_id INT UNSIGNED,
   product_id INT UNSIGNED,
+  quantity INT UNSIGNED,
   FOREIGN KEY (order_id) REFERENCES orders(id),
   FOREIGN KEY (product_id) REFERENCES products(id)
 );
