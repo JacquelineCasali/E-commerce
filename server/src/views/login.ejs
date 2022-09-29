@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login</title>
+    <title>title</title>
     <link rel="stylesheet" href="./stylesheets/login.css">
 </head>
 
@@ -13,10 +13,14 @@
         <h1 class="conta">MINHA CONTA</h1>
 
         <form method="POST">
-        <input class="textos" name ="email" type="email" placeholder="Insira seu email">
-        <br><br>
-        <input class="textos" name ="password" type="password" placeholder="Insira sua senha">
-        <br><br>
+        <input class="textos" id ="email" name ="email" type="email" placeholder="Insira seu email">
+        <br><br><div class="message-error-email">Campo de preenchimento obrigatório</div>
+        <input class="textos" id ="password" name ="password" type="password" placeholder="Insira sua senha">
+        <br><br><div class="message-error-senha">Campo de preenchimento obrigatório</div>
+        <div class="message-error-user"><%if(locals.error){%>
+        <%=locals.error%>
+          <% } %>
+        </div>
         <button type="submit" class="entrar">ENTRAR</button>
         <br><br>
         <a href="">Esqueceu sua senha?</a>
@@ -34,4 +38,7 @@
         <span>AMBIENTE 100% SEGURO</span>
       </div>
 </body>
+<script src="./js/loginScript.js"></script>
+
+</script>
 </html>

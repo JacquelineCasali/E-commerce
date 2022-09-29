@@ -6,8 +6,8 @@ const Product  = require("../models/Product");
 const produtosByDepartmentController = {
   index: async (req, res) => {
     try {
-      const {name} = req.params
-      const products = await Product.findAll({
+      let {name} = req.params
+      let products = await Product.findAll({
         Where:{department:name}
       })
       res.render("productsByDepartment", { products: products,name:name,});

@@ -11,7 +11,7 @@
     <h1 class="titulo-produtos"><%=name %></h1>
     <section class="produtos-container">
       <section class="produtos">
-        <% products.forEach(product=> { %>
+        <% locals.products.forEach(product=> { %>
         <div class="card">
           <a class="link" href="/produto/<%= product.id%>">
             <img
