@@ -5,7 +5,7 @@ const User = require("../models/User");
 
 const loginController = {
     login:(req, res) => {
-        return res.render("login",{user: req.cookies.user,})
+        return res.render("login",{user: req.cookies.user,title:"Login"})
     },
     show:async(req,res)=>{
         const {id}=req.params 
@@ -54,7 +54,7 @@ const loginController = {
 
             if(!userSenha){
                     res.render("login", {
-                        error: "Dados inválidos"
+                        error: "Usuário ou senha inválidos"
                     })
             }
             
@@ -63,11 +63,14 @@ const loginController = {
             if(error.message === "USER_NOT_FOUND"){
                 console.log(error.message)
                 res.render("login", {
-                    error: "Dados inválidos"
+                    error: "Usuário ou senha inválidos"
                 })
             } else {
                 console.log(error.message)
-                res.json({message: "Erro ao encontrar usuário"})
+                res.render("login", {
+                    error: "Usuário ou senha inválidos"
+                })
+  
             }
             
         }

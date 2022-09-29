@@ -21,10 +21,10 @@ telefone VARCHAR(50),
 receber VARCHAR(3),
 instagram VARCHAR (100),
 createdAt DATETIME,
-updateAt DATETIME
+updatedAt DATETIME
 );
 
-INSERT INTO users (nome,cpf,celular,nascimento,email,senha,sexo,rg ,telefone,receber,instagram,created_at,modified_at)
+INSERT INTO users (nome,cpf,celular,nascimento,email,senha,sexo,rg ,telefone,receber,instagram,createdAt,updatedAt)
 VALUES
 ("Paulo Oliveira","546.546.546-54","45 99978-4585", "1999-12-20","robertinho123@email.com","$2b$10$kXAFKVa2W1uE0zK9PaHGtuFNTntJqfqUfetPTK72mUZfVlAs3EVMu", "M","123456-SSP/RJ", "78 9999-85454","s","rb","2022-09-12","2022-09-12"),
 ("Ana Couto","123.456.456-45","71 9999-85454","1999-11-10","aninha123@email.com","123","F","123456-SSP/RJ","71 9999-85454","s","aninha123","2022-09-12","2022-09-12" ),
@@ -162,8 +162,10 @@ price DECIMAL(10,2) UNSIGNED NOT NULL,
 size VARCHAR(100),
 department VARCHAR(100),
 inventory INT UNSIGNED DEFAULT 0,
-rating DECIMAL(10,2) UNSIGNED
+rating DECIMAL(10,2) UNSIGNED,
+lastChange DATETIME
 );
+
 
 INSERT INTO products (`name`, `description`, `image`, `price`, `size`, `department`, `inventory`, `rating`)
  VALUES
@@ -175,6 +177,11 @@ INSERT INTO products (`name`, `description`, `image`, `price`, `size`, `departme
 ('camisa oversized approve beyond lines chumbo', 'camisa oversized com estampa branca', '/images/camisas/camisa-6.webp', '199.99', 'M', "Camisetas", 50, 6.99),
 ('camisa bold approve campping', 'camisa campping preta ', '/images/camisas/camisa-7.webp', '199.99', 'M', "Camisetas", 50, 6.99),
 ('camisa oversized approve campping II off white', 'camisa campping branca', '/images/camisas/camisa-8.webp', '199.99', 'G', "Camisetas", 40, 6.99);
+('Calça Jeans Descolada Trybe KT', 'Calça Jeans Trybe', '/images/calcas/camisa-1.webp', '299.99', 'G', "Calças", 40, 3.99);
+('Calça de veludo Revoada Vermelha Trybe KT', 'Calça de Veludo', '/images/calcas/calca-3.jpg', '299.99', 'M', "Calças", 50, 4.99);
+('Calça Jeans Revoada Vermelha Trybe KT', 'Calça Jeans Revoada', '/images/calcas/calca-4.jpg', '399.99', 'M', "Calças", 40, 4.99);
+('Calça Jeans Cubo Maravilha Nugetera Zy', 'Calça Jeans Neguetera', '/images/calcas/calca-5.webp', '399.99', 'M', "Calças", 40, 4.99);
+('Calça de veludo Revoada Vermelha Trybe KT', 'Calça de Veludo', '/images/calcas/calca-6.jpg', '299.99', 'M', "Calças", 50, 4.99);
 
 
 -- Tabela para pedidos
@@ -231,7 +238,7 @@ CREATE TABLE admins(
   id INT UNSIGNED PRIMARY KEY AUTO_INCREMENT,
   username VARCHAR(100) NOT NULL,
   senha VARCHAR(80) NOT NULL,
-  lastchange TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+  lastChange DATETIME
 );
 
 INSERT INTO admins(username, senha) 

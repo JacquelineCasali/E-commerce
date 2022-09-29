@@ -267,6 +267,18 @@ footer a{
       
     
     }
+    .user-linkBlock{
+        position: absolute;
+        height: 50px;
+       
+        margin-right: 50px;
+        top:55px;
+        margin-bottom: 100px;
+        flex-direction: column;
+        display:block;
+      
+    
+    }
     .buttons-user{
 
     
