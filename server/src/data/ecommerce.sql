@@ -20,13 +20,13 @@ rg VARCHAR(50),
 telefone VARCHAR(50),
 receber VARCHAR(3),
 instagram VARCHAR (100),
-created_at DATETIME,
-modified_at DATETIME
+createdAt DATETIME,
+updatedAt DATETIME
 );
 
-INSERT INTO users (nome,cpf,celular,nascimento,email,senha,sexo,rg ,telefone,receber,instagram,created_at,modified_at)
+INSERT INTO users (nome,cpf,celular,nascimento,email,senha,sexo,rg ,telefone,receber,instagram,createdAt,updatedAt)
 VALUES
-("Paulo Oliveira","546.546.546-54","45 99978-4585", "1999-12-20","robertinho123@email.com","123", "M","123456-SSP/RJ", "78 9999-85454","s","rb","2022-09-12","2022-09-12"),
+("Paulo Oliveira","546.546.546-54","45 99978-4585", "1999-12-20","robertinho123@email.com","$2b$10$kXAFKVa2W1uE0zK9PaHGtuFNTntJqfqUfetPTK72mUZfVlAs3EVMu", "M","123456-SSP/RJ", "78 9999-85454","s","rb","2022-09-12","2022-09-12"),
 ("Ana Couto","123.456.456-45","71 9999-85454","1999-11-10","aninha123@email.com","123","F","123456-SSP/RJ","71 9999-85454","s","aninha123","2022-09-12","2022-09-12" ),
 ("Juliana Rios","123.456.879-56","54 99985-4525","1978-05-05","ju123@email.com","123","F","123456-SSP/SP","54 99985-4525","n",NULL, "2022-09-12","2022-09-12"),
 ("João Oliveira","123.456.879-85","54 99985-4500","1974-02-05","joaozinho123@email.com","123", "M","123456-SSP/MS","54 99985-4500","sim","joao123", "2022-09-12","2022-09-12"),
@@ -45,6 +45,7 @@ confirmeemail VARCHAR(100) NOT NULL,
 novasenha VARCHAR(200) ,
 confirmesenha VARCHAR(200),
 created_at DATETIME,
+update_at DATETIME,
 modified_at DATETIME,
 user_id INT UNSIGNED
 );
@@ -162,8 +163,11 @@ price DECIMAL(10,2) UNSIGNED NOT NULL,
 size VARCHAR(100),
 department VARCHAR(100),
 inventory INT UNSIGNED DEFAULT 0,
-rating DECIMAL(10,2) UNSIGNED
+rating DECIMAL(10,2) UNSIGNED,
+quantity INT
+
 );
+
 
 INSERT INTO products (`name`, `description`, `image`, `price`, `size`, `department`, `inventory`, `rating`)
  VALUES
@@ -174,17 +178,88 @@ INSERT INTO products (`name`, `description`, `image`, `price`, `size`, `departme
 ('camisa oversized planet green', 'camisa oversized com estampa colorida', '/images/camisas/camisa-5.webp', '188.88', 'G', "Camisetas", 50, 3.99),
 ('camisa oversized approve beyond lines chumbo', 'camisa oversized com estampa branca', '/images/camisas/camisa-6.webp', '199.99', 'M', "Camisetas", 50, 6.99),
 ('camisa bold approve campping', 'camisa campping preta ', '/images/camisas/camisa-7.webp', '199.99', 'M', "Camisetas", 50, 6.99),
-('camisa oversized approve campping II off white', 'camisa campping branca', '/images/camisas/camisa-8.webp', '199.99', 'G', "Camisetas", 40, 6.99);
+('camisa oversized approve campping II off white', 'camisa campping branca', '/images/camisas/camisa-8.webp', '199.99', 'G', "Camisetas", 40, 6.99),
+('Calça Jeans Descolada Trybe KT', 'Calça Jeans Trybe', '/images/calcas/camisa-1.webp', '299.99', 'G', "Calças", 40, 3.99),
+('Calça de veludo Revoada Vermelha Trybe KT', 'Calça de Veludo', '/images/calcas/calca-3.jpg', '299.99', 'M', "Calças", 50, 4.99),
+('Calça Jeans Revoada Vermelha Trybe KT', 'Calça Jeans Revoada', '/images/calcas/calca-4.jpg', '399.99', 'M', "Calças", 40, 4.99),
+('Calça Jeans Cubo Maravilha Nugetera Zy', 'Calça Jeans Neguetera', '/images/calcas/calca-5.webp', '399.99', 'M', "Calças", 40, 4.99),
+('Calça de veludo Revoada Vermelha Trybe KT', 'Calça de Veludo', '/images/calcas/calca-6.jpg', '299.99', 'M', "Calças", 50, 4.99);
 
 
--- Tabela para pedidos
+DROP TABLE IF EXISTS orders;
+
 CREATE TABLE orders(
-  id INT UNSIGNED PRIMARY KEY AUTO_INCREMENT,
-  create_at DATETIME NOT NULL,
-  status ENUM("processando", "a caminho", "entregue") DEFAULT "processando",
-  user_id INT UNSIGNED,
-  FOREIGN KEY (user_id) REFERENCES users(id)
+id INT UNSIGNED PRIMARY KEY AUTO_INCREMENT ,
+codigo VARCHAR (20),
+-- data que foi criado o pedido
+status ENUM("processando", "a caminho" ,"entregue") DEFAULT "processando",
+data DATE,
+created_at DATETIME NOT NULL,
+preco DECIMAL(10,2) NOT NULL,
+formaPagamento VARCHAR(50) NOT NULL,
+user_id INT UNSIGNED,
+enderecos_id INT UNSIGNED,
+-- ligação de chave estrangeira 
+FOREIGN KEY (enderecos_id) REFERENCES enderecos(id), 
+FOREIGN KEY (user_id) REFERENCES users(id) 
 );
+
+INSERT INTO orders (codigo,status,data,created_at,preco,formaPagamento,user_id,enderecos_id)
+VALUES
+("4546","a caminho", "2021-05-08","2022-09-12","300,00", "cartão de Credito",1,1),
+("2145 ","processando", "2021-05-08","2022-09-08","30,00","cartão de Credito",2,2),
+("0145","entregue", "2021-05-08","2021-10-08","150,00","boleto",3,1),
+("1246 ","entregue", "2021-05-08","2021-05-28","250,00","pix",4,4),
+("4510","entregue", "2021-05-08","2021-09-08","350,00","cartão de Credito",1,4),
+("4542","entregue", "2021-05-08","2020-05-08", "500,00","cartão de Credito",1,4),
+("2145","entregue", "2021-05-08","2020-04-18","800,00","boleto",2,1),
+("4532", "entregue", "2021-05-08","2019-05-30","490,00","boleto",2,2),
+("0002", "entregue", "2021-05-08","2019-02-25","100,00","pix",3,3);
+
+
+SELECT * FROM orders;
+SELECT preco FROM orders;
+SELECT preco FROM users INNER JOIN orders ON users.id =orders.user_id;
+SELECT id, SUM(preco) AS "VALOR"  FROM orders;
+-- retorna a quantidade de linha
+SELECT COUNT(id) AS "Pedidos" FROM orders;
+
+
+-- quantidade de pedidos por usuario id
+SELECT u.id AS id,
+u.nome AS nome,
+COUNT(u.id) AS "Quantidade de Pedidos"
+FROM users AS u
+INNER JOIN orders AS o ON u.id = o.user_id
+GROUP BY u.id;
+
+SELECT u.id AS id, u.nome AS nome FROM users AS u
+INNER JOIN orders AS o ON u.id = o.user_id
+GROUP BY u.id;
+
+SELECT DATE_FORMAT(created_at, "%d/%m/%y")
+FROM orders;
+
+DROP TABLE IF EXISTS creditos;
+CREATE TABLE creditos (
+id INT UNSIGNED PRIMARY KEY AUTO_INCREMENT,
+created_at DATE NOT NULL,
+historico varchar(50) NOT NULL,
+tipodelancamento varchar(100), 
+preco DECIMAL(10,2) NOT NULL,
+user_id INT UNSIGNED,
+-- ligação de chave estrangeira 
+FOREIGN KEY (user_id) REFERENCES users(id) 
+);
+
+INSERT INTO creditos (created_at,historico,tipodelancamento,preco,user_id)
+VALUES
+("2022-09-12","2145", "camisa","300,00",1 ),
+("2022-09-12","2145", "camisa","300,00",1 );
+
+SELECT * FROM creditos;
+SELECT SUM(preco) AS "VALOR" FROM creditos;
+
 
 
 -- Tabela intermediária de pedidos e produtos
@@ -192,18 +267,13 @@ CREATE TABLE orders_products(
   id INT UNSIGNED PRIMARY KEY AUTO_INCREMENT,
   order_id INT UNSIGNED,
   product_id INT UNSIGNED,
+  quantity INT UNSIGNED,
   FOREIGN KEY (order_id) REFERENCES orders(id),
   FOREIGN KEY (product_id) REFERENCES products(id)
 );
 
 -- Insere um ou mais produtos
-INSERT INTO orders (create_at, status, user_id)
-VALUES 
-	("2022-07-28 21:29:00", "entregue", 1),
-    ("2022-07-28 21:29:00", "entregue", 2),
-    ("2022-07-28 21:29:00", "processando", 2),
-    ("2022-07-28 21:29:00", "a caminho", 2);
-    
+   
 -- Insere um ou mais produtos
 INSERT INTO orders_products (order_id, product_id)
 VALUES 
@@ -230,12 +300,13 @@ SELECT * FROM  department;
 CREATE TABLE admins(
   id INT UNSIGNED PRIMARY KEY AUTO_INCREMENT,
   username VARCHAR(100) NOT NULL,
-  senha VARCHAR(80) NOT NULL
+  senha VARCHAR(80) NOT NULL,
+  lastChange DATETIME
 );
 
 INSERT INTO admins(username, senha) 
 VALUES
-  ("Admin01", "$2b$10$XOuWjgOKpyRIqrXr5kbjieR1k4CmAwgl.QWsPBOYIGVCImWTjltdu"),
+  ("Admin01", "$2b$10$UWWIa/ThDWp/allafT5b3exONlhIqNNYuXxCoalrEXS21KE/GKp4i"),
   ("Admin02", "$2b$10$YWBXTTON11wyDkVqTVfPa.rQUnfdlC/l4BP4ph4h.j9PcOxWwBhnm");
   
 

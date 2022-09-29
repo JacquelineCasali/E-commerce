@@ -1,6 +1,6 @@
 * {
   font-family: raleway, sans-serif;
-  background-color: #F2F2F2;
+  background-color: white;
   text-align: center;
   border-color: black;
   }
@@ -21,15 +21,18 @@
   text-align: center;
   padding: 8px;
   margin-top: 0px;
-  margin-bottom: -10px;
+  margin-bottom: 5px;
   width: 94%;
-  }
+   }
+
+
   .entrar {
     background-color: black;
     color: white;
     border: none;
     padding: 8px;
     width: 100%;
+    margin-bottom: 15px;
   }
   .facebook {
     padding: 5px;
@@ -58,4 +61,28 @@
     top: 95%;
     left: 50%;
     transform: translate(-50%, -50%);
+  }
+
+
+  .message-error-senha{
+    position: absolute;
+    top:42%;
+    font-size: 12px;
+    color: #DC453A;
+    display: none;
+  }
+  .message-error-email{
+    position: absolute;
+    top:31%;
+    font-size: 12px;
+    color: #DC453A;
+    display: none;
+  }
+
+  .message-error-user{
+    position: absolute;
+    top:42%;
+    font-size: 12px;
+    color: #DC453A;
+    display: block;
   }

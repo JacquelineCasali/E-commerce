@@ -37,15 +37,9 @@
 <!-- <div class="foto-usuario"> -->
     <% if(locals.user){ %>
 
-<img class="foto-perfil"src="<%= user.avatar %>" alt="Imagem de perfil">
-
-     <input type="file" name="arquivos" class="btn btn-success" accept="image/png, image/jpeg" />
-  </div>
-
-  <%} else {%>
-    <img class="foto-perfil"src="/images/icones/imagemperfil.webp" alt="Imagem de perfil">
+    <img class="foto-perfil"src=" https://i.pravatar.cc/300?img=70" alt="Imagem de perfil">
     <input type="file" name="arquivos" class="btn btn-success" accept="image/png, image/jpeg" />
-
+   
     <%} %>  
         <nav>
            
@@ -54,7 +48,7 @@
   
     <li>
         <img class="incones" src="/images/icones/carinho.png" alt="Imagen não encontrada">
-        <a href="/MinhaConta/meuspedidos" class="sel">Meus Pedidos </a></li>
+        <a href="/MinhaConta/meuspedidos/1" class="sel">Meus Pedidos </a></li>
 
     <li><img class="incones" src="/images/icones/meuscreditos.png" alt="Imagen não encontrada">
     <a href="/MinhaConta/MeusCreditos/1" class="sel">Meus Créditos</a></li>

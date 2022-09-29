@@ -14,6 +14,8 @@ const adminAuthController = {
     adminAuth: async (req, res) => {
         const { username, senha } = req.body;
 
+        console.log(bcrypt.generateHash(senha))
+
         // senha = bcrypt.generateHash(senha)
         console.log(bcrypt.generateHash(senha))
 
@@ -23,7 +25,7 @@ const adminAuthController = {
                     username,
                 }
             });
-
+            
             if(!userAuth){
                 throw Error("USER_NOT_FOUND");
             }
@@ -47,12 +49,14 @@ const adminAuthController = {
         } catch (error) {
             
             if(error.message === "USER_NOT_FOUND"){
+               
                 res.render("adminLogin", {
                     title: "Admin Login",
                     cssCaminho: "/stylesheets/adminLogin.css",
                     error: "Dados inválidos"
                 })
             } else {
+                
                 res.json({message: "Erro ao encontrar usuário"})
             }
             

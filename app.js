@@ -16,6 +16,7 @@ var paymentRouter = require('./server/src/routes/paymentRoute');
 var cadastroRoute= require('./server/src/routes/cadastroRoute');
 var produtosRouter=require('./server/src/routes/produtosRoute')
 var departmentRouter= require('./server/src/routes/deparment');
+var preloadDepartment = require("./server/src/helpers/preloadDepartment")
 
 var app = express();
 
@@ -38,10 +39,10 @@ app.use((req,res,next)=>{
   next();
 })
 
-
+app.use(preloadDepartment)
 app.use('/', indexRouter);
 
-app.use('/login', loginRouter);
+app.use('/', loginRouter);
 app.use('/admin-produtos', adminProductRouter);
 app.use('/MinhaConta', usuarioRoute);
 app.use('/finalizacao',paymentRouter);

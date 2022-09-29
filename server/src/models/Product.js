@@ -18,12 +18,19 @@ const Product = db.define(
     image: Sequelize.DataTypes.STRING(100),
     price: {
       type: Sequelize.DataTypes.DECIMAL(10, 2).UNSIGNED,
-      allowNull: false,
-      size: Sequelize.DataTypes.STRING(100),
-      department: Sequelize.DataTypes.STRING(100),
-      rating: Sequelize.DataTypes.DECIMAL(10, 2).UNSIGNED,
-      status: Sequelize.DataTypes.ENUM("Ativo", "Inativo"),
-      lastChange: Sequelize.DataTypes.DATE,
+      allowNull: false
+    },
+    size: Sequelize.DataTypes.STRING(100),
+    department: Sequelize.DataTypes.STRING(100),
+    rating: Sequelize.DataTypes.DECIMAL(10, 2).UNSIGNED,
+    inventory: Sequelize.DataTypes.INTEGER.UNSIGNED,      
+    status: Sequelize.DataTypes.ENUM("Ativo", "Inativo"),
+    lastChange: {
+      type: Sequelize.DataTypes.DATE,
+      get: function() { // or use get(){ }
+        return this.getDataValue('lastChange')
+          .toLocaleString('pt-BR', { timeZone: 'UTC' });
+      }
     },
   },
 
