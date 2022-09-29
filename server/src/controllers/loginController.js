@@ -33,6 +33,7 @@ const loginController = {
                 }
             });
             
+            res.redirect('/')
             
             if(!userAuth){
                 throw Error("USER_NOT_FOUND");

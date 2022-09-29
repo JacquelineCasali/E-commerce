@@ -10,25 +10,37 @@
   <div class="container">
     <h1 class="titulo-produtos">Camisas Approve</h1>
     <section class="produtos-container">
-      <section class="produtos">
+      <section class="produtos" id="produtos">
         <% products.forEach(product=> { %>
-        <div class="card">
+        <div class="card" id="card">
           <a class="link" href="/produto/<%= product.id%>">
             <img
-              class="camisa-imagem"
-              src="<%= product.image%>"
+              class="camisa-imagem" id="imagem"
+              src="<%= product.image%> "
               width="300px"
             />
           </a>
           <div class="info-produto">
             <p class="nome-camisa"><%= product.name %></p>
             <span class="preco-camisas"> R$ <%= product.price%> </span>
-            <button class="btn-comprar-produtos">Comprar</button>
-          </div>
+            <button
+              class="btn-comprar-produtos"
+              onclick="adicionar({
+              id: '<%= product.id  %>',
+               name: '<%= product.name %>',
+               price: '<%= product.price %>',
+               quantity:1,
+               size: '<%= product.size %>',
+               image:'<%= product.image %>',
+       })"
+            >
+              Comprar
+            </button>
+        </div>
         </div>
         <% }) %>
       </section>
     </section>
   </div>
-  <%- include('./partials/footer') %>
+  <%- include('./partials/footer') %> <%- include('./partials/carrinho') %>
 </body>
