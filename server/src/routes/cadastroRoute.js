@@ -5,3 +5,4 @@ const cadastroController=require("../controllers/cadastroController")
 router.get("/",cadastroController.index);
 
 module.exports = router;
+router.post("/",cadastroController.store);
