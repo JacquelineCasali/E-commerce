@@ -164,12 +164,8 @@ size VARCHAR(100),
 department VARCHAR(100),
 inventory INT UNSIGNED DEFAULT 0,
 rating DECIMAL(10,2) UNSIGNED,
-<<<<<<< HEAD
 quantity INT
 
-=======
-lastChange DATETIME
->>>>>>> d408f7dced77d8b67d53363e8a7711f6b069cf46
 );
 
 
